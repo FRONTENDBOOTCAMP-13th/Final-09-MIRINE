@@ -4,7 +4,7 @@
   border-bottom-right-radius: 0px;
   overflow: hidden;
   transition: max-height 0.6s ease-in-out, border-radius 0.4s ease-in-out;
-  max-height: 100px;
+  max-height: 50px;
   width: 100vw;
   position: fixed;
   top: 0;
@@ -18,26 +18,22 @@
 
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  padding: 12px 50px;
-  border-bottom: 1px solid #000;
   position: relative;
-  height: 100px;
   z-index: 1000;
   background: transparent;
+  height: 50px;
+  border-bottom: 0;
+  padding: 12px 20px;
 }
 
 .navLeft {
-  display: flex;
-  flex: 1;
+  display: none;
 }
 
-.navRight {
-  display: flex;
-  flex: 1;
-  justify-content: flex-end;
-  align-items: center;
+.navRight .navList {
+  display: none;
 }
 
 .logo {
@@ -82,7 +78,7 @@
 }
 
 .hamburger {
-  display: none;
+  display: block;
   background: none;
   border: none;
   font-size: 28px;
@@ -140,31 +136,33 @@
   color: #3f48cc;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 769px) {
   .mobileWrapper {
-    max-height: 50px;
+    max-height: 100px;
   }
 
   .header {
-    height: 50px;
-    border-bottom: 0;
-    padding: 12px 20px;
+    height: 100px;
+    padding: 12px 50px;
+    border-bottom: 1px solid #000;
   }
 
   .navLeft {
-    display: none;
+    display: flex;
+    flex: 1;
+  }
+
+  .navRight {
+    flex: 1;
+    align-items: center;
   }
 
   .navRight .navList {
-    display: none;
+    display: flex;
+    justify-content: flex-end;
   }
 
   .hamburger {
-    display: block;
-  }
-
-  .logo {
-    left: 50%;
-    transform: translateX(-50%);
+    display: none;
   }
 }
