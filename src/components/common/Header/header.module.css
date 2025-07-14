@@ -136,7 +136,7 @@
   color: #3f48cc;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   .mobileWrapper {
     max-height: 100px;
   }
