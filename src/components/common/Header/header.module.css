@@ -1,5 +1,5 @@
 .mobileWrapper {
-  background: linear-gradient(to bottom, #ede9ff 0%, #d2e3ff 100%);
+  background: linear-gradient(to left, #d4ddff 0%, #ffffff 50%, #efe7ff 100%);
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
   overflow: hidden;
@@ -8,9 +8,11 @@
   width: 100vw;
   position: fixed;
   top: 0;
+  transition: all 1s;
 }
 
 .mobileWrapper.open {
+  background: linear-gradient(to bottom, #efe7ff 0%, #d4ddff 100%);
   max-height: 500px;
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
@@ -43,12 +45,6 @@
   z-index: 100;
 }
 
-.logo h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #000;
-}
-
 .navList {
   display: flex;
   gap: 20px;
@@ -59,7 +55,7 @@
 
 .navList li {
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .navList li a {
@@ -69,12 +65,11 @@
 }
 
 .navList li a:hover {
-  color: #0125b7;
+  font-weight: 500;
 }
 
 .highlight {
-  color: #0125b7 !important;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .hamburger {
@@ -114,7 +109,6 @@
 
 .mobileMenu li {
   padding: 12px 0;
-  font-weight: 500;
   text-align: left;
 }
 
@@ -130,15 +124,17 @@
   color: #1a1a1a;
   text-decoration: none;
   transition: color 0.3s ease;
+  font-weight: 400;
 }
 
 .mobileMenu li a:hover {
-  color: #3f48cc;
+  font-weight: 500;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1280px) {
   .mobileWrapper {
     max-height: 100px;
+    background: linear-gradient(to left, #d4ddff 0%, #ffffff 50%, #efe7ff 100%);
   }
 
   .header {
@@ -164,5 +160,14 @@
 
   .hamburger {
     display: none;
+  }
+
+  .mobileMenu {
+    display: none;
+  }
+
+  .mobileWrapper.open {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
   }
 }
