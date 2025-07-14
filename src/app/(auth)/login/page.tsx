@@ -38,7 +38,7 @@ export default function Login() {
         </form>
 
         <div className={styles.easyLogin}>
-          <h4>간편 로그인</h4>
+          <h3>간편 로그인</h3>
           <p>카카오 네이버 구글?</p>
         </div>
       </div>
