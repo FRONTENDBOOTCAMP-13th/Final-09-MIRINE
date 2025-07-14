@@ -1,2 +1,173 @@
-header {
+.mobileWrapper {
+  background: linear-gradient(to left, #d4ddff 0%, #ffffff 50%, #efe7ff 100%);
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  overflow: hidden;
+  transition: max-height 0.6s ease-in-out, border-radius 0.4s ease-in-out;
+  max-height: 50px;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  transition: all 1s;
+}
+
+.mobileWrapper.open {
+  background: linear-gradient(to bottom, #efe7ff 0%, #d4ddff 100%);
+  max-height: 500px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  z-index: 1000;
+  background: transparent;
+  height: 50px;
+  border-bottom: 0;
+  padding: 12px 20px;
+}
+
+.navLeft {
+  display: none;
+}
+
+.navRight .navList {
+  display: none;
+}
+
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+
+.navList {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navList li {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.navList li a {
+  color: black;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navList li a:hover {
+  font-weight: 500;
+}
+
+.highlight {
+  font-weight: 700;
+}
+
+.hamburger {
+  display: block;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.hamburgerIcon {
+  width: 28px;
+  height: 28px;
+}
+
+.mobileMenu {
+  position: relative;
+  padding: 30px 0 20px;
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+  z-index: 999;
+}
+
+.mobileMenu.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobileMenu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 20px;
+}
+
+.mobileMenu li {
+  padding: 12px 0;
+  text-align: left;
+}
+
+.mobileMenu li:nth-child(-n + 3) {
+  font-size: 27px;
+}
+
+.mobileMenu li:nth-child(n + 4) {
+  font-size: 20px;
+}
+
+.mobileMenu li a {
+  color: #1a1a1a;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 400;
+}
+
+.mobileMenu li a:hover {
+  font-weight: 500;
+}
+
+@media (min-width: 1280px) {
+  .mobileWrapper {
+    max-height: 100px;
+    background: linear-gradient(to left, #d4ddff 0%, #ffffff 50%, #efe7ff 100%);
+  }
+
+  .header {
+    height: 100px;
+    padding: 12px 50px;
+    border-bottom: 1px solid #000;
+  }
+
+  .navLeft {
+    display: flex;
+    flex: 1;
+  }
+
+  .navRight {
+    flex: 1;
+    align-items: center;
+  }
+
+  .navRight .navList {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .mobileMenu {
+    display: none;
+  }
+
+  .mobileWrapper.open {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
 }

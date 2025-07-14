@@ -34,3 +34,13 @@
   white-space: nowrap;
   border: 0;
 }
+
+main {
+  margin-top: 50px;
+}
+
+@media (min-width: 1280px) {
+  main {
+    margin-top: 100px;
+  }
+}
