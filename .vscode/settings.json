@@ -1,0 +1,85 @@
+{
+  "gitmoji.onlyUseCustomEmoji": true,
+  "gitmoji.addCustomEmoji": [
+    {
+      "emoji": "✨ feat:",
+      "code": ":sparkles: feat:",
+      "description": "새 파일/코드를 추가할 때"
+    },
+    {
+      "emoji": "🐛 fix:",
+      "code": ":bug: fix:",
+      "description": "버그를 고쳤을 때"
+    },
+    {
+      "emoji": "📝 docs:",
+      "code": ":memo: docs:",
+      "description": "md, json 등의 문서 작업을 할 때"
+    },
+    {
+      "emoji": "♻️ refactor:",
+      "code": ":recycle: refactor:",
+      "description": "코드의 기능은 유지하면서 가독성, 효율성 등을 높일 때"
+    },
+    {
+      "emoji": "💄 design:",
+      "code": ":lipstick: design:",
+      "description": "CSS 작업을 할 때(색, 폰트 등)"
+    },
+    {
+      "emoji": "💄 style:",
+      "code": ":lipstick: style:",
+      "description": "CSS 작업을 할 때(마진, 여백 등)"
+    },
+    {
+      "emoji": "💡 comment:",
+      "code": ":bulb: comment:",
+      "description": "주석 작업을 할 때"
+    },
+    {
+      "emoji": "👁️ a11y:",
+      "code": ":eye: a11y:",
+      "description": "웹 접근성을 고려하는 작업을 할 때"
+    },
+    {
+      "emoji": "✅ test:",
+      "code": ":white_check_mark: test:",
+      "description": "테스트 작업을 할 때"
+    },
+    {
+      "emoji": "🦁 chore:",
+      "code": ":lion: chore:",
+      "description": "잡다한/반복적인 작업을 할 때"
+    },
+    {
+      "emoji": "✏️ rename:",
+      "code": ":pencil: rename:",
+      "description": "파일 이름 변경, 파일 위치 이동을 할 때"
+    },
+    {
+      "emoji": "🔥 remove:",
+      "code": ":fire: remove:",
+      "description": "파일/코드를 삭제할 때"
+    },
+    {
+      "emoji": "🔀 merge:",
+      "code": ":twisted_rightwards_arrows: merge:",
+      "description": "병합할 때"
+    },
+    {
+      "emoji": "🔧 build:",
+      "code": ":wrench: build:",
+      "description": "프로젝트 빌드/배포 환경에 영향을 주는 작업을 할 때"
+    },
+    {
+      "emoji": "🎉 init:",
+      "code": ":tada: init:",
+      "description": "초기화할 때"
+    },
+    {
+      "emoji": "🚀 deploy:",
+      "code": ":rocket: deploy:",
+      "description": "배포할 때"
+    }
+  ]
+}
