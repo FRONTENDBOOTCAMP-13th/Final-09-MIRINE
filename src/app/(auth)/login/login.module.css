@@ -1,0 +1,103 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 160px);
+  background: var(--bg-white);
+}
+
+.loginBox {
+  width: 100%;
+  max-width: 320px;
+}
+
+.title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text-blue-400);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--black-300);
+  border-radius: 4px;
+  color: var(--black-900);
+  font-size: 12px;
+}
+
+.input::placeholder {
+  color: var(--black-500);
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--black-600);
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox {
+  margin-right: 0.25rem;
+}
+
+.findLink {
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--black-600);
+}
+
+.loginButton {
+  background: var(--primary-blue-100);
+  color: var(--text-blue-400);
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.signupButton {
+  border: 1px solid var(--black-300);
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--text-blue-400);
+}
+
+.easyLogin {
+  text-align: center;
+  margin-top: 2rem;
+  font-weight: bold;
+  color: var(--text-blue-400);
+}
+
+.easyLogin f4 {
+  margin-bottom: 0.5rem;
+  font-size: 12px;
+}
+
+.easyLogin p {
+  margin-bottom: 0.5rem;
+  font-size: 8px;
+}
+
+@media (min-width: 1280px) {
+  .container {
+    min-height: calc(100vh - 210px);
+  }
+}
