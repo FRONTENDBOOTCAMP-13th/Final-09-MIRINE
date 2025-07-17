@@ -1,3 +1,11 @@
-export default function ShoppingCart() {
-  return <h1>ShoppingCart</h1>;
+import CartWithItems from '@/app/shopping-cart/components/CartWithItems';
+import EmptyCart from '@/app/shopping-cart/components/EmptyCart';
+
+export default function ShoppingCartPage() {
+  return (
+    <div>
+      <EmptyCart />
+      {/* <CartWithItems/> */}
+    </div>
+  );
 }
