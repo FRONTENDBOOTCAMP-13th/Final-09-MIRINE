@@ -1,0 +1,19 @@
+.detail_button {
+  padding: 7px 5px 7px 10px; /*padding: 7px 9.5px 7px 22.5px;*/
+  font-size: 11px;
+  color: var(--black-950);
+  background-color: var(--bg-white);
+  border: 1px var(--black-200) solid;
+  border-radius: 6px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.detail_button.active {
+  background-color: var(--primary-blue-100);
+  color: var(--primary-blue-300);
+  border: 1px var(--primary-blue-300) solid;
+}
