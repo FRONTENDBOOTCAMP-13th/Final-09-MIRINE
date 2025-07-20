@@ -1,0 +1,37 @@
+.perfumes {
+  padding: 0 20px 20px;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 20px;
+}
+
+.header {
+  font-size: 24px;
+  color: var(--black-950);
+  text-align: left;
+  align-self: flex-start;
+  padding-top: 20px;
+}
+
+.filter_section_title_wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.perfume_main {
+  border-top: 1px var(--black-100) solid;
+  padding-top: 10px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 20px;
+  column-gap: 12px;
+}
+
+.perfume_count {
+  font-size: 13px;
+  color: var(--black-500);
+  grid-column: 1 / -1;
+}

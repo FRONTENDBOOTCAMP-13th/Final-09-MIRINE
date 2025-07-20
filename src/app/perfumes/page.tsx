@@ -1,3 +1,31 @@
+import SearchBar from "@/components/perfumes/SearchBar/SearchBar";
+// import DetailSearchToggleButton from "@/components/perfumes/DetailSearchToggleButton/DetailSearchToggleButton";
+// import FilterButton from "@/components/perfumes/FilterButton/FilterButton";
+import styles from "./page.module.css";
+import FilterSection from "@/components/perfumes/FilterSection/FilterSection";
+import PerfumeItem from "@/components/perfumes/PerfumeItem/PerfumeItem";
 export default function Perfumes() {
-  return <h1>Perfumes</h1>;
+  const mainAccordSectionTitle = "메인어코드";
+  const mainAccordFilterTextList = ["전체", "우디", "시트러스", "머스크", "플로럴", "스위트"];
+  const brandSectionTitle = "브랜드";
+  const brandFilterTextList = ["전체", "ㄱ", "ㄴ", "ㄷ", "ㄹ", "ㅁ", "ㅂ", "ㅅ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"];
+  const itemCount = 123; // db에서 가져올 숫자
+
+  return (
+    <div className={styles.perfumes}>
+      <h2 className={styles.header}>향수</h2>
+      <SearchBar id={"perfumeSearch"} />
+      <FilterSection filterSectionTitle={mainAccordSectionTitle} filterTextList={mainAccordFilterTextList} />
+      <FilterSection filterSectionTitle={brandSectionTitle} filterTextList={brandFilterTextList} />
+      <section className={styles.perfume_main}>
+        <p className={styles.perfume_count}>상품 총 {itemCount}개</p>
+        <PerfumeItem />
+        <PerfumeItem />
+        <PerfumeItem />
+        <PerfumeItem />
+        <PerfumeItem />
+        <PerfumeItem />
+      </section>
+    </div>
+  );
 }
