@@ -114,7 +114,7 @@
 	}
 }
 
-.cartCnt{
+.cart_cnt{
 	display: inline-block;
 	width: 20px;
 	height: 20px;
@@ -165,7 +165,7 @@
 		}
 	}
 
-	.cartCnt{
+	.cart_cnt{
 		width: 26px;
 		height: 26px;
 		margin: 0;

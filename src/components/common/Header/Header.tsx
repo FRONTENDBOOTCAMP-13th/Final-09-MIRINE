@@ -3,31 +3,30 @@
 import Link from "next/link";
 import styles from "./header.module.css";
 import { useRouter, usePathname } from "next/navigation";
-import { useEffect } from "react";
-
+import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function Header() {
-	const router = useRouter();
-	const pathname = usePathname();
+  const router = useRouter();
+  const pathname = usePathname();
+  const [isOpenning, setIsOpenning] = useState(false);
 
   const handlePrev = () => {
     router.back();
-  }
+  };
 
-	useEffect(() => {
-		const sideNav = document.querySelector("#sideNav");
-		if(sideNav && sideNav.classList.contains(styles.open)){
-			sideNav.classList.remove(styles.open);
-		}
-	}, [pathname]);
+  // console.log(pathname);
 
+  useEffect(() => {
+    setIsOpenning(false);
+  }, [pathname]);
 
 	return (
 		<header className={styles.header}>
 			<div className={styles.inner}>
 				{(pathname === '/mirine' || pathname === '/perfumes') && (
 					<button onClick={handlePrev} className={styles.prev_btn}>
-						<img src="/icon/Icon-prev.svg" alt="이전으로 이동"/>
+						<Image src="/icon/Icon-prev.svg" alt="이전으로 이동" width="24" height="24" />
 					</button>
 				)}
 
@@ -39,8 +38,8 @@ export default function Header() {
 
 				<h1 className={styles.logo}>
 					<Link href="/">
-						<img className={styles.m_logo} src="/logo/logo-black-mobile.svg" alt="로고"/>
-						<img className={styles.pc_logo} src="/logo/logo-black-pc.svg" alt="로고"/>
+            <Image className={styles.mLogo} src="/logo/logo-black-mobile.svg" alt="로고" width="66" height="16" />
+            <Image className={styles.pcLogo} src="/logo/logo-black-pc.svg" alt="로고" width="115" height="28" />
 					</Link>
 				</h1>
 
@@ -48,15 +47,20 @@ export default function Header() {
 					<li><Link href="/reviews" className={pathname === "/reviews" ? styles.active : ""}>리뷰</Link></li>
 					<li><Link href="/login" className={pathname === "/login" ? styles.active : ""}>로그인</Link></li>
 					<li><Link href="/mypage" className={pathname === "/mypage" ? styles.active : ""}>마이페이지</Link></li>
-					<li><Link href="/shopping-cart" className={pathname === "/shopping-cart" ? styles.active : ""}>장바구니</Link><span className={styles.cartCnt}>0</span></li>
+					<li><Link href="/shopping-cart" className={pathname === "/shopping-cart" ? styles.active : ""}>장바구니</Link><span className={styles.cart_cnt}>0</span></li>
 				</ul>
 
-				<button className={styles.side_nav_btn} onClick={() => document.querySelector(`.${styles.side_nav}`)?.classList.toggle(styles.open)}>
-					<img src="/icon/Icon-right-toggle-menu.svg" alt="모바일 토글 메뉴"/>
-				</button>
-			</div>
+        <button
+          className={styles.side_nav_btn}
+          onClick={() => {
+            setIsOpenning(!isOpenning);
+          }}
+        >
+          <Image src="/icon/Icon-right-toggle-menu.svg" alt="모바일 토글 메뉴" width="24" height="24" />
+        </button>
+      </div>
 
-			<div id="sideNav" className={styles.side_nav}>
+      <div className={`${styles.side_nav} ${isOpenning && styles.open}`}>
 				<ul className={styles.main_menu}>
 					<li><Link href="/mirine" className={pathname === "/mirine" ? styles.active : ""}>미리내</Link></li>
 					<li><Link href="/perfumes" className={pathname === "/perfumes" ? styles.active : ""}>향수</Link></li>
@@ -72,4 +76,3 @@ export default function Header() {
 		</header>
 	);
 }
-
