@@ -1,0 +1,32 @@
+.image_wrapper {
+  width: 100%;
+  aspect-ratio: 1/1;
+  position: relative;
+  display: grid;
+  grid-template-areas: 1fr 1fr;
+  padding-bottom: 10px;
+}
+.image {
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+.like_btn {
+  position: absolute;
+  top: 10px;
+  right: 8px;
+}
+.brand {
+  font-size: 12px;
+  color: var(--black-500);
+  padding-bottom: 5px;
+}
+.name {
+  font-size: 14px;
+  color: var(--black-950);
+  padding-bottom: 10px;
+}
+.price {
+  font-size: 13px;
+  color: var(--black-950);
+  font-weight: bold;
+}

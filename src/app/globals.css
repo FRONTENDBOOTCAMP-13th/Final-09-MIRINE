@@ -1,9 +1,11 @@
 :root {
   --bg-white: #ffffff;
-  --primary-purple-100: #efe7ff;
-  --primary-purple-200: #b090ee;
-  --primary-blue-100: #d4ddff;
-  --primary-blue-200: #7c9dfb;
+  --primary-purple-100: #f8f4ff;
+  --primary-purple-200: #efe7ff;
+  --primary-purple-300: #b090ee;
+  --primary-blue-100: #f3f5ff;
+  --primary-blue-200: #d4ddff;
+  --primary-blue-300: #7c9dfb;
   --text-blue-100: #d8e6fb;
   --text-blue-200: #83a0cc;
   --text-blue-300: #4f6586;
@@ -12,6 +14,7 @@
   --error: #ff8132;
   --success: #7c9dfb;
   --black-50: #f6f6f6;
+  --black-100: #efefef;
   --black-200: #dadada;
   --black-300: #c2c2c2;
   --black-400: #a7a7a7;
