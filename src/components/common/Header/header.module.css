@@ -1,211 +1,4 @@
-/* 
-.mobileWrapper {
-  background: linear-gradient(
-    to left,
-    var(--primary-blue-100) 0%,
-    var(--bg-white) 50%,
-    var(--primary-purple-100) 100%
-  );
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-  overflow: hidden;
-  transition: max-height 0.6s ease-in-out, border-radius 0.4s ease-in-out;
-  max-height: 50px;
-  width: 100vw;
-  position: fixed;
-  top: 0;
-  transition: all 1s;
-  z-index: 1000;
-}
-
-.mobileWrapper.open {
-  background: linear-gradient(
-    to bottom,
-    var(--primary-purple-100) 0%,
-    var(--primary-blue-100) 100%
-  );
-  max-height: 500px;
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
-}
-
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  z-index: 500;
-  transition: all 1s;
-}
-
-.header {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  position: relative;
-  background: transparent;
-  height: 50px;
-  border-bottom: 0;
-  padding: 12px 20px;
-}
-
-.navLeft {
-  display: none;
-}
-
-.navRight .navList {
-  display: none;
-}
-
-.logo {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 100;
-}
-
-.navList {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.navList li {
-  font-size: 24px;
-  font-weight: 400;
-}
-
-.navList li a {
-  color: var(--black-950);
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.navList li a:hover {
-  font-weight: 500;
-}
-
-.highlight {
-  font-weight: 700;
-}
-
-.hamburger {
-  display: block;
-  background: none;
-  border: none;
-  font-size: 28px;
-  cursor: pointer;
-}
-
-.hamburgerIcon {
-  width: 28px;
-  height: 28px;
-}
-
-.mobileMenu {
-  position: relative;
-  padding: 30px 0 20px;
-  transform: translateY(-100%);
-  opacity: 0;
-  pointer-events: none;
-  transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
-  z-index: 999;
-}
-
-.mobileMenu.open {
-  transform: translateY(0);
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.mobileMenu ul {
-  list-style: none;
-  margin: 0;
-  padding: 0 20px;
-}
-
-.mobileMenu li {
-  padding: 12px 0;
-  text-align: left;
-  font-weight: 400;
-}
-
-.mobile_top {
-  font-size: 27px;
-}
-
-.mobile_bottom {
-  font-size: 20px;
-}
-
-.mobileMenu li a {
-  color: var(--black-900);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.mobileMenu li a:hover {
-  font-weight: 500;
-}
-
-@media (min-width: 1280px) {
-  .mobileWrapper {
-    max-height: 100px;
-    background: linear-gradient(
-      to left,
-      var(--primary-blue-100) 0%,
-      var(--bg-white) 50%,
-      var(--primary-purple-100) 100%
-    );
-  }
-
-  .header {
-    height: 100px;
-    padding: 12px 50px;
-    border-bottom: 1px solid var(--black-950);
-  }
-
-  .navLeft {
-    display: flex;
-    flex: 1;
-  }
-
-  .navRight {
-    flex: 1;
-    align-items: center;
-  }
-
-  .navRight .navList {
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .hamburger {
-    display: none;
-  }
-
-  .mobileMenu {
-    display: none;
-  }
-
-  .mobileWrapper.open {
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-  }
-} */
-
-
-
-
-
-
-.navLeft, .navRight, .pcLogo{
+.nav_left, .nav_right, .pc_logo{
 	display: none;
 }
 
@@ -233,7 +26,7 @@
 	height: 100%;
 }
 
-.prevBtn{
+.prev_btn{
 	width: 50px;
 	height: 100%;
 	text-align: center;
@@ -251,7 +44,7 @@
 	transform: translate(-50%, -50%);
 }
 
-.sideNavBtn{
+.side_nav_btn{
 	z-index: 1000;
 	position: absolute;
 	top: 50%;
@@ -266,7 +59,7 @@
 	}
 }
 
-.sideNav{
+.side_nav{
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -309,13 +102,13 @@
 	}
 }
 
-.mainMenu{
+.main_menu{
 	a{
 		font-size: 22px;
 	}
 }
 
-.subMenu{
+.sub_menu{
 	a{
 		font-size: 16px;
 	}
@@ -336,7 +129,7 @@
 }
 
 @media (min-width:1280px){
-	.prevBtn, .mLogo, .sideNavBtn, .sideNav{
+	.prev_btn, .m_logo, .side_nav_btn, .side_nav{
 		display: none;
 	}
 
@@ -348,12 +141,12 @@
 		padding: 0 30px;
 	}
 
-	.pcLogo{
+	.pc_logo{
 		display: block;
 		height: 28px;
 	}
 
-	.navLeft, .navRight{
+	.nav_left, .nav_right{
 		display: block;
 		li{
 			display: inline-block;
