@@ -4,6 +4,7 @@ import Link from "next/link";
 import styles from "./header.module.css";
 import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function Header() {
   const router = useRouter();
@@ -25,7 +26,7 @@ export default function Header() {
       <div className={styles.inner}>
         {(pathname === "/mirine" || pathname === "/perfumes") && (
           <button onClick={handlePrev} className={styles.prevBtn}>
-            <img src="/icon/Icon-prev.svg" alt="이전으로 이동" />
+            <Image src="/icon/Icon-prev.svg" alt="이전으로 이동" width="24" height="24" />
           </button>
         )}
 
@@ -49,8 +50,8 @@ export default function Header() {
 
         <h1 className={styles.logo}>
           <Link href="/">
-            <img className={styles.mLogo} src="/logo/logo-black-mobile.svg" alt="로고" />
-            <img className={styles.pcLogo} src="/logo/logo-black-pc.svg" alt="로고" />
+            <Image className={styles.mLogo} src="/logo/logo-black-mobile.svg" alt="로고" width="66" height="16" />
+            <Image className={styles.pcLogo} src="/logo/logo-black-pc.svg" alt="로고" width="115" height="28" />
           </Link>
         </h1>
 
@@ -84,7 +85,7 @@ export default function Header() {
             setIsOpenning(!isOpenning);
           }}
         >
-          <img src="/icon/Icon-right-toggle-menu.svg" alt="모바일 토글 메뉴" />
+          <Image src="/icon/Icon-right-toggle-menu.svg" alt="모바일 토글 메뉴" width="24" height="24" />
         </button>
       </div>
 
