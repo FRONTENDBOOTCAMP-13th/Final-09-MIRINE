@@ -42,7 +42,7 @@ main {
 
 @media (min-width: 1280px) {
   main {
-    margin-top: 100px;
+    margin-top: 80px;
     min-height: calc(100vh - 210px);
   }
 }
