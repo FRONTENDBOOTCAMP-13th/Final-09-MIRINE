@@ -5,6 +5,7 @@
   justify-content: center;
   min-height: calc(100vh - 160px);
   background: var(--bg-white);
+  padding: 25px;
 }
 
 .loginBox {
@@ -83,6 +84,8 @@
   text-align: center;
   margin-top: 32px;
   font-weight: 700;
+  display: flex;
+  flex-direction: column;
   color: var(--text-blue-400);
 }
 
@@ -91,9 +94,69 @@
   font-size: 12px;
 }
 
-.easyLogin p {
-  margin-bottom: 8px;
-  font-size: 8px;
+.googleButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--bg-white);
+  color: var(--text-blue-400);
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid var(--black-300);
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.googleIcon {
+  background: url("/login/google_login.png") no-repeat center center;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+}
+
+.kakaoButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #fee500;
+  color: var(--text-blue-400);
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid var(--black-300);
+  padding: 10px 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.kakaoIcon {
+  background: url("/login/kakao_login.png") no-repeat center center;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+}
+
+.naverButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--bg-green);
+  color: var(--bg-white);
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid var(--black-300);
+  padding: 10px 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.naverIcon {
+  background: url("/login/naver_login.png") no-repeat center center;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
 }
 
 @media (min-width: 1280px) {
