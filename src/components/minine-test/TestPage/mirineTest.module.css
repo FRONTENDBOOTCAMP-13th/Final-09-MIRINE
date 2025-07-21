@@ -65,7 +65,7 @@
 .answer2, 
 .answer3, 
 .answer4 {
-  display: flex;       /* 자식도 flex 컨테이너로 만듦 */
+  display: flex;      
   justify-content: center;
   align-items: center;
   width: 100%;
