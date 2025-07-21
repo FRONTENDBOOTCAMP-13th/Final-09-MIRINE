@@ -1,0 +1,43 @@
+.shopping_cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.title {
+  font-size: 24px;
+  color: var(--black-950);
+  text-align: left;
+  align-self: flex-start;
+  padding-top: 20px;
+}
+
+.btn_group {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.btn_delete {
+  cursor: pointer;
+  color: var(--black-950);
+  font-size: 11px;
+  width: 61px;
+  height: 28px;
+  border: 1px solid var(--black-200);
+  border-radius: 6px;
+  background-color: var(--bg-white);
+}
+
+.btn_selection {
+  cursor: pointer;
+  color: var(--error);
+  font-size: 11px;
+  width: 61px;
+  height: 28px;
+  border: 1px solid var(--error);
+  border-radius: 6px;
+  background-color: var(--bg-white);
+}
