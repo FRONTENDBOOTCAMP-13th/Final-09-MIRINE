@@ -64,7 +64,7 @@ export default function Header() {
       <div className={`${styles.side_nav} ${isOpenning && styles.open}`}>
 				<ul className={styles.main_menu}>
 					<li><Link href="/mirine" className={pathname === "/mirine" ? styles.active : ""}>미리내</Link></li>
-          <li><Link href="/mirine-test" className={pathname === "/mirine-test" ? styles.active : ""}>미리내 테스크</Link></li>
+          <li><Link href="/mirine-test" className={pathname === "/mirine-test" ? styles.active : ""}>미리내 테스트</Link></li>
 					<li><Link href="/perfumes" className={pathname === "/perfumes" ? styles.active : ""}>향수</Link></li>
 					<li><Link href="/aroma-shooter" className={pathname === "/aroma-shooter" ? styles.active : ""}>아로마슈터</Link></li>
 				</ul>
