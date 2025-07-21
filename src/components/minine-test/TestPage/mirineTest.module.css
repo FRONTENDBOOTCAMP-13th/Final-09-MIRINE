@@ -74,4 +74,5 @@
   font-size: 14px;
   color: var(--bg-white);
   background: linear-gradient(to right, var(--primary-blue-300), var(--primary-purple-300));
+  cursor: pointer;
 }

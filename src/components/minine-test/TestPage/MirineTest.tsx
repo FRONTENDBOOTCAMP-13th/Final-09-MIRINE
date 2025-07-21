@@ -10,14 +10,14 @@ export default function MirineTest() {
         <div className={styles.graph}>
           <span className={styles.num}></span>
         </div>
-
       </div>
+      {/* 질문 */}
       <p className={styles.question}>질문</p>
-
+      {/* 비행기 이미지 */}
       <div className={styles.img}>
         <Image src="/image/test-plane.svg" alt="이미지" width={152} height={152} />
       </div>
-
+      {/* 선택지 */}
       <section className={styles.choice}>
         <div className={styles.answer1}>선택1</div>
         <div className={styles.answer2}>선택2</div>
