@@ -4,7 +4,11 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Script from "next/script";
 import styles from "./login.module.css";
-import { auth, provider, signInWithPopup } from "../../../api/dbinit/firebase";
+import {
+  auth,
+  provider,
+  signInWithPopup,
+} from "../../../api/firebase/firebase";
 
 declare global {
   interface Window {
