@@ -4,13 +4,15 @@ import SearchBar from "@/components/perfumes/SearchBar/SearchBar";
 import styles from "./page.module.css";
 import FilterSection from "@/components/perfumes/FilterSection/FilterSection";
 import PerfumeItem from "@/components/perfumes/PerfumeItem/PerfumeItem";
-export default function Perfumes() {
+export default async function Perfumes() {
   const mainAccordSectionTitle = "메인어코드";
   const mainAccordFilterTextList = ["전체", "우디", "시트러스", "머스크", "플로럴", "스위트"];
   const brandSectionTitle = "브랜드";
   const brandFilterTextList = ["전체", "ㄱ", "ㄴ", "ㄷ", "ㄹ", "ㅁ", "ㅂ", "ㅅ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"];
   const itemCount = 123; // db에서 가져올 숫자
-
+  // const res = await fetch("http://localhost:3000/api/perfumes"); // /src/api/perfumes/route.tsㅅ
+  // const data = await res.json();
+  // console.log(data);
   return (
     <div className={styles.perfumes}>
       <h2 className={styles.header}>향수</h2>
