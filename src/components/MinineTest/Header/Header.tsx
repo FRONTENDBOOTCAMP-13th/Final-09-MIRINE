@@ -12,7 +12,7 @@ export default function TestHeader(){
 
   return (
     <header className={styles.header} >
-			<button onClick={handlePrev} className={styles.prev_btn}>
+			<button onClick={handlePrev} className={styles.prev_btn} type="submit">
 				<Image src="/icon/Icon-prev.svg" alt="이전으로 이동" width="24" height="24" />
 			</button>
 
@@ -23,7 +23,7 @@ export default function TestHeader(){
 				</Link>
       </h1>
 
-      <button>
+      <button type="submit">
         <Link href="/">
           <Image className={styles.home_logo} src="/icon/Icon-home.svg" alt="모바일 홈" width="24" height="24" />
         </Link>
