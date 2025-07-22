@@ -1,5 +1,5 @@
-import CartWithItems from "@/components/shopping-cart/CartWithItem/CartWithItems";
-import EmptyCart from "@/components/shopping-cart/EmptyCart/EmptyCart";
+import CartWithItems from "@/components/ShoppingCart/CartWithItem/CartWithItems";
+import EmptyCart from "@/components/ShoppingCart/EmptyCart/EmptyCart";
 import styles from "./page.module.css";
 
 export default function ShoppingCartPage() {

@@ -1,5 +1,5 @@
-import MirineTest from "@/components/minine-test/TestPage/MirineTest";
-import TestStartPage from "@/components/minine-test/StartPage/TestStartPage";
+import MirineTest from "@/components/MinineTest/TestPage/MirineTest";
+import TestStartPage from "@/components/MinineTest/StartPage/TestStartPage";
 
 export default function MirineTestPage() {
   return (
