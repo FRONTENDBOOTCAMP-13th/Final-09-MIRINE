@@ -1,0 +1,30 @@
+.filter_section {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+}
+.filter_section_title_wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.filter_section_title {
+  font-size: 13px;
+  color: var(--black-950);
+}
+.main_accord_filter_section_btn_container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+.brand_filter_section_btn_container {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(8, 1fr);
+  row-gap: 8px;
+  column-gap: 10px;
+  li:nth-child(9) {
+    grid-column-start: 2;
+  }
+}
