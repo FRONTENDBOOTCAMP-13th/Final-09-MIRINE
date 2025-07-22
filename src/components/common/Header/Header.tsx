@@ -1,25 +1,100 @@
-"use client"
+"use client";
 
 import Link from "next/link";
 import styles from "./header.module.css";
 import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { auth, signOut } from "../../../api/dbinit/firebase";
+
+declare global {
+  interface Window {
+    Kakao: any;
+  }
+}
 
 export default function Header() {
   const router = useRouter();
   const pathname = usePathname();
   const [isOpenning, setIsOpenning] = useState(false);
+  const [user, setUser] = useState<any>(null);
 
   const handlePrev = () => {
     router.back();
   };
 
-  // console.log(pathname);
-
   useEffect(() => {
     setIsOpenning(false);
   }, [pathname]);
+
+  // Kakao SDK
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://developers.kakao.com/sdk/js/kakao.min.js";
+    script.async = true;
+    script.onload = () => {
+      if (window.Kakao && !window.Kakao.isInitialized()) {
+        window.Kakao.init("5f119b39694599fdc09f409b96af8449");
+      }
+    };
+    document.head.appendChild(script);
+  }, []);
+
+  // 로그인 상태 확인
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        const kakao = localStorage.getItem("kakaoLogin");
+        const naver = localStorage.getItem("naverLogin");
+        if (kakao === "true") {
+          setUser({ kakao: true });
+        } else if (naver === "true") {
+          setUser({ naver: true });
+        } else {
+          setUser(null);
+        }
+      }
+    });
+    return () => unsubscribe();
+  }, [pathname]);
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.error("Firebase logout error:", error);
+    }
+
+    // Kakao 로그아웃
+    if (window.Kakao && window.Kakao.Auth) {
+      if (!window.Kakao.isInitialized()) {
+        window.Kakao.init("5f119b39694599fdc09f409b96af8449");
+      }
+
+      window.Kakao.Auth.logout(() => {
+        console.log("카카오 로그아웃 완료");
+        localStorage.removeItem("kakaoLogin");
+        setUser(null);
+        window.location.reload();
+      });
+    }
+
+    // Naver 로그아웃
+    if (localStorage.getItem("naverLogin") === "true") {
+      localStorage.removeItem("naverLogin");
+      setUser(null);
+      window.location.href = "https://nid.naver.com/nidlogin.logout";
+      return;
+    }
+
+    localStorage.removeItem("kakaoLogin");
+    localStorage.removeItem("naverLogin");
+    setUser(null);
+    window.location.reload();
+  };
+
 
 	return (
 		<header className={styles.header}>
@@ -39,14 +114,27 @@ export default function Header() {
 
 				<h1 className={styles.logo}>
 					<Link href="/">
-            <Image className={styles.mLogo} src="/logo/logo-black-mobile.svg" alt="로고" width="66" height="16" />
-            <Image className={styles.pcLogo} src="/logo/logo-black-pc.svg" alt="로고" width="115" height="28" />
+            <Image className={styles.m_logo} src="/logo/logo-black-mobile.svg" alt="로고" width="66" height="16" />
+            <Image className={styles.pc_logo} src="/logo/logo-black-pc.svg" alt="로고" width="115" height="28" />
 					</Link>
 				</h1>
 
 				<ul className={styles.nav_right}>
 					<li><Link href="/reviews" className={pathname === "/reviews" ? styles.active : ""}>리뷰</Link></li>
-					<li><Link href="/login" className={pathname === "/login" ? styles.active : ""}>로그인</Link></li>
+					<li>
+            {user ? (
+              <button onClick={handleLogout}>
+                로그아웃
+              <button/>
+            ) : (
+              <Link
+                href="/login"
+                className={pathname === "/login" ? styles.active : ""}
+              >
+                로그인
+              </Link>
+            )}
+          </li>
 					<li><Link href="/mypage" className={pathname === "/mypage" ? styles.active : ""}>마이페이지</Link></li>
 					<li><Link href="/shopping-cart" className={pathname === "/shopping-cart" ? styles.active : ""}>장바구니</Link><span className={styles.cart_cnt}>0</span></li>
 				</ul>
@@ -70,7 +158,20 @@ export default function Header() {
 				</ul>
 				<ul className={styles.sub_menu}>
 					<li><Link href="/reviews" className={pathname === "/reviews" ? styles.active : ""}>리뷰</Link></li>
-					<li><Link href="/login" className={pathname === "/login" ? styles.active : ""}>로그인</Link></li>
+          <li>
+            {user ? (
+              <button onClick={handleLogout}>
+                로그아웃
+              <button/>
+            ) : (
+              <Link
+                href="/login"
+                className={pathname === "/login" ? styles.active : ""}
+              >
+                로그인
+              </Link>
+            )}
+          </li>
 					<li><Link href="/mypage" className={pathname === "/mypage" ? styles.active : ""}>마이페이지</Link></li>
 					<li><Link href="/shopping-cart" className={pathname === "/shopping-cart" ? styles.active : ""}>장바구니</Link><span className={styles.cartCnt}>0</span></li>
 				</ul>
