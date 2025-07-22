@@ -129,39 +129,46 @@ export default function Login() {
                 ID/PW 찾기
               </a>
             </div>
+          </form>
 
+          <div className={styles.loginButtons}>
             <button type="submit" className={styles.loginButton}>
               로그인
             </button>
             <button type="button" className={styles.signupButton}>
               회원가입
             </button>
-          </form>
+          </div>
 
           <div className={styles.easyLogin}>
             <h3>간편 로그인</h3>
-            <button onClick={handleGoogleLogin} className={styles.googleButton}>
-              <span className={styles.googleIcon} />
-              <span>Google 로그인</span>
-            </button>
-            <button
-              onClick={handleKakaoLogin}
-              className={styles.kakaoButton}
-              disabled={!kakaoReady}
-            >
-              <span className={styles.kakaoIcon} />
-              <span>Kakao 로그인</span>
-            </button>
-            <button
-              onClick={handleNaverLogin}
-              className={styles.naverButton}
-              disabled={!naverReady}
-            >
-              <span className={styles.naverIcon} />
-              <span>Naver 로그인</span>
-            </button>
+            <div className={styles.easyLoginButtons}>
+              <button
+                onClick={handleGoogleLogin}
+                className={styles.easyLoginButton}
+                aria-label="Google 로그인"
+              >
+                <span className={styles.googleIcon} />
+              </button>
+              <button
+                onClick={handleNaverLogin}
+                className={styles.easyLoginButton}
+                disabled={!naverReady}
+                aria-label="Naver 로그인"
+              >
+                <span className={styles.naverIcon} />
+              </button>
+              <button
+                onClick={handleKakaoLogin}
+                className={styles.easyLoginButton}
+                disabled={!kakaoReady}
+                aria-label="Kakao 로그인"
+              >
+                <span className={styles.kakaoIcon} />
+              </button>
 
-            <div id="naverIdLogin" style={{ display: "none" }} />
+              <div id="naverIdLogin" style={{ display: "none" }} />
+            </div>
           </div>
         </div>
       </div>

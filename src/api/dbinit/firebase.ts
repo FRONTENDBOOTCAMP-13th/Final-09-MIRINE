@@ -1,4 +1,6 @@
-import { initializeApp } from "firebase/app";
+"use client";
+
+import { initializeApp, getApps, getApp } from "firebase/app";
 import {
   getAuth,
   GoogleAuthProvider,
@@ -7,16 +9,17 @@ import {
 } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBZUt4-rv3FnFmRUubt_BgsEabNXly6DBY",
-  authDomain: "mirine-6f89a.firebaseapp.com",
-  projectId: "mirine-6f89a",
-  storageBucket: "mirine-6f89a.firebasestorage.app",
-  messagingSenderId: "556221761690",
-  appId: "1:556221761690:web:ed2d8fcd5728d808e83723",
-  measurementId: "G-G6WX5CFEZG",
+  apiKey: process.env.NEXT_PUBLIC_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_MEASUREMENT_ID,
 };
 
-const app = initializeApp(firebaseConfig);
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
