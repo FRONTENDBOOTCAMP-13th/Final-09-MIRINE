@@ -1,6 +1,6 @@
 .common_section{
-  padding: 20px;
-
+  padding: 20px 20px 10px 20px;
+  /* width: 100%; */
 }
 
 .title{
@@ -45,7 +45,7 @@
 .num_icon_section{
   display: flex;
   justify-content: space-between;
-  padding: 20px 0 20px 0;
+  padding: 20px 0 0 0;
 }
 
 .num{

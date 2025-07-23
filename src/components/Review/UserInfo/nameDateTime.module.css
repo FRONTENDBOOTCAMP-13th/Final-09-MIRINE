@@ -15,6 +15,5 @@
 }
 
 .star{
-  font-size: 14px;
-  color: var(--black-950);
+  display: flex;
 }
