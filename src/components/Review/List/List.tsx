@@ -2,11 +2,12 @@
 import styles from "./list.module.css";
 import Image from "next/image";
 import NameDateTime from "@/components/Review/UserInfo/NameDateTime"
+import Link from "next/link";
 
 export default function List(){
   return(
   <div className={styles.list}>
-    <div className={styles.review_list}>
+    <Link href="/" className={styles.review_list}>
       {/* 유저 정보 */}
       <div className={styles.user_info}>
         <NameDateTime />
@@ -26,10 +27,9 @@ export default function List(){
       </div>
       {/* 리뷰 텍스트 */}
       <div className={styles.text}>리뷰...더보기</div>
-    </div>
+    </Link>
 
-
-    <div className={styles.review_list}>
+    <Link href="/" className={styles.review_list}>
       {/* 유저 정보 */}
       <div className={styles.user_info}>
         <NameDateTime />
@@ -49,7 +49,8 @@ export default function List(){
       </div>
       {/* 리뷰 텍스트 */}
       <div className={styles.text}>리뷰...더보기</div>
-    </div>
+    </Link>
+
   </div>
   
   )
