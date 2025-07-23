@@ -5,15 +5,26 @@ import Image from "next/image";
 export default function View(){
   return (
     <div className={styles.view}>
-      {/* 프로필 이미지 & 유저 정보 */}
+      {/* 프로필 이미지 & 리뷰 작성 정보 */}
       <div className={styles.user_section}>
-        <Image src="/" alt="alt-text" width={360} height={360} className={styles.image} />
-          <div className={styles.user_info}>
-            <p className={styles.name}>이름</p>
-            <p className={styles.date}>날짜</p>
-            <p className={styles.time}>시간</p>
+        <Image src="/" alt="리뷰 이미지" width={360} height={406} className={styles.image} />
+          {/* 점 */}
+          <div className={styles.indicators}>
+            <button type="button" className={styles.indicator_active}></button>
+            <button type="button" className={styles.indicator}></button>
+            <button type="button" className={styles.indicator}></button>
+            <button type="button" className={styles.indicator}></button>
+            <button type="button" className={styles.indicator}></button>
           </div>
-          <div className={styles.star}>별점</div>
+          {/* 리뷰 작성 정보 */}
+          <div className={styles.review_info}> {/* 부모 컨테이너 추가 */}
+            <div className={styles.user_info}>
+              <p className={styles.name}>이름</p>
+              <p className={styles.datetime}>날짜 시간</p>
+            </div>
+            {/* 별점 */}
+            <div className={styles.star}>별점</div>
+          </div>
 
           {/* 제품정보 */}
           <div className={styles.product_info}>
