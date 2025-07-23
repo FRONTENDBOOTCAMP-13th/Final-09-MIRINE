@@ -17,7 +17,7 @@ export default function View(){
             <button type="button" className={styles.indicator}></button>
           </div>
           {/* 리뷰 작성 정보 */}
-          <div className={styles.review_info}> {/* 부모 컨테이너 추가 */}
+          <div className={styles.review_info}> 
             <div className={styles.user_info}>
               <p className={styles.name}>이름</p>
               <p className={styles.datetime}>날짜 시간</p>
