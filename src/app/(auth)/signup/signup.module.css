@@ -94,7 +94,7 @@
 }
 
 .required {
-  color: #ff8132;
+  color: var(--error);
 }
 
 .termsBox {
