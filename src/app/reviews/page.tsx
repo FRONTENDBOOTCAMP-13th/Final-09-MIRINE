@@ -8,7 +8,7 @@ export default function Reviews() {
   <>
     <ReviewCommon/>
     {/* <List /> */}
-    <Photo />
+    {/* <Photo /> */}
     {/* <View /> */}
   </>
 );

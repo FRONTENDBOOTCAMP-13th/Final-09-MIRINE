@@ -14,11 +14,11 @@ export default function List(){
       </div>
       {/* 리뷰사진 */}
       <div className={styles.photo_group}>
-        <Image src="/" alt="리뷰 사진" width={52} height={52} className={styles.img} />
-        <Image src="/" alt="리뷰 사진" width={52} height={52} className={styles.img} />
-        <Image src="/" alt="리뷰 사진" width={52} height={52} className={styles.img} />
-        <Image src="/" alt="리뷰 사진" width={52} height={52} className={styles.img} />
-        <Image src="/" alt="리뷰 사진" width={52} height={52} className={styles.img} />
+        <Image src="/image/perfume1.svg" alt="리뷰 사진" width={52} height={52} className={styles.img} />
+        <Image src="/image/perfume1.svg" alt="리뷰 사진" width={52} height={52} className={styles.img} />
+        <Image src="/image/perfume1.svg" alt="리뷰 사진" width={52} height={52} className={styles.img} />
+        <Image src="/image/perfume1.svg" alt="리뷰 사진" width={52} height={52} className={styles.img} />
+        <Image src="/image/perfume1.svg" alt="리뷰 사진" width={52} height={52} className={styles.img} />
       </div>
       {/* 제품 정보 */}
       <div className={styles.item_info}>
@@ -36,11 +36,11 @@ export default function List(){
       </div>
       {/* 리뷰사진 */}
       <div className={styles.photo_group}>
-        <Image src="/" alt="리뷰 사진" width={52} height={52} className={styles.img} />
-        <Image src="/" alt="리뷰 사진" width={52} height={52} className={styles.img} />
-        <Image src="/" alt="리뷰 사진" width={52} height={52} className={styles.img} />
-        <Image src="/" alt="리뷰 사진" width={52} height={52} className={styles.img} />
-        <Image src="/" alt="리뷰 사진" width={52} height={52} className={styles.img} />
+        <Image src="/image/perfume1.svg" alt="리뷰 사진" width={52} height={52} className={styles.img} />
+        <Image src="/image/perfume1.svg" alt="리뷰 사진" width={52} height={52} className={styles.img} />
+        <Image src="/image/perfume1.svg" alt="리뷰 사진" width={52} height={52} className={styles.img} />
+        <Image src="/image/perfume1.svg" alt="리뷰 사진" width={52} height={52} className={styles.img} />
+        <Image src="/image/perfume1.svg" alt="리뷰 사진" width={52} height={52} className={styles.img} />
       </div>
       {/* 제품 정보 */}
       <div className={styles.item_info}>

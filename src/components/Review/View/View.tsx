@@ -7,7 +7,7 @@ export default function View(){
     <div className={styles.view}>
       {/* 프로필 이미지 & 리뷰 작성 정보 */}
       <div className={styles.user_section}>
-        <Image src="/" alt="리뷰 이미지" width={360} height={406} className={styles.image} />
+        <Image src="/image/perfume1.svg" alt="리뷰 이미지" width={360} height={406} className={styles.image} />
           {/* 점 */}
           <div className={styles.indicators}>
             <button type="button" className={styles.indicator_active}></button>
