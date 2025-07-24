@@ -1,0 +1,61 @@
+.common_section{
+  padding: 20px 20px 10px 20px;
+  /* width: 100%; */
+}
+
+.title{
+  font-size: 24px;
+  color: var(--black-950);
+  padding-bottom: 20px;
+}
+
+.btn_group{
+  display: flex;
+  font-size: 13px;
+  gap: 8px;
+}
+
+.mirine{
+  width: 51px;
+  height: 30px;
+  color: var(--black-950);
+  border: 1px solid var(--black-200);
+  border-radius: 50px;
+  background-color: var(--bg-white);
+}
+
+.perfume{
+  width: 39px;
+  height: 30px;
+  color: var(--primary-blue-300);
+  border: 1px solid var(--primary-blue-300);
+  border-radius: 50px;
+  background-color: var(--primary-blue-100);
+}
+
+.aroma_shooter{
+  width: 73px;
+  height: 30px;
+  color: var(--black-950);
+  border: 1px solid var(--black-200);
+  border-radius: 50px;
+  background-color: var(--bg-white);
+}
+
+.num_icon_section{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0 0 0;
+}
+
+.num{
+  font-size: 13px;
+  color: var(--black-500);
+}
+
+.icon_group{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
