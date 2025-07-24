@@ -1,0 +1,128 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 400px;
+  padding: 25px;
+}
+
+.signup {
+  padding: 25px;
+  border: 1px solid var(--black-200);
+  border-radius: 12px;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 25px;
+  color: var(--black-950);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.field label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--black-950);
+}
+
+.field input {
+  padding: 10px;
+  background-color: var(--primary-blue-100);
+  border-radius: 6px;
+  color: var(--black-500);
+  font-size: 13px;
+  height: 40px;
+}
+
+.success {
+  color: var(--success);
+  font-size: 12px;
+}
+
+.error {
+  color: var(--error);
+  font-size: 12px;
+}
+
+.addressRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.zipButton {
+  width: 110px;
+  height: 40px;
+  color: var(--black-950);
+  background-color: var(--bg-white);
+  border: 1px solid var(--black-200);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.termsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.termstitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--black-950);
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+}
+
+.allAgree {
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--black-950);
+}
+
+.required {
+  color: #ff8132;
+}
+
+.termsBox {
+  background-color: var(--primary-blue-100);
+  border-radius: 6px;
+}
+
+.textarea {
+  padding: 0 10px;
+  max-height: 160px;
+  overflow-y: auto;
+  font-size: 13px;
+  color: var(--black-600);
+  line-height: 1.5;
+}
+
+.termsTitle {
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.submit {
+  width: 100%;
+  background-color: var(--black-950);
+  color: var(--bg-white);
+  height: 46px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 15px;
+}
