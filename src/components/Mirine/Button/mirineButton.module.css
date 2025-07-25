@@ -1,0 +1,13 @@
+.mirin_btn_section{
+  width: 100%;
+  padding: 20px;
+}
+
+.mirine_cart_btn{
+  background-color: var(--black-950);
+  border-radius: 4px;
+  font-size: 15px;
+  color: var(--primary-blue-300);
+  width: 100%;
+  height: 46px;
+}
