@@ -7,43 +7,163 @@ function getTime(day = 0, second = 0) {
 export const initData = async (clientId, nextSeq) => {
   return {
     // 회원
-    user: [
+    user: [],
+
+    // 상품
+    product: [
       {
-        _id: await nextSeq("user"),
-        email: "admin@market.com",
-        password: "$2b$10$S.8GNMDyvUF0xzujPtHBu.j5gtS19.OhRmYbpJBnCHg2S83WLx1T2",
-        name: "무지",
-        phone: "01011112222",
-        address: "서울시 강남구 역삼동 123",
-        type: "admin",
-        loginType: "email",
-        image: `files/${clientId}/user-muzi.png`,
-        createdAt: getTime(-100, -60 * 60 * 3),
-        updatedAt: getTime(-100, -60 * 60 * 3),
+        _id: await nextSeq("product"),
+        price: 22800,
+        show: true,
+        active: true,
+        name: "캥거루 스턴트 독 로봇완구",
+        quantity: 320,
+        mainImages: [
+          {
+            path: `files/${clientId}/sample-dog.jpg`,
+            name: "sample-dog.jpg",
+            originalname: "스턴트 독.jpg",
+          },
+        ],
+        createdAt: getTime(-41, -60 * 60 * 2),
+        updatedAt: getTime(-40, -60 * 15),
         extra: {
-          birthday: "03-23",
+          mainAccord: "sweet",
+          brand: "조말론",
+          brandInitialKR: "ㅈ",
+          tags: ["시트러스", "플로럴", "상큼함", "데일리", "봄/여름"],
+          content: "상큼한 시트러스와 부드러운 꽃 향이 조화를 이루는 산뜻한 퍼퓸.",
+          detailContent: "첫 스프레이에서 느껴지는 상큼한 레몬과 오렌지 향, 이어지는 플로럴 노트가 매력적인 향수입니다. 일상에서 활력을 주는 가볍고 청량한 무드의 향기를 담았습니다.",
         },
       },
       {
-        _id: await nextSeq("user"),
-        email: "s1@market.com",
-        password: "$2b$10$S.8GNMDyvUF0xzujPtHBu.j5gtS19.OhRmYbpJBnCHg2S83WLx1T2",
-        name: "네오",
-        phone: "01022223333",
-        address: "서울시 강남구 삼성동 456",
-        type: "seller",
-        loginType: "email",
-        image: `files/${clientId}/user-neo.png`,
-        createdAt: getTime(-50),
-        updatedAt: getTime(-30, -60 * 60 * 3),
+        _id: await nextSeq("product"),
+        price: 22800,
+        show: true,
+        active: true,
+        name: "헬로카봇 스톰다이버",
+        quantity: 320,
+        mainImages: [
+          {
+            path: `files/${clientId}/sample-diver.jpg`,
+            name: "sample-diver.jpg",
+            originalname: "헬로카봇.jpg",
+          },
+        ],
+        createdAt: getTime(-41, -60 * 60 * 2),
+        updatedAt: getTime(-40, -60 * 15),
         extra: {
-          birthday: "11-23",
+          mainAccord: "sweet",
+          brand: "조말론",
+          brandInitialKR: "ㅈ",
+          tags: ["시트러스", "플로럴", "상큼함", "데일리", "봄/여름"],
+          content: "상큼한 시트러스와 부드러운 꽃 향이 조화를 이루는 산뜻한 퍼퓸.",
+          detailContent: "첫 스프레이에서 느껴지는 상큼한 레몬과 오렌지 향, 이어지는 플로럴 노트가 매력적인 향수입니다. 일상에서 활력을 주는 가볍고 청량한 무드의 향기를 담았습니다.",
+        },
+      },
+      {
+        _id: await nextSeq("product"),
+        price: 32000,
+        show: true,
+        active: true,
+        name: "라벤더 드림 퍼퓸",
+        quantity: 150,
+        mainImages: [
+          {
+            path: `files/${clientId}/perfume1.webp`,
+            name: "perfume1.webp",
+            originalname: "라벤더드림.webp",
+          },
+        ],
+        createdAt: getTime(-41, -60 * 60 * 2),
+        updatedAt: getTime(-40, -60 * 15),
+        extra: {
+          mainAccord: "sweet",
+          brand: "조말론",
+          brandInitialKR: "ㅈ",
+          tags: ["시트러스", "플로럴", "상큼함", "데일리", "봄/여름"],
+          content: "상큼한 시트러스와 부드러운 꽃 향이 조화를 이루는 산뜻한 퍼퓸.",
+          detailContent: "첫 스프레이에서 느껴지는 상큼한 레몬과 오렌지 향, 이어지는 플로럴 노트가 매력적인 향수입니다. 일상에서 활력을 주는 가볍고 청량한 무드의 향기를 담았습니다.",
+        },
+      },
+      {
+        _id: await nextSeq("product"),
+        price: 41500,
+        show: true,
+        active: true,
+        name: "시트러스 블룸 퍼퓸",
+        quantity: 150,
+        mainImages: [
+          {
+            path: `files/${clientId}/perfume2.webp`,
+            name: "perfume2.webp",
+            originalname: "시트러스블룸.webp",
+          },
+        ],
+        createdAt: getTime(-22, -60 * 60 * 5),
+        updatedAt: getTime(-17, -60 * 30),
+        extra: {
+          mainAccord: "sweet",
+          brand: "조말론",
+          brandInitialKR: "ㅈ",
+          tags: ["시트러스", "플로럴", "상큼함", "데일리", "봄/여름"],
+          content: "상큼한 시트러스와 부드러운 꽃 향이 조화를 이루는 산뜻한 퍼퓸.",
+          detailContent: "첫 스프레이에서 느껴지는 상큼한 레몬과 오렌지 향, 이어지는 플로럴 노트가 매력적인 향수입니다. 일상에서 활력을 주는 가볍고 청량한 무드의 향기를 담았습니다.",
+        },
+      },
+      {
+        _id: await nextSeq("product"),
+        price: 28700,
+        show: true,
+        active: true,
+        name: "바닐라 스카이 퍼퓸",
+        quantity: 220,
+        mainImages: [
+          {
+            path: `files/${clientId}/perfume3.webp`,
+            name: "perfume3.webp",
+            originalname: "바닐라스카이.webp",
+          },
+        ],
+        createdAt: getTime(-18, -60 * 60 * 3),
+        updatedAt: getTime(-14, -60 * 40),
+        extra: {
+          mainAccord: "citrus",
+          brand: "샤넬",
+          brandInitialKR: "ㅅ",
+          tags: ["샤넬", "코롱", "세이지"],
+          content: "샤넬 향수입니다.",
+          detailContent: "샤넬 향수의 상세 설명입니다.",
+        },
+      },
+      {
+        _id: await nextSeq("product"),
+        price: 2800,
+        show: true,
+        active: true,
+        name: "바닐라 스카이 퍼퓸",
+        quantity: 220,
+        mainImages: [
+          {
+            path: `files/${clientId}/perfume-no5.png`,
+            name: "perfume-no5.png",
+            originalname: "no5.png",
+          },
+        ],
+        createdAt: getTime(-18, -60 * 60 * 3),
+        updatedAt: getTime(-14, -60 * 40),
+        extra: {
+          mainAccord: "citrus",
+          brand: "샤넬",
+          brandInitialKR: "ㅅ",
+          volumes: [50, 80, 100],
+          prices: [57900, 82900, 99900],
+          tags: ["샤넬", "코롱", "세이지"],
+          content: "샤넬 향수입니다.",
+          detailContent: "샤넬 향수의 상세 설명입니다.",
         },
       },
     ],
-
-    // 상품
-    product: [],
 
     // 주문
     order: [],
@@ -59,20 +179,20 @@ export const initData = async (clientId, nextSeq) => {
 
     // QnA, 공지사항 등의 게시판
     post: [
-      {
-        _id: await nextSeq("post"),
-        type: "community",
-        views: 23,
-        user: {
-          _id: 2,
-          name: "네오",
-          image: `files/${clientId}/user-neo.png`,
-        },
-        title: "회원 가입했어요.",
-        content: "잘 부탁드려요.",
-        createdAt: getTime(-1, -60 * 60 * 14),
-        updatedAt: getTime(-1, -60 * 60 * 2),
-      },
+      // {
+      //   _id: await nextSeq("post"),
+      //   type: "community",
+      //   views: 23,
+      //   user: {
+      //     _id: 2,
+      //     name: "네오",
+      //     image: `files/${clientId}/user-neo.png`,
+      //   },
+      //   title: "회원 가입했어요.",
+      //   content: "잘 부탁드려요.",
+      //   createdAt: getTime(-1, -60 * 60 * 14),
+      //   updatedAt: getTime(-1, -60 * 60 * 2),
+      // },
     ],
 
     // 코드
