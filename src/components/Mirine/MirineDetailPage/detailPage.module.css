@@ -110,7 +110,7 @@
 }
 /* 리뷰 페이지 */
 .review_list{
-  padding-top: 10px;
+  padding: 10px;
 }
 /* 별점 */
 .review_star{
