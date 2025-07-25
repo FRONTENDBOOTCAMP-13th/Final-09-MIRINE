@@ -7,6 +7,8 @@ import List from "@/components/Review/List/List"
 import Link from "next/link";
 
 export default function DetailPage(){
+  const [isActive, setIsActive] = useState(false);
+  const handleButtonClick = () => { console.log('링크 복사')};
   const [activeTab, setActiveTab] = useState<"description" | "review">("description");
   const reviewCount = 100;
   
@@ -17,17 +19,28 @@ export default function DetailPage(){
         <div className={styles.image}>
           <Image src="/image/perfume1.svg" alt="상품이미지" width={360} height={360} />
         </div>
+        {/* 찜, 공유 버튼 */}
         <div className={styles.action_buttons}>
-          <button className={styles.zzim_btn} aria-label="찜하기" type="button">
-             <svg width={20} height={20} viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M19 14.5C20.49 13.04 22 11.29 22 9C22 7.54131 21.4205 6.14236 20.3891 5.11091C19.3576 4.07946 17.9587 3.5 16.5 3.5C14.74 3.5 13.5 4 12 5.5C10.5 4 9.26 3.5 7.5 3.5C6.04131 3.5 4.64236 4.07946 3.61091 5.11091C2.57946 6.14236 2 7.54131 2 9C2 11.3 3.5 13.05 5 14.5L12 21.5L19 14.5Z" 
-              stroke="var(--black-300)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <button className={styles.like_btn} aria-label="찜하기" type="button"
+            onClick={()=> {setIsActive(!isActive)}}
+          >
+            {isActive ? (
+              <svg width={20} height={20} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.5 3.5C19.3045 3.5 21.5 5.68674 21.5 8.5C21.5 10.2206 20.7289 11.8259 19.2695 13.6113C17.8047 15.4035 15.699 17.3154 13.1143 19.6592L13.1133 19.6602L12 20.6729L10.8867 19.6602L10.8857 19.6592C8.30104 17.3154 6.19531 15.4035 4.73047 13.6113C3.27109 11.8259 2.5 10.2206 2.5 8.5C2.5 5.68674 4.69555 3.5 7.5 3.5C9.08865 3.5 10.6216 4.24211 11.6201 5.40527L12 5.84766L12.3799 5.40527C13.3784 4.24211 14.9114 3.5 16.5 3.5Z" stroke="#C2C2C2"/>
+              </svg>
+            ) : (
+            <svg width={20} height={20} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.5 3.5C19.3045 3.5 21.5 5.68674 21.5 8.5C21.5 10.2206 20.7289 11.8259 19.2695 13.6113C17.8047 15.4035 15.699 17.3154 13.1143 19.6592L13.1133 19.6602L12 20.6729L10.8867 19.6602L10.8857 19.6592C8.30104 17.3154 6.19531 15.4035 4.73047 13.6113C3.27109 11.8259 2.5 10.2206 2.5 8.5C2.5 5.68674 4.69555 3.5 7.5 3.5C9.08865 3.5 10.6216 4.24211 11.6201 5.40527L12 5.84766L12.3799 5.40527C13.3784 4.24211 14.9114 3.5 16.5 3.5Z" fill="#EFE7FF" stroke="#B090EE"/>
             </svg>
+            )}
           </button>
-          <button className={styles.share_btn} aria-label="공유하기"type="button">
+          {/* 공유 버튼 */}
+          <button className={styles.share_btn} type="button" 
+            onClick={handleButtonClick}
+          >
             <svg width={20} height={20} viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M10.0002 13.5C10.4297 14.0742 10.9776 14.5492 11.6067 14.893C12.2359 15.2367 12.9317 15.4411 13.6468 15.4924C14.362 15.5436 15.0798 15.4404 15.7515 15.1898C16.4233 14.9392 17.0333 14.5471 17.5402 14.04L20.5402 11.04C21.451 10.097 21.955 8.834 21.9436 7.52302C21.9322 6.21204 21.4063 4.95797 20.4793 4.03093C19.5523 3.10389 18.2982 2.57805 16.9872 2.56666C15.6762 2.55526 14.4132 3.05924 13.4702 3.97003L11.7502 5.68003M14.0002 11.5C13.5707 10.9259 13.0228 10.4508 12.3936 10.1071C11.7645 9.76333 11.0687 9.55891 10.3535 9.50769C9.63841 9.45648 8.92061 9.55966 8.24885 9.81025C7.5771 10.0608 6.96709 10.453 6.4602 10.96L3.4602 13.96C2.54941 14.903 2.04544 16.166 2.05683 17.477C2.06822 18.788 2.59407 20.0421 3.52111 20.9691C4.44815 21.8962 5.70221 22.422 7.01319 22.4334C8.32418 22.4448 9.58719 21.9408 10.5302 21.03L12.2402 19.32" 
-              stroke="var(--black-950)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              stroke="var(--black-950)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
         </div>
@@ -77,8 +90,7 @@ export default function DetailPage(){
 
       {/* 미리내 담기 버튼 */}
       <MirineButton />
-    </article>
 
-    
+    </article>
   )
 }
