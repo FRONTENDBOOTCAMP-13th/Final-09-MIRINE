@@ -169,7 +169,22 @@ export const initData = async (clientId, nextSeq) => {
     order: [],
 
     // 후기
-    review: [],
+    review: [
+      {
+        _id: await nextSeq("review"),
+        user_id: 4,
+        user: {
+          _id: 4,
+          name: "제이지",
+          image: "user-jayg.webp",
+        },
+        order_id: 1,
+        product_id: 2,
+        rating: 5,
+        content: "아이가 좋아해요.",
+        createdAt: getTime(-4, -60 * 60 * 12),
+      },
+    ],
 
     // 장바구니
     cart: [],
@@ -178,22 +193,7 @@ export const initData = async (clientId, nextSeq) => {
     bookmark: [],
 
     // QnA, 공지사항 등의 게시판
-    post: [
-      // {
-      //   _id: await nextSeq("post"),
-      //   type: "community",
-      //   views: 23,
-      //   user: {
-      //     _id: 2,
-      //     name: "네오",
-      //     image: `files/${clientId}/user-neo.png`,
-      //   },
-      //   title: "회원 가입했어요.",
-      //   content: "잘 부탁드려요.",
-      //   createdAt: getTime(-1, -60 * 60 * 14),
-      //   updatedAt: getTime(-1, -60 * 60 * 2),
-      // },
-    ],
+    post: [],
 
     // 코드
     code: [],
