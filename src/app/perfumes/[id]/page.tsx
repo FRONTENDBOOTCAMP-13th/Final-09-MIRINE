@@ -1,3 +1,5 @@
+import DetailPage from "@/components/Mirine/MirineDetailPage/DetailPage";
+
 export default function PerfumeInfo() {
-  return <h1>PerfumeInfo</h1>;
+  return <DetailPage />;
 }
