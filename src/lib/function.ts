@@ -197,6 +197,27 @@ export async function getAllUsers() {
   }
 }
 
+/**
+ * GET /users/{_id}
+ * @description 사용자 전체를 DB에서 가져오는 함수
+ * @param {number} id 사용자의 _id
+ * @returns 사용자 전체 데이터를 결과로 가지는 Promise
+ */
+export async function getUser(id: number) {
+  try {
+    const res = await fetch(`${URL}/users/${id}`, {
+      headers: {
+        "client-Id": CLIENT_ID ?? "",
+      },
+    });
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+}
+
 /* 미리내 테스트 관련 함수 */
 /**
  * GET /posts
