@@ -42,13 +42,13 @@
   background-color: var(--bg-white);
 }
 
-.num_icon_section{
+.count_icon_section{
   display: flex;
   justify-content: space-between;
   padding: 20px 0 0 0;
 }
 
-.num{
+.review_count{
   font-size: 13px;
   color: var(--black-500);
 }
