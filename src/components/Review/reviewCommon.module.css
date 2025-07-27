@@ -9,51 +9,50 @@
   padding-bottom: 20px;
 }
 
-.btn_group{
+/* 탭 */
+.category_list{
   display: flex;
   font-size: 13px;
   gap: 8px;
 }
 
-.mirine{
-  width: 51px;
+.category_btn{
   height: 30px;
-  color: var(--black-950);
   border: 1px solid var(--black-200);
   border-radius: 50px;
   background-color: var(--bg-white);
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  color: var(--black-950);
 }
 
-.perfume{
-  width: 39px;
-  height: 30px;
+.category_btn button{
+  all: unset;
+  cursor: pointer;
+  font-size: inherit;
+  color: inherit;
+}
+
+.active {
+  background-color: var(--primary-blue-100); /* 예: 파란색 강조 */
+  border-color: var(--primary-blue-300);
   color: var(--primary-blue-300);
-  border: 1px solid var(--primary-blue-300);
-  border-radius: 50px;
-  background-color: var(--primary-blue-100);
 }
 
-.aroma_shooter{
-  width: 73px;
-  height: 30px;
-  color: var(--black-950);
-  border: 1px solid var(--black-200);
-  border-radius: 50px;
-  background-color: var(--bg-white);
-}
-
+/* 총 개수 */
 .count_icon_section{
   display: flex;
   justify-content: space-between;
   padding: 20px 0 0 0;
 }
 
-.review_count{
+.count{
   font-size: 13px;
   color: var(--black-500);
 }
 
-.icon_group{
+.view_options{
   display: flex;
   flex-direction: row;
   gap: 10px;
