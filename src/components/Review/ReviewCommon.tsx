@@ -9,7 +9,7 @@ export default function ReviewCommon(){
   
   return(
     <div className={styles.common_section}>
-      <h1 className={styles.title}>리뷰</h1>
+      <h2 className={styles.title}>리뷰</h2>
 
       <nav className={styles.btn_group}>
         <ul className={styles.category_list}>
