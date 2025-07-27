@@ -6,7 +6,6 @@ import Image from "next/image";
 export default function ReviewCommon(){
   const [active, setActive] = useState<"mirine"|"perfume"|"aroma">('mirine');
   const count = 123;
-  
   return(
     <div className={styles.common_section}>
       <h2 className={styles.title}>리뷰</h2>
