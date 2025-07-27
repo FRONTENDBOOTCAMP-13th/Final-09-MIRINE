@@ -1,6 +1,3 @@
-// 리뷰
-// replies
-
 /**
  * 리뷰 인터페이스
  * @property {number} _id 리뷰 번호(고유값)
