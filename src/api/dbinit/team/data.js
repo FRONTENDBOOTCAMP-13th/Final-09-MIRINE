@@ -61,8 +61,8 @@ export const initData = async (clientId, nextSeq) => {
         quantity: 320,
         mainImages: [
           {
-            path: `files/${clientId}/sample-dog.jpg`,
-            name: "sample-dog.jpg",
+            path: `files/${clientId}/sample-bugatti.jpg`,
+            name: "sample-bugatti.jpg",
             originalname: "스턴트 독.jpg",
           },
         ],
@@ -186,9 +186,9 @@ export const initData = async (clientId, nextSeq) => {
         quantity: 220,
         mainImages: [
           {
-            path: `files/${clientId}/perfume-no5.png`,
-            name: "perfume-no5.png",
-            originalname: "no5.png",
+            path: `files/${clientId}/perfume4.webp`,
+            name: "perfume4.webp",
+            originalname: "향수4.webp",
           },
         ],
         createdAt: getTime(-18, -60 * 60 * 3),
