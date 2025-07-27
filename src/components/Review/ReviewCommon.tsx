@@ -6,11 +6,9 @@ import Image from "next/image";
 export default function ReviewCommon(){
   const [active, setActive] = useState<"mirine"|"perfume"|"aroma">('mirine');
   const count = 123;
-  
   return(
     <div className={styles.common_section}>
       <h1 className={styles.title}>리뷰</h1>
-
       <nav className={styles.btn_group}>
         <ul className={styles.category_list}>
           <li className={`${styles.category_btn} ${active === 'mirine' ? styles.active : ''}`} >
