@@ -2,12 +2,13 @@
 import Image from "next/image";
 import styles from "./perfumeItem.module.css";
 import { useState } from "react";
-export default function PerfumeItem() {
+import { getFile } from "@/lib/clientFunction";
+export default function PerfumeItem({ path }: { path: string }) {
   const [isActive, setIsActive] = useState(false);
   return (
     <div>
       <div className={styles.image_wrapper}>
-        <Image src="/" alt="향수 이미지" fill className={styles.image}></Image>
+        <Image src={getFile(path)} alt="향수 이미지" fill className={styles.image}></Image>
         <button
           className={styles.like_btn}
           onClick={() => {

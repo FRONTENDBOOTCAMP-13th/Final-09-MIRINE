@@ -35,3 +35,7 @@
   color: var(--black-500);
   grid-column: 1 / -1;
 }
+
+.perfume_container {
+  display: contents;
+}
