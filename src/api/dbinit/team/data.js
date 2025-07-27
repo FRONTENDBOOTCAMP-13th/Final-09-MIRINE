@@ -284,7 +284,21 @@ export const initData = async (clientId, nextSeq) => {
     cart: [],
 
     // 즐겨찾기/북마크
-    bookmark: [],
+    bookmark: [
+      {
+        _id: await nextSeq("bookmark"),
+        user_id: 1,
+        user: {
+          _id: 1,
+          name: "제이지",
+          image: `files/${clientId}/user-jayg.webp`,
+        },
+        type: "product",
+        target_id: 4,
+        // memo: "첫째 크리스마스 선물.",
+        createdAt: getTime(-3, -60 * 60 * 2),
+      },
+    ],
 
     // QnA, 공지사항 등의 게시판
     post: [],
