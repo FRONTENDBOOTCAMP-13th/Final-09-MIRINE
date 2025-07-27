@@ -235,7 +235,32 @@ export const initData = async (clientId, nextSeq) => {
     ],
 
     // 주문
-    order: [],
+    order: [
+      {
+        _id: await nextSeq("order"),
+        user_id: 1,
+        products: [
+          {
+            _id: 2,
+            name: "헬로카봇 스톰다이버",
+            image: {
+              path: `files/${clientId}/sample-diver.jpg`,
+              name: "sample-diver.jpg",
+              originalname: "헬로카봇.jpg",
+            },
+            quantity: 2,
+            price: 34520,
+            // review_id: 3, 리뷰 작성한 구매내역이면 리뷰아이디를 patch해야함
+          },
+        ],
+        cost: {
+          // products: 34520,
+          total: 34520,
+        },
+        createdAt: getTime(-6, -60 * 60 * 3),
+        updatedAt: getTime(-6, -60 * 60 * 3),
+      },
+    ],
 
     // 후기
     review: [
