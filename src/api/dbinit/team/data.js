@@ -10,38 +10,6 @@ export const initData = async (clientId, nextSeq) => {
     user: [
       {
         _id: await nextSeq("user"),
-        email: "user1@market.com",
-        password: "$2b$10$S.8GNMDyvUF0xzujPtHBu.j5gtS19.OhRmYbpJBnCHg2S83WLx1T2",
-        name: "무지",
-        phone: "01011112222",
-        address: "서울시 강남구 역삼동 123",
-        type: "user",
-        loginType: "email",
-        // image: `files/${clientId}/user-muzi.png`,
-        createdAt: getTime(-100, -60 * 60 * 3),
-        updatedAt: getTime(-100, -60 * 60 * 3),
-        extra: {
-          birthday: "03-23",
-        },
-      },
-      {
-        _id: await nextSeq("user"),
-        email: "user2@market.com",
-        password: "$2b$10$S.8GNMDyvUF0xzujPtHBu.j5gtS19.OhRmYbpJBnCHg2S83WLx1T2",
-        name: "네오",
-        phone: "01022223333",
-        address: "서울시 강남구 삼성동 456",
-        type: "user",
-        loginType: "email",
-        // image: `files/${clientId}/user-neo.png`,
-        createdAt: getTime(-50),
-        updatedAt: getTime(-30, -60 * 60 * 3),
-        extra: {
-          birthday: "11-23",
-        },
-      },
-      {
-        _id: await nextSeq("user"),
         email: "karina@market.com",
         password: "$2b$10$S.8GNMDyvUF0xzujPtHBu.j5gtS19.OhRmYbpJBnCHg2S83WLx1T2",
         name: "카리나",
@@ -73,7 +41,11 @@ export const initData = async (clientId, nextSeq) => {
         createdAt: getTime(-35),
         updatedAt: getTime(-10, -60 * 60 * 1),
         extra: {
-          birthday: "08-29",
+          address: {
+            zipCode: "06911",
+            mainAddress: "서울특별시 동작구 흑석동 204-104",
+            detailAddress: "102동 201호",
+          },
         },
       },
     ],
@@ -254,7 +226,6 @@ export const initData = async (clientId, nextSeq) => {
           },
         ],
         cost: {
-          // products: 34520,
           total: 34520,
         },
         createdAt: getTime(-6, -60 * 60 * 3),
@@ -295,7 +266,6 @@ export const initData = async (clientId, nextSeq) => {
         },
         type: "product",
         target_id: 4,
-        // memo: "첫째 크리스마스 선물.",
         createdAt: getTime(-3, -60 * 60 * 2),
       },
     ],
