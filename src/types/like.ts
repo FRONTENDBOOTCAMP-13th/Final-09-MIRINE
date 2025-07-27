@@ -1,7 +1,7 @@
 import { UserInfo } from "./userInfo";
 
 /**
- * 찜(Like) 정보
+ * 찜 인터페이스
  * @property {number} _id 찜 번호(고유값)
  * @property {number} user_id 찜한 사용자 아이디
  * @property {UserInfo} user 찜한 사용자 정보
