@@ -7,7 +7,76 @@ function getTime(day = 0, second = 0) {
 export const initData = async (clientId, nextSeq) => {
   return {
     // 회원
-    user: [],
+    user: [
+      {
+        _id: await nextSeq("user"),
+        email: "user1@market.com",
+        password: "$2b$10$S.8GNMDyvUF0xzujPtHBu.j5gtS19.OhRmYbpJBnCHg2S83WLx1T2",
+        name: "무지",
+        phone: "01011112222",
+        address: "서울시 강남구 역삼동 123",
+        type: "user",
+        loginType: "email",
+        // image: `files/${clientId}/user-muzi.png`,
+        createdAt: getTime(-100, -60 * 60 * 3),
+        updatedAt: getTime(-100, -60 * 60 * 3),
+        extra: {
+          birthday: "03-23",
+        },
+      },
+      {
+        _id: await nextSeq("user"),
+        email: "user2@market.com",
+        password: "$2b$10$S.8GNMDyvUF0xzujPtHBu.j5gtS19.OhRmYbpJBnCHg2S83WLx1T2",
+        name: "네오",
+        phone: "01022223333",
+        address: "서울시 강남구 삼성동 456",
+        type: "user",
+        loginType: "email",
+        // image: `files/${clientId}/user-neo.png`,
+        createdAt: getTime(-50),
+        updatedAt: getTime(-30, -60 * 60 * 3),
+        extra: {
+          birthday: "11-23",
+        },
+      },
+      {
+        _id: await nextSeq("user"),
+        email: "karina@market.com",
+        password: "$2b$10$S.8GNMDyvUF0xzujPtHBu.j5gtS19.OhRmYbpJBnCHg2S83WLx1T2",
+        name: "카리나",
+        phone: "01033334444",
+        address: "서울시 서초구 반포동 817",
+        type: "user",
+        loginType: "email",
+        // image: `files/${clientId}/user-karina.jpg`,
+        createdAt: getTime(-40),
+        updatedAt: getTime(-20, -60 * 60 * 2),
+        extra: {
+          address: {
+            zipCode: "06501",
+            mainAddress: "서울시 서초구 반포동 817",
+            detailAddress: "201동 1301호",
+          },
+        },
+      },
+      {
+        _id: await nextSeq("user"),
+        email: "eunwoo@market.com",
+        password: "$2b$10$S.8GNMDyvUF0xzujPtHBu.j5gtS19.OhRmYbpJBnCHg2S83WLx1T2",
+        name: "차은우",
+        phone: "01044445555",
+        address: "서울시 송파구 잠실동 123",
+        type: "user",
+        loginType: "email",
+        // image: `files/${clientId}/user-eunwoo.jpg`,
+        createdAt: getTime(-35),
+        updatedAt: getTime(-10, -60 * 60 * 1),
+        extra: {
+          birthday: "08-29",
+        },
+      },
+    ],
 
     // 상품
     product: [
