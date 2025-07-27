@@ -301,7 +301,23 @@ export const initData = async (clientId, nextSeq) => {
     ],
 
     // QnA, 공지사항 등의 게시판
-    post: [],
+    post: [
+      {
+        _id: await nextSeq("post"),
+        type: "post",
+        user: {
+          _id: 2,
+          name: "네오",
+          image: `files/${clientId}/user-neo.png`,
+        },
+        extra: {
+          answers: [1, 2, 3, 4, 4],
+          products: [4, 5, 1],
+        },
+        createdAt: getTime(-1, -60 * 60 * 14),
+        updatedAt: getTime(-1, -60 * 60 * 2),
+      },
+    ],
 
     // 코드
     code: [],
