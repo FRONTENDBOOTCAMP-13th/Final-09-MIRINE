@@ -1,4 +1,3 @@
-'use client';
 import styles from "./reviewCommon.module.css";
 import ReviewButton from "@/components/Review/ReviewButton/ReviewButton";
 import ListGrid from "@/components/Review/ListGrid/ListGrid";
