@@ -1,32 +1,33 @@
 .result_page{
-  padding: 40px;
   width: 100%;
+  /* min-height: 100%; */
 }
 
 .title{
   text-align: center;
   font-size: 24px;
   color: var(--black-950);
-
+  padding: 20px;
 }
 
 .result{
-
+  padding: 20px;
 }
 
 .text{
   text-align: start;
   font-size: 12px;
   color: var(--error);
-  padding: 10px 0 10px 0;
+  padding: 0 20px 0 20px;
 }
 
-.btn{
+.btn_group{
   font-size: 15px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   gap: 10px;
+  padding: 10px 20px 20px 20px;
 }
 
 .home_btn{
@@ -45,6 +46,6 @@
 .share{
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding: 0 20px;
   gap: 10px;
 }
