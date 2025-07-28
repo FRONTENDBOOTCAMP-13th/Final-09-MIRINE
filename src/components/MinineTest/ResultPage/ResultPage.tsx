@@ -2,7 +2,7 @@ import TestHeader from "@/components/MinineTest/Header/Header";
 import TestButton from "@/components/MinineTest/ResultPage/Button/TestButton";
 import PerfumeResultList from "@/components/MinineTest/ResultPage/PerfumeResult/PerfumeResult";
 import styles from "@/components/MinineTest/ResultPage/resultPage.module.css"
-import Image from "next/image";
+import Share from "@/components/MinineTest/ResultPage/Share/Share";
 
 export default function ResultPage() {
   return (
@@ -24,18 +24,7 @@ export default function ResultPage() {
       <TestButton />
 
       {/* 공유하기 */}
-      <div className={styles.share}>
-        <button 
-          type="button" 
-          className={styles.kakao}>
-          <Image src="/icon/Icon-kakao.svg" alt="링크" width="42" height="42" />
-        </button>
-        <button 
-          type="button" 
-          className={styles.link}>
-          <Image src="/icon/Icon-link5.svg" alt="링크" width="42" height="42" />
-        </button>
-      </div>
+      <Share />
 
     </div>
   )
