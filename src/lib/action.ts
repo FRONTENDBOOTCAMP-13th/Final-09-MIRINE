@@ -1,6 +1,7 @@
 "use server";
 
 import {} from "@/types/type";
+import { getProduct } from "./function";
 const URL = process.env.OPEN_MARKET_URL;
 const CLIENT_ID = process.env.CLIENT_ID;
 
@@ -74,6 +75,40 @@ export async function deleteReview(id: number, token: string) {
 /**
  * POST /orders
  */
+export async function postOrder(state, formData: FormData) {
+  const productIDList: string[] = formData.getAll("productIDList") as string[];
+  const products = productIDList.map(async (product_id: string) => {
+    const productDataPromise = await getProduct(+product_id);
+    const productData = await productDataPromise.json();
+    return productData.item;
+  });
+  try {
+    const body = {
+      user_id: formData.get("user_id"),
+      products: products,
+      cost: { total: formData.get("total") || 0 },
+      token: formData.get("token"),
+    };
+    if (body.cost.total === 0) {
+      const resolvedProducts = await Promise.all(products);
+      body.cost.total = resolvedProducts.reduce((sum, item) => sum + item.price, 0);
+    }
+    const res = await fetch(`${URL}/orders`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${body.token}`,
+        "Content-Type": "application/json",
+        "Client-Id": CLIENT_ID || "",
+      },
+      body: JSON.stringify(body),
+    });
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("error 발생", error);
+    return error;
+  }
+}
 
 /**
  * PATCH /orders/{_id}
