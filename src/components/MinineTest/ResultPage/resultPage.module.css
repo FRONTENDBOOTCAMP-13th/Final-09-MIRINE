@@ -21,28 +21,6 @@
   padding: 0 20px 0 20px;
 }
 
-.btn_group{
-  font-size: 15px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  gap: 10px;
-  padding: 10px 20px 20px 20px;
-}
-
-.home_btn{
-  border-radius: 4px;
-  background-color: var(--primary-blue-200);
-  height: 46px;
-}
-
-.again_btn{
-  border: 1px solid var(--black-200);
-  border-radius: 4px;
-  background-color: var(--bg-white);
-  height: 46px;
-}
-
 .share{
   display: flex;
   justify-content: center;
