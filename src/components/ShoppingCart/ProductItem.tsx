@@ -5,7 +5,7 @@ export default function ProductItem() {
   return (
     <li className={styles.cart_item}>
       <input type="checkbox" />
-      <Image src="/" alt="alt-text" width="40" height="40" className={styles.item_img} />
+      <Image src="/image/perfume1.svg" alt="향수 이미지" width={40} height={40} className={styles.item_img} />
       <div className={styles.item_info}>
         <p className={styles.brand_name}>브랜드</p>
         <p className={styles.product_name}>향수이름 / 용량</p>
