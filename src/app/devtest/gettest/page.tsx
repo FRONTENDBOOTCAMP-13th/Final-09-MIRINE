@@ -121,7 +121,7 @@ export default function Gettest() {
           type="button"
           style={{ border: "4px solid red", borderRadius: "20px" }}
           onClick={() => {
-            console.log("getProduct", getProduct(2));
+            console.log("getProduct", getProduct(5));
           }}
         >
           getProduct
