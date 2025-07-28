@@ -118,6 +118,30 @@ export async function postOrder(state, formData: FormData) {
 /**
  * POST /bookmarks/product
  */
+export async function postLike({ user_id, target_id, token }: { user_id: number; target_id: number; token: string }) {
+  try {
+    const body = {
+      type: "product",
+      user_id,
+      target_id,
+      token,
+    };
+    const res = await fetch(`${URL}/bookmarks/product`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${body.token}`,
+        "Content-Type": "application/json",
+        "Client-Id": CLIENT_ID || "",
+      },
+      body: JSON.stringify(body),
+    });
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("error 발생", error);
+    return error;
+  }
+}
 
 /**
  * DELETE /bookmarks/{_id}
