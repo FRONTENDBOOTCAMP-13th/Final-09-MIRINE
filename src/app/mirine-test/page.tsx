@@ -6,10 +6,9 @@ import ResultPage from "@/components/MinineTest/ResultPage/ResultPage";
 export default function MirineTestPage() {
   return (
     <>
-      {/* <TestHeader /> */}
-      {/* <TestStartPage /> */}
+      <TestStartPage />
       {/* <MirineTest /> */}
-      <ResultPage />
+      {/* <ResultPage /> */}
     </>
     
 );
