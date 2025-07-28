@@ -52,9 +52,9 @@
   color: var(--black-500);
 }
 
-.view_options{
+/* .view_options{
   display: flex;
   flex-direction: row;
   gap: 10px;
-}
+} */
 
