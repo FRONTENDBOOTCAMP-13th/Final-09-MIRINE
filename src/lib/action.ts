@@ -85,8 +85,24 @@ export async function deleteReview(id: number, token: string) {
  */
 
 /**
- * DELETE /bookmarks/product
+ * DELETE /bookmarks/{_id}
  */
+export async function deleteLike(id: number, token: string) {
+  try {
+    const res = await fetch(`${URL}/bookmarks/${id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Client-Id": CLIENT_ID || "",
+      },
+    });
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("error 발생", error);
+    return error;
+  }
+}
 
 /* 회원 관련 함수 */
 /**
