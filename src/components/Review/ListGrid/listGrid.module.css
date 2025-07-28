@@ -1,0 +1,5 @@
+.view_options{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
