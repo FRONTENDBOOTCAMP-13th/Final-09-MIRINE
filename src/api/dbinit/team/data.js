@@ -109,6 +109,7 @@ export const initData = async (clientId, nextSeq) => {
         active: true,
         name: "라벤더 드림 퍼퓸",
         quantity: 150,
+        buyQuantity: 89,
         mainImages: [
           {
             path: `files/${clientId}/perfume1.webp`,
@@ -237,9 +238,9 @@ export const initData = async (clientId, nextSeq) => {
     review: [
       {
         _id: await nextSeq("review"),
-        user_id: 4,
+        user_id: 1,
         user: {
-          _id: 4,
+          _id: 1,
           name: "제이지",
           image: "user-jayg.webp",
         },
