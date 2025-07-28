@@ -11,18 +11,6 @@ const CLIENT_ID = process.env.CLIENT_ID;
  * POST /replies
  */
 export async function postReview(state, formData: FormData) {
-  // const info = {
-  //   user_id: 1,
-  //   user: {
-  //     _id: 1,
-  //     name: "이름",
-  //   },
-  //   order_id: 1,
-  //   product_id: 1,
-  //   rating: 1,
-  //   content: "포스트 리뷰 테스트",
-  // };
-  // const body = Object.fromEntries(formData.entries());
   try {
     const uploadFiles: File[] = formData.getAll("uploadImages") as File[];
     const uploadImages = uploadFiles.map(async (item) => {
@@ -65,6 +53,22 @@ export async function postReview(state, formData: FormData) {
 /**
  * DELETE /replies/{_id}
  */
+export async function deleteReview(id: number, token: string) {
+  try {
+    const res = await fetch(`${URL}/replies/${id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Client-Id": CLIENT_ID || "",
+      },
+    });
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("error 발생", error);
+    return error;
+  }
+}
 
 /* 주문 관련 함수 */
 /**
