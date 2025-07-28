@@ -1,4 +1,5 @@
 'use client';
+import TestHeader from "@/components/MinineTest/Header/Header";
 import styles from "./testStartPage.module.css";
 import { useRouter } from 'next/navigation';
 
@@ -16,6 +17,7 @@ export default function TestStartPage(){
 
   return(
     <div className={styles.test_start}>
+      <TestHeader />
       <h2 className={styles.title}>당신의 향수는?</h2>
       <nav className={styles.btn_group}>
         <button 
