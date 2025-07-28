@@ -10,6 +10,9 @@ export default function Actiontest() {
       <li>
         <Link href={`${crtURL}/postOrder`}>postOrder</Link>
       </li>
+      <li>
+        <Link href={`${crtURL}/postMirineTest`}>postMirineTest</Link>
+      </li>
     </ul>
   );
 }
