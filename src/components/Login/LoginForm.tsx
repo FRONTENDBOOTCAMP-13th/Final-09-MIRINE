@@ -10,6 +10,8 @@ export default function LoginForm() {
     else console.log("userState", userState);
     if (userState?.ok) {
       localStorage.setItem("accessToken", userState.item.token.accessToken);
+      localStorage.setItem("userId", userState.item._id);
+      console.log("userId", userState.item._id);
       console.log("token", userState.item.token.accessToken);
     }
   });
