@@ -229,6 +229,32 @@ export async function postUser(state, formData: FormData) {
 /**
  * POST /posts
  */
+export async function postMirineTest(state, formData: FormData) {
+  const answers = formData.getAll("answer") as string[];
+  answers.map(Number);
+  const products = formData.getAll("product") as string[];
+  products.map(Number);
+  const body = {
+    type: "post",
+    user: formData.get("user"),
+    extra: { answers, products },
+  };
+  try {
+    const res = await fetch(`${URL}/posts`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Client-Id": CLIENT_ID || "",
+      },
+      body: JSON.stringify(body),
+    });
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("error 발생", error);
+    return error;
+  }
+}
 
 /* 파일 관련 함수 */
 /**
