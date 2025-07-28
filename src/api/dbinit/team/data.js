@@ -10,6 +10,26 @@ export const initData = async (clientId, nextSeq) => {
     user: [
       {
         _id: await nextSeq("user"),
+        email: "gggg@market.com",
+        password: "$2b$10$S.8GNMDyvUF0xzujPtHBu.j5gtS19.OhRmYbpJBnCHg2S83WLx1T2",
+        name: "이름",
+        phone: "01033334444",
+        address: "서울시 서초구 반포동 817",
+        type: "seller",
+        loginType: "email",
+        // image: `files/${clientId}/user-karina.jpg`,
+        createdAt: getTime(-40),
+        updatedAt: getTime(-20, -60 * 60 * 2),
+        extra: {
+          address: {
+            zipCode: "06501",
+            mainAddress: "서울시 서초구 반포동 817",
+            detailAddress: "201동 1301호",
+          },
+        },
+      },
+      {
+        _id: await nextSeq("user"),
         email: "karina@market.com",
         password: "$2b$10$S.8GNMDyvUF0xzujPtHBu.j5gtS19.OhRmYbpJBnCHg2S83WLx1T2",
         name: "카리나",
@@ -54,6 +74,7 @@ export const initData = async (clientId, nextSeq) => {
     product: [
       {
         _id: await nextSeq("product"),
+        seller_id: 1,
         price: 22800,
         show: true,
         active: true,
@@ -79,6 +100,7 @@ export const initData = async (clientId, nextSeq) => {
       },
       {
         _id: await nextSeq("product"),
+        seller_id: 1,
         price: 22800,
         show: true,
         active: true,
@@ -104,6 +126,7 @@ export const initData = async (clientId, nextSeq) => {
       },
       {
         _id: await nextSeq("product"),
+        seller_id: 1,
         price: 32000,
         show: true,
         active: true,
@@ -130,6 +153,7 @@ export const initData = async (clientId, nextSeq) => {
       },
       {
         _id: await nextSeq("product"),
+        seller_id: 1,
         price: 41500,
         show: true,
         active: true,
@@ -155,6 +179,7 @@ export const initData = async (clientId, nextSeq) => {
       },
       {
         _id: await nextSeq("product"),
+        seller_id: 1,
         price: 28700,
         show: true,
         active: true,
@@ -180,6 +205,7 @@ export const initData = async (clientId, nextSeq) => {
       },
       {
         _id: await nextSeq("product"),
+        seller_id: 1,
         price: 2800,
         show: true,
         active: true,
