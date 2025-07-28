@@ -268,6 +268,7 @@ export async function patchUser(state, formData: FormData) {
     password: formData.get("password") || "1111",
     name: formData.get("name") || "이름",
     address: formData.get("address") || "주소",
+    token: formData.get("token"),
   };
   // const info = {
   //   type: "user",
@@ -279,6 +280,7 @@ export async function patchUser(state, formData: FormData) {
     const res = await fetch(`${URL}/users`, {
       method: "PATCH",
       headers: {
+        Authorization: `Bearer ${body.token}`,
         "Content-Type": "application/json",
         "Client-Id": CLIENT_ID || "",
       },
@@ -297,19 +299,21 @@ export async function patchUser(state, formData: FormData) {
  * POST /posts
  */
 export async function postMirineTest(state, formData: FormData) {
-  const answers = formData.getAll("answer") as string[];
-  answers.map(Number);
-  const products = formData.getAll("product") as string[];
-  products.map(Number);
+  const answerList = formData.get("answer") as string;
+  const answers = Array.from(answerList).map(Number);
+  const productList = formData.get("product") as string;
+  const products = Array.from(productList).map(Number);
   const body = {
     type: "post",
     user: formData.get("user"),
     extra: { answers, products },
+    token: formData.get("token"),
   };
   try {
     const res = await fetch(`${URL}/posts`, {
       method: "POST",
       headers: {
+        Authorization: `Bearer ${body.token}`,
         "Content-Type": "application/json",
         "Client-Id": CLIENT_ID || "",
       },
