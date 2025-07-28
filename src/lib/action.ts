@@ -224,6 +224,37 @@ export async function postUser(state, formData: FormData) {
 /**
  * PATCH /users{_id}
  */
+export async function patchUser(state, formData: FormData) {
+  // 임시데이터
+  const body = {
+    type: "user",
+    email: formData.get("email") || "test@test.com",
+    password: formData.get("password") || "1111",
+    name: formData.get("name") || "이름",
+    address: formData.get("address") || "주소",
+  };
+  // const info = {
+  //   type: "user",
+  //   email: "aa@bbb.cc",
+  //   password: "1111",
+  //   name: "이름",
+  // };
+  try {
+    const res = await fetch(`${URL}/users`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Client-Id": CLIENT_ID || "",
+      },
+      body: JSON.stringify(body),
+    });
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("error 발생", error);
+    return error;
+  }
+}
 
 /* 미리내 테스트 관련 함수 */
 /**
