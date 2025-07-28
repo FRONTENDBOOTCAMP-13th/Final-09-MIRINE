@@ -2,9 +2,10 @@
 import { useState } from "react";
 import styles from "./reviewCommon.module.css";
 import Image from "next/image";
+import ReviewButton from "@/components/Review/ReviewButton/ReviewButton";
 
 export default function ReviewCommon(){
-  const [active, setActive] = useState<"mirine"|"perfume"|"aroma">('mirine');
+  // const [active, setActive] = useState<"mirine"|"perfume"|"aroma">('mirine');
   const count = 123;
   return(
     <div className={styles.common_section}>
@@ -12,7 +13,8 @@ export default function ReviewCommon(){
 
       <nav className={styles.btn_group}>
         <ul className={styles.category_list}>
-          <li className={`${styles.category_btn} ${active === 'mirine' ? styles.active : ''}`} >
+          <ReviewButton />
+          {/* <li className={`${styles.category_btn} ${active === 'mirine' ? styles.active : ''}`} >
             <button 
               onClick={() => setActive('mirine')} 
             >
@@ -32,7 +34,7 @@ export default function ReviewCommon(){
             >
               아로마슈터
             </button>
-          </li>
+          </li> */}
         </ul>
       </nav>
 
@@ -54,11 +56,11 @@ export default function ReviewCommon(){
         </div>
       </div>
 
-      <section className={styles.tab_content}>
+      {/* <section className={styles.tab_content}>
         {active === "mirine" && ('미리내 리뷰')}
         {active === "perfume" && ('향수 리뷰')}
         {active === "aroma" && ('아로마슈터 리뷰')}
-      </section>
+      </section> */}
     </div>
   )
 }
