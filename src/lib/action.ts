@@ -50,6 +50,41 @@ export async function postReview(state, formData: FormData) {
 /**
  * PATCH /replies/{_id}
  */
+export async function patchReview(state, formData: FormData) {
+  try {
+    const uploadFiles: File[] = formData.getAll("uploadImages") as File[];
+    const uploadImages = uploadFiles.map(async (item) => {
+      if (item.size > 0) {
+        const imageRes = await uploadFile(item);
+        return imageRes.item[0].path;
+      }
+    });
+    const body = {
+      user_id: formData.get("user_id"),
+      user: formData.get("user"),
+      order_id: formData.get("order_id"),
+      product_id: formData.get("product_id"),
+      rating: formData.get("rating"),
+      content: formData.get("content"),
+      uploadImages: uploadImages,
+      token: formData.get("token"),
+    };
+    const res = await fetch(`${URL}/replies`, {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${body.token}`,
+        "Content-Type": "application/json",
+        "Client-Id": CLIENT_ID || "",
+      },
+      body: JSON.stringify(body),
+    });
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("error 발생", error);
+    return error;
+  }
+}
 
 /**
  * DELETE /replies/{_id}
