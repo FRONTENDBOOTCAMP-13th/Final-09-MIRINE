@@ -111,12 +111,13 @@ export async function deleteReview(id: number, token: string) {
  * POST /orders
  */
 export async function postOrder(state, formData: FormData) {
-  const productIDList: string[] = formData.getAll("productIDList") as string[];
-  const products = productIDList.map(async (product_id: string) => {
-    const productDataPromise = await getProduct(+product_id);
-    const productData = await productDataPromise.json();
-    return productData.item;
+  const productIDList: string[] = formData.getAll("product_id") as string[];
+  const productQuantityList: string[] = formData.getAll("product_quantity") as string[];
+  const productsPromise = productIDList.map(async (product_id: string, idx: number) => {
+    return { _id: +product_id, quantity: +productQuantityList[idx] };
   });
+  const products = await Promise.all(productsPromise);
+  // console.log("products[0]", (await products[0])._id);
   try {
     const body = {
       user_id: formData.get("user_id"),
@@ -124,10 +125,10 @@ export async function postOrder(state, formData: FormData) {
       cost: { total: formData.get("total") || 0 },
       token: formData.get("token"),
     };
-    if (body.cost.total === 0) {
-      const resolvedProducts = await Promise.all(products);
-      body.cost.total = resolvedProducts.reduce((sum, item) => sum + item.price, 0);
-    }
+    // if (body.cost.total === 0) {
+    //   const resolvedProducts = await Promise.all(products);
+    //   body.cost.total = resolvedProducts.reduce((sum, item) => sum + item.price, 0);
+    // }
     const res = await fetch(`${URL}/orders`, {
       method: "POST",
       headers: {
@@ -339,4 +340,30 @@ export async function uploadFile(file: File) {
   });
   const data = await res.json();
   return data;
+}
+
+/* 테스트용 함수 */
+export async function postTestUser(state, formData: FormData) {
+  // 임시데이터
+  const info = {
+    type: "user",
+    email: "aa@bbb.cc",
+    password: "1111",
+    name: "이름",
+  };
+  try {
+    const res = await fetch(`${URL}/users`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Client-Id": CLIENT_ID || "",
+      },
+      body: JSON.stringify(info),
+    });
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("error 발생", error);
+    return error;
+  }
 }
