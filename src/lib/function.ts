@@ -29,7 +29,7 @@ export async function getAllPerfumes() {
  * @param {number} id 제품의 _id
  * @returns 제품 한 개 데이터를 결과로 가지는 Promise
  */
-export async function getPerfume(id: number) {
+export async function getProduct(id: number) {
   try {
     const res = await fetch(`${URL}/products/${id}`, {
       headers: {
@@ -68,7 +68,7 @@ export async function getAllReivews() {
 /**
  * GET /replies
  * @description 로그인 한 사용자의 리뷰를 DB에서 가져오는 함수
- * @param {string} token 로그인 한 사용자에게 부여되는 Access Token 
+ * @param {string} token 로그인 한 사용자에게 부여되는 Access Token
  * @returns 로그인 한 사용자의 리뷰 데이터를 결과로 가지는 Promise
  */
 export async function getMyReivews(token: string) {
@@ -86,7 +86,6 @@ export async function getMyReivews(token: string) {
     return error;
   }
 }
-
 
 /**
  * GET /replies/{_id}
@@ -134,7 +133,7 @@ export async function getProductsReivews(id: number) {
 /**
  * GET /orders
  * @description 로그인 한 사용자의 구매 내역을 DB에서 가져오는 함수
- * @param {string} token 로그인 한 사용자에게 부여되는 Access Token 
+ * @param {string} token 로그인 한 사용자에게 부여되는 Access Token
  * @returns 로그인 한 사용자의 구매 내역 데이터를 결과로 가지는 Promise
  */
 export async function getAllOrders(token: string) {
@@ -157,7 +156,7 @@ export async function getAllOrders(token: string) {
 /**
  * GET /bookmarks/product
  * @description 로그인 한 사용자의 찜 목록을 DB에서 가져오는 함수
- * @param {string} token 로그인 한 사용자에게 부여되는 Access Token 
+ * @param {string} token 로그인 한 사용자에게 부여되는 Access Token
  * @returns 로그인 한 사용자의 찜 목록 데이터를 결과로 가지는 Promise
  */
 export async function getAllLikes(token: string) {
@@ -242,7 +241,7 @@ export async function getAllMirineTests() {
 /**
  * GET /posts/users
  * @description 로그인 한 사용자의 미리내 테스트를 DB에서 가져오는 함수
- * @param {string} token 로그인 한 사용자에게 부여되는 Access Token 
+ * @param {string} token 로그인 한 사용자에게 부여되는 Access Token
  * @returns 로그인 한 사용자의 미리내 테스트 데이터를 결과로 가지는 Promise
  */
 export async function getMyMirineTests(token: string) {
