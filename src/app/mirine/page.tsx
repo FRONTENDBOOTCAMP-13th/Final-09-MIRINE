@@ -1,9 +1,5 @@
 import DetailPage from "@/components/Mirine/MirineDetailPage/DetailPage";
 
 export default function Mirine() {
-  return (
-    <div>
-      <DetailPage />
-    </div>
-  )
+  return <h1>Mirine</h1>;
 }
