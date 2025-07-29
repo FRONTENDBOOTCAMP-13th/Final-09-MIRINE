@@ -1,5 +1,4 @@
 import styles from "./mirineButton.module.css";
-import Link from "next/link";
 
 export default function MirineButton(){
   const handleAddToCart = () => {
