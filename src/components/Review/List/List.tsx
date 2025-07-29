@@ -1,10 +1,9 @@
-// import Link from "next/link";
 import styles from "./list.module.css";
 import Image from "next/image";
 import NameDateTime from "@/components/Review/UserInfo/NameDateTime"
 import Link from "next/link";
 
-export default function List(){
+export default function RiviewList(){
   return(
   <div className={styles.list}>
     <Link href="/" className={styles.review_list}>

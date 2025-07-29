@@ -1,0 +1,40 @@
+/* 이미지, 찜, 링크 */
+.img_btn_section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  display: block;
+}
+
+.action_buttons {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 10; 
+}
+
+@media (min-width: 1024px) {
+  .action_buttons {
+    top: 16px;
+    right: 16px;
+    gap: 8px;
+  }
+}
+
+.like_btn,
+.share_btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--black-200); 
+  background-color: var(--bg-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

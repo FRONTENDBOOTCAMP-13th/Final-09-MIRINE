@@ -1,0 +1,39 @@
+/* 제품정보 */
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  padding: 20px; 
+}
+
+.product_info{
+  padding-bottom: 20px;
+}
+
+.brand_name {
+  font-size: 12px;
+  color: var(--black-500);
+}
+
+.product_name {
+  font-size: 20px;
+  color: var(--black-950);
+  
+}
+
+.price {
+  font-size: 16px;
+  color: var(--black-950);
+}
+/* 상품 간단 설명 */
+.product_description {
+  font-size: 12px;
+  color: var(--text-blue-300);
+  padding-bottom: 30px;
+}
+/* 해시태그 */
+.tag {
+  color: var(--blue-700);
+  font-size: 12px;
+  padding-bottom: 10px;
+}
