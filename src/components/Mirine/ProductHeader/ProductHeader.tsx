@@ -11,10 +11,12 @@ export default function ProductHeader(){
     <div>
       {/* 이미지, 찜, 링크 공유 */}
       <header className={styles.img_btn_section}>
+        {/* 이미지 */}
         <div className={styles.image}>
           <Image src="/image/perfume1.svg" alt="상품이미지" width={360} height={360} />
         </div>
-        {/* 찜, 공유 버튼 */}
+
+        {/* 찜 */}
         <div className={styles.action_buttons}>
           <button className={styles.like_btn} aria-label="찜하기" type="button"
             onClick={()=> {setIsActive(!isActive)}}
@@ -29,6 +31,7 @@ export default function ProductHeader(){
             </svg>
             )}
           </button>
+
           {/* 공유 버튼 */}
           <button className={styles.share_btn} type="button" 
             onClick={handleButtonClick}
