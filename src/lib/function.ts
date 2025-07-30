@@ -155,9 +155,9 @@ export async function getAllOrders(token: string) {
 /* 찜 관련 함수 */
 /**
  * GET /bookmarks/product
- * @description 로그인 한 사용자의 찜 목록을 DB에서 가져오는 함수
+ * @description  찜 전체를 DB에서 가져오는 함수
  * @param {string} token 로그인 한 사용자에게 부여되는 Access Token
- * @returns 로그인 한 사용자의 찜 목록 데이터를 결과로 가지는 Promise
+ * @returns  찜 전체 데이터를 결과로 가지는 Promise
  */
 export async function getAllLikes(token: string) {
   try {
@@ -175,6 +175,12 @@ export async function getAllLikes(token: string) {
   }
 }
 
+/**
+ * GET /users/{_id}/bookmarks
+ * @description 사용자의 찜 목록을 DB에서 가져오는 함수
+ * @param {number} id 사용자의 _id
+ * @returns 사용자의 찜 목록 데이터를 결과로 가지는 Promise
+ */
 export async function getUsersLikes(id: number) {
   try {
     const res = await fetch(`${URL}/users/${id}/bookmarks`, {
