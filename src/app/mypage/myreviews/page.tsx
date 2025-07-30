@@ -1,3 +1,9 @@
+import MyReview from "@/components/MypageAside/MyReview/MyReview";
+
 export default function MyReviews() {
-  return <h1>Mypage/MyReviews</h1>;
+  return (
+    <>
+      <MyReview />
+    </>
+  );
 }

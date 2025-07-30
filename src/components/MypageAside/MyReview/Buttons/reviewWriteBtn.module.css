@@ -1,0 +1,10 @@
+.write_btn{
+  font-size: 11px;
+  color: var(--primary-blue-300);
+  border: 1px solid var(--primary-blue-300);
+  border-radius: 6px;
+  padding: 10px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+}
