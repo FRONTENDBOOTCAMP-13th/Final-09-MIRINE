@@ -8,7 +8,7 @@ export default function LikeListPage(){
   const router = useRouter();
 
   const handleItemClick = () => {
-    router.push('/');
+    router.push('/perfumes'); //페이지 오류
   }
 
   return(
