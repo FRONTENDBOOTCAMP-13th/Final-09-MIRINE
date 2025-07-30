@@ -10,8 +10,15 @@
   display: flex;
   gap: 10px;
   font-size: 12px;
+}
+
+.name{
   color: var(--black-950);
   font-weight: bold;
+}
+
+.datetime{
+  color: var(--black-500);
 }
 
 .star{
