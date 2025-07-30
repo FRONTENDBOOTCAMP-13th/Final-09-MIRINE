@@ -15,8 +15,10 @@ export default function LikeListPage(){
             <p className={styles.brand_name}>브랜드</p>
             <p className={styles.product_name}>향수이름</p>
           </div>
-
-          <LikeButton />
+          <div className={styles.like_btn}>
+            <LikeButton />
+          </div>
+          
         </div>
       </div>
 

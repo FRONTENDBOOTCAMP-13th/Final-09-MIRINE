@@ -28,5 +28,6 @@
 }
 
 .like_btn{
-
+  display: flex;
+  align-items: center;
 }
