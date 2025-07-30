@@ -7,7 +7,7 @@ export default function MyReviewWriteList(){
 
   return(
     <div className={styles.review_wrapper}>
-      <p className={styles.title}>리뷰쓰기</p>
+      <p className={styles.title}>리뷰 쓰기</p>
 
       {/* 리뷰쓰기 리스트 */}
       <div className={styles.list_group}>

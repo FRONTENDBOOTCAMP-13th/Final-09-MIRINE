@@ -22,6 +22,10 @@
   gap: 5px;
 }
 
+.img{
+  background-color: var(--black-200);
+}
+
 .item_group{
   padding: 20px 0 20px 0;
 }
