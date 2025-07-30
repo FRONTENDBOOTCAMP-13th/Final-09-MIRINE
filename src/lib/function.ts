@@ -175,6 +175,21 @@ export async function getAllLikes(token: string) {
   }
 }
 
+export async function getUsersLikes(id: number) {
+  try {
+    const res = await fetch(`${URL}/users/${id}/bookmarks`, {
+      headers: {
+        "Client-Id": CLIENT_ID ?? "",
+      },
+    });
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+}
+
 /* 회원 관련 함수 */
 /**
  * GET /users
