@@ -1,8 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./signupform.module.css";
+
+declare global {
+  interface Window {
+    daum: any;
+  }
+}
 
 export default function SignUpForm() {
   const router = useRouter();
@@ -10,6 +16,8 @@ export default function SignUpForm() {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
+  const [zipcode, setZipcode] = useState("");
+  const [address, setAddress] = useState("");
   const [detail, setDetail] = useState("");
   const [phone, setPhone] = useState("");
 
@@ -19,6 +27,24 @@ export default function SignUpForm() {
 
   const isIdValid = id.length >= 5;
   const isPasswordMatch = password === confirm;
+
+  // 주소 검색 스크립트 삽입
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src =
+      "//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+
+  const handleAddressSearch = () => {
+    new window.daum.Postcode({
+      oncomplete: function (data: any) {
+        setZipcode(data.zonecode);
+        setAddress(data.roadAddress || data.jibunAddress);
+      },
+    }).open();
+  };
 
   const formatPhoneNumber = (value: string) => {
     const onlyNums = value.replace(/\D/g, "");
@@ -91,10 +117,16 @@ export default function SignUpForm() {
       <div className={styles.field}>
         <label>주소 정보</label>
         <div className={styles.addressRow}>
-          <input type="text" placeholder="12345" readOnly />
-          <button className={styles.zipButton}>우편번호 검색</button>
+          <input type="text" placeholder="12345" value={zipcode} readOnly />
+          <button
+            type="button"
+            className={styles.zipButton}
+            onClick={handleAddressSearch}
+          >
+            우편번호 검색
+          </button>
         </div>
-        <input type="text" placeholder="기본 주소" readOnly />
+        <input type="text" placeholder="기본 주소" value={address} readOnly />
         <input
           type="text"
           placeholder="상세주소"
