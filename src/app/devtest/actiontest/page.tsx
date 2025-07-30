@@ -13,6 +13,12 @@ export default function Actiontest() {
       <li>
         <Link href={`${crtURL}/postMirineTest`}>postMirineTest</Link>
       </li>
+      <li>
+        <Link href={`${crtURL}/uploadFile`}>uploadFile</Link>
+      </li>
+      <li>
+        <Link href={`${crtURL}/likeTest`}>likeTest</Link>
+      </li>
     </ul>
   );
 }
