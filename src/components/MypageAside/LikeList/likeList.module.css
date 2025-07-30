@@ -1,0 +1,32 @@
+.list_wrapper{
+  padding: 0 20px 10px 20px;
+}
+.list_group{
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  border: 1px solid var(--black-200);
+  border-radius: 12px;
+  padding: 20px;
+
+}
+
+.item_info{
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.brand_name{
+  font-size: 12px;
+  color: var(--black-500);
+}
+
+.product_name{
+  font-size: 14px;
+  color: var(--black-950);
+}
+
+.like_btn{
+
+}
