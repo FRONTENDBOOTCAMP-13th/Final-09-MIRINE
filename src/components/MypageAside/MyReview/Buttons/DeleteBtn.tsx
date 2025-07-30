@@ -9,7 +9,7 @@ export default function DeleteBtn(){
         className={styles.delete_btn}
         // onClick={handleWriteClick}
         >
-        리뷰삭제
+        리뷰 삭제
       </button>
     </div>
   )

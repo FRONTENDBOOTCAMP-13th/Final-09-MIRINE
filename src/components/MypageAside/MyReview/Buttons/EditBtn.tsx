@@ -9,7 +9,7 @@ export default function EditBtn(){
         className={styles.edit_btn}
         // onClick={handleWriteClick}
         >
-        리뷰 상세보기
+        리뷰 수정
       </button>
     </div>
   )
