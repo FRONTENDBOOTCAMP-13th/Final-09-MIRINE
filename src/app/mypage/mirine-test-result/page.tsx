@@ -1,3 +1,9 @@
+import MyPageTestResult from "@/components/MypageAside/TestResult/TestResultPage";
+
 export default function MirineTestResult() {
-  return <h1>Mypage/MirineTestResult</h1>;
+  return (
+    <>
+      <MyPageTestResult />
+    </>
+  );
 }
