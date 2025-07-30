@@ -371,3 +371,20 @@ export async function postTestUser(state, formData: FormData) {
     return error;
   }
 }
+
+export async function uploadFileForDev(state, formData: FormData) {
+  const body = new FormData();
+  const attachData = formData.getAll("attach") as File[];
+  if (!attachData) return { ok: 0, message: "파일 없음" };
+  attachData.forEach((file) => body.append("attach", file));
+
+  const res = await fetch(`${URL}/files`, {
+    method: "POST",
+    headers: {
+      "Client-Id": CLIENT_ID ?? "",
+    },
+    body: body,
+  });
+  const data = await res.json();
+  return data;
+}
