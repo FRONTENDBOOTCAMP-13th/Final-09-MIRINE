@@ -1,7 +1,5 @@
 "use server";
 
-import {} from "@/types/type";
-import { getProduct } from "./function";
 const URL = process.env.OPEN_MARKET_URL;
 const CLIENT_ID = process.env.CLIENT_ID;
 
@@ -182,9 +180,9 @@ export async function postLike({ user_id, target_id, token }: { user_id: number;
 /**
  * DELETE /bookmarks/{_id}
  */
-export async function deleteLike(id: number, token: string) {
+export async function deleteLike({ target_id, token }: { target_id: number; token: string }) {
   try {
-    const res = await fetch(`${URL}/bookmarks/${id}`, {
+    const res = await fetch(`${URL}/bookmarks/${target_id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -331,9 +329,11 @@ export async function postMirineTest(state, formData: FormData) {
 /**
  * POST /files
  */
-export async function uploadFile(file: File) {
+export async function uploadFile(formData: FormData) {
   const body = new FormData();
-  body.append("attach", file);
+  const attachData = formData.getAll("attach") as File[];
+  if (!attachData) return { ok: 0, message: "파일 없음" };
+  attachData.forEach((file) => body.append("attach", file));
 
   const res = await fetch(`${URL}/files`, {
     method: "POST",
