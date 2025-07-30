@@ -2,12 +2,18 @@
 import LikeButton from '@/components/MypageAside/LikeList/LikeButton/LikeButton';
 import styles from '@/components/MypageAside/LikeList/likeList.module.css'
 import Image from "next/image";
+import { useRouter } from 'next/navigation';
 
 export default function LikeListPage(){
+  const router = useRouter();
+
+  const handleItemClick = () => {
+    router.push('/');
+  }
 
   return(
     <div className={styles.list_section}>
-      <div className={styles.list_wrapper}>
+      <div className={styles.list_wrapper} onClick={handleItemClick} >
         <div className={styles.list_group}>
           <Image src="/image/perfume1.svg" alt="향수 이미지" width="40" height="40" className={styles.perfume_img} />
           

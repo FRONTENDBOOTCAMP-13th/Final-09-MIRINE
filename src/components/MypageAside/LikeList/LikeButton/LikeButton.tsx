@@ -1,14 +1,19 @@
 'use client'
 import styles from '@/components/MypageAside/LikeList/LikeButton/likeButton.module.css'
-import { useState } from "react";
+import { useState, MouseEvent } from "react";
 
 export default function LikeButton(){
   const [isActive, setIsActive] = useState(false);
 
+  const handleLikeClick = (e: MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    setIsActive(!isActive);
+  }
+
   return(
     <div>
       <button className={styles.like_btn} aria-label="찜하기" type="button"
-            onClick={()=> {setIsActive(!isActive)}}
+            onClick={handleLikeClick}
           >
             {isActive ? (
               <svg width={20} height={20} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
