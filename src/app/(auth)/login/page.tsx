@@ -1,6 +1,3 @@
-"use client";
-
-import Script from "next/script";
 import styles from "./login.module.css";
 import LoginForm from "../../../components/Login/LoginForm";
 
