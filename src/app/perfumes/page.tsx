@@ -4,7 +4,7 @@ import SearchBar from "@/components/perfumes/SearchBar/SearchBar";
 import styles from "./page.module.css";
 import FilterSection from "@/components/perfumes/FilterSection/FilterSection";
 import PerfumeItem from "@/components/perfumes/PerfumeItem/PerfumeItem";
-import { getAllPerfumes, getPerfume } from "@/lib/function";
+import { getAllPerfumes, getProduct } from "@/lib/function";
 // import Image from "next/image";
 import { Perfume } from "@/types/perfume";
 export default async function Perfumes() {
@@ -16,7 +16,7 @@ export default async function Perfumes() {
   // const res = await fetch("http://localhost:3000/api/perfumes"); // /src/api/perfumes/route.tsㅅ
   // const data = await res.json();
   const data = await getAllPerfumes();
-  const data1 = await getPerfume(3); // 이거 api 오류임
+  const data1 = await getProduct(3); // 이거 api 오류임
   console.log(data);
   console.log(data.item[0].mainImages[0].path);
   console.log();
