@@ -1,8 +1,9 @@
 .profile_info{
   border: 1px solid var(--black-200);
   border-radius: 12px;
-  width: 100%;
+  /* width: 100%; */
   padding: 20px;
+  margin: 20px;
 }
 
 .id_section{
