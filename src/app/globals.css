@@ -40,13 +40,12 @@
 }
 
 main {
-  margin-top: 50px;
-  min-height: calc(100vh - 160px);
+  padding-top: 50px;
+  min-height: calc(100vh - 122px);
 }
 
 @media (min-width: 1280px) {
   main {
-    margin-top: 80px;
-    min-height: calc(100vh - 210px);
+    padding-top: 80px;
   }
 }
