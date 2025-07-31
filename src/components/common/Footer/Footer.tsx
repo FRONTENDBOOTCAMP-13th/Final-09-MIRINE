@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import styles from "./footer.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   const pathname = usePathname();
@@ -21,10 +22,10 @@ export default function Footer() {
           />
           <ul className={styles.f_menu}>
             <li>
-              <a href="/terms">이용약관</a>
+              <Link href="/terms">이용약관</Link>
             </li>
             <li>
-              <a href="/privacy">개인정보처리방침</a>
+              <Link href="/privacy">개인정보처리방침</Link>
             </li>
           </ul>
           <p className={styles.copyright}>
