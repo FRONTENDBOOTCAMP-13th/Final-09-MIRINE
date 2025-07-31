@@ -3,7 +3,6 @@ import { useState } from 'react';
 import styles from './mypageAside.module.css';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation'; 
-import { error } from 'console';
 
 interface Option {
   value: string;
