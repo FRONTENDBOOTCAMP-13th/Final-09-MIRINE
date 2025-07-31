@@ -1,0 +1,93 @@
+.find_scent {
+  padding-bottom: 20px;
+}
+
+.title {
+  margin-bottom: 10px;
+  color: var(--black-950);
+  font-size: 22px;
+  line-height: 1;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #faf8f4;
+  border-radius: 100px;
+  padding: 30px;
+  padding-right: 20px;
+}
+
+.text span {
+  display: block;
+  color: var(--black-950);
+  font-size: 13px;
+}
+
+.link {
+  display: inline-block;
+  padding: 10px 26px;
+  border: 1px solid var(--black-200);
+  border-radius: 50px;
+  background-color: var(--bg-white);
+  color: var(--text-blue-400);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .find_scent {
+    padding-bottom: 50px;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  .content {
+    padding: 30px;
+    padding-left: 40px;
+  }
+
+  .text span {
+    display: inline-block;
+    font-size: 16px;
+  }
+
+  .link {
+    padding: 10px 32px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .find_scent {
+    padding-bottom: 150px;
+  }
+
+  .title {
+    margin-bottom: 40px;
+    font-size: 40px;
+  }
+
+  .content {
+    padding: 60px 80px;
+  }
+
+  .text span {
+    font-size: 22px;
+  }
+
+  .link {
+    padding: 12px 54px;
+    font-size: 20px;
+    transition: border-color 0.1s, background-color 0.1s, color 0.1s;
+
+    &:hover {
+      border-color: var(--black-950);
+      background-color: var(--black-950);
+      color: var(--text-white);
+    }
+  }
+}
