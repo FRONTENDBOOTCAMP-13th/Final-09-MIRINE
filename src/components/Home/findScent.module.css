@@ -34,6 +34,7 @@
   color: var(--text-blue-400);
   font-size: 12px;
   font-weight: bold;
+  white-space: nowrap;
 }
 
 @media (min-width: 768px) {
