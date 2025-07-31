@@ -1,24 +1,23 @@
 "use client";
-import { login } from "@/lib/action";
+
+import { useRouter } from "next/navigation";
 import styles from "./loginForm.module.css";
-import { useActionState, useEffect } from "react";
+
 export default function LoginForm() {
-  const [userState, formAction, isLoading] = useActionState(login, null);
-  console.log(isLoading, userState);
-  useEffect(() => {
-    if (userState?.ok) console.log("userState", userState);
-    else console.log("userState", userState);
-    if (userState?.ok) {
-      localStorage.setItem("accessToken", userState.item.token.accessToken);
-      localStorage.setItem("userId", userState.item._id);
-      console.log("userId", userState.item._id);
-      console.log("token", userState.item.token.accessToken);
-    }
-  });
+  const router = useRouter();
+
   return (
-    <form action={formAction} className={styles.form}>
-      <input id="email" name="email" type="text" placeholder="아이디를 입력해주세요" className={styles.input} />
-      <input id="password" name="password" type="password" placeholder="비밀번호를 입력해주세요" className={styles.input} />
+    <form className={styles.form}>
+      <input
+        type="text"
+        placeholder="아이디를 입력해주세요"
+        className={styles.input}
+      />
+      <input
+        type="password"
+        placeholder="비밀번호를 입력해주세요"
+        className={styles.input}
+      />
 
       <div className={styles.options}>
         <label className={styles.checkboxLabel}>
@@ -34,9 +33,40 @@ export default function LoginForm() {
         <button type="submit" className={styles.loginButton}>
           로그인
         </button>
-        <button type="button" className={styles.signupButton}>
+        <button
+          type="button"
+          className={styles.signupButton}
+          onClick={() => router.push("/signup")}
+        >
           회원가입
         </button>
+      </div>
+
+      <div className={styles.easyLogin}>
+        <h3>간편 로그인</h3>
+        <div className={styles.easyLoginButtons}>
+          <button
+            type="button"
+            className={styles.easyLoginButton}
+            aria-label="Google 로그인"
+          >
+            <span className={styles.googleIcon} />
+          </button>
+          <button
+            type="button"
+            className={styles.easyLoginButton}
+            aria-label="Naver 로그인"
+          >
+            <span className={styles.naverIcon} />
+          </button>
+          <button
+            type="button"
+            className={styles.easyLoginButton}
+            aria-label="Kakao 로그인"
+          >
+            <span className={styles.kakaoIcon} />
+          </button>
+        </div>
       </div>
     </form>
   );
