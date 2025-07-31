@@ -5,7 +5,7 @@ export default function MyReviews() {
   return (
     <>
       <MyReview />
-      <ReviewWriteEdit />
+      {/* <ReviewWriteEdit /> */}
     </>
   );
 }

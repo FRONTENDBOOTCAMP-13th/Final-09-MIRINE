@@ -1,0 +1,11 @@
+.cancel_btn{
+  border: 1px solid var(--black-200);
+  border-radius: 4px;
+  height: 46px;
+  width: 100%;
+}
+
+.btn_text{
+  font-size: 15px;
+  color: var(--black-950);
+}

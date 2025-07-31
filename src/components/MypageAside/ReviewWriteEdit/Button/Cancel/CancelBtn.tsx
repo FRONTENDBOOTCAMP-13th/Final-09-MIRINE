@@ -6,7 +6,7 @@ interface CancelButtonProps {
   disabled?: boolean;
 }
 
-export default function SaveButton({onClick, disabled = false}: CancelButtonProps){
+export default function CancelButton({onClick, disabled = false}: CancelButtonProps){
   return(
       <button 
         type='button'
@@ -14,7 +14,7 @@ export default function SaveButton({onClick, disabled = false}: CancelButtonProp
         onClick={onClick}
         disabled={disabled}
       >
-        취소하기
+        <p className={styles.btn_text}>취소하기</p>
       </button>
   )
 }
