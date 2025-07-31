@@ -220,7 +220,7 @@ export default function Header() {
               <Link href="/shopping-cart" className={pathname === "/shopping-cart" ? styles.active : ""}>
                 장바구니
               </Link>
-              <span className={styles.cartCnt}>0</span>
+              <span className={styles.cart_cnt}>0</span>
             </li>
           </ul>
         </div>
