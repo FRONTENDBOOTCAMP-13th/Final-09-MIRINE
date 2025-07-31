@@ -1,0 +1,53 @@
+.info_group{
+  display: flex;
+  flex-direction: column;
+}
+
+.info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 11px; 
+  padding-bottom: 20px;
+}
+
+.datetime{
+  font-size: 11px;
+  color: var(--black-950);
+}
+
+.photo_group{
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.img{
+  background-color: var(--black-200);
+}
+
+.item_group{
+  padding: 20px 0 20px 0;
+}
+
+.item_info{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.brand_name{
+  font-size: 12px;
+  color: var(--black-500);
+}
+
+.product_name{
+  font-size: 14px;
+  color: var(--black-950);
+}
+
+.text{
+  font-size: 11px;
+  color: var(--black-950);
+  padding-top: 20px;
+}
