@@ -14,7 +14,7 @@ export default function RegisterButton({onClick, disabled = false}: RegisterButt
         onClick={onClick}
         disabled={disabled}
       >
-        등록하기
+        <p className={styles.btn_text}>등록하기</p>
       </button>
   )
 }
