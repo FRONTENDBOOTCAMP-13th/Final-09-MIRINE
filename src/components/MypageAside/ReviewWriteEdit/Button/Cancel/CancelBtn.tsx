@@ -14,7 +14,7 @@ export default function CancelButton({onClickCancel, disabled = false}: CancelBu
     if (onClickCancel) {
       onClickCancel();
     } else {
-      router.push('/reviews'); 
+      router.push('/myreviews'); 
     }
   }
   

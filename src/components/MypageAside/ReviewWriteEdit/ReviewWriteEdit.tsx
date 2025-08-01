@@ -4,14 +4,12 @@ import CancelButton from '@/components/MypageAside/ReviewWriteEdit/Button/Cancel
 import RegisterButton from '@/components/MypageAside/ReviewWriteEdit/Button/Register/RegisterBtn';
 import styles from '@/components/MypageAside/ReviewWriteEdit/reviewWriteEdit.module.css'
 import Image from "next/image";
-
-// import { useReducer } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function ReviewWriteEdit(){
+  const router = useRouter();
   const [content, setContent] = useState(""); 
   const [error, setError] = useState("");   
-
-  // const [data, dispatch] = useReducer(ReviewItem,ReviewEx);
   
   // 리뷰 작성
   const onCreate = () => {
@@ -24,6 +22,9 @@ export default function ReviewWriteEdit(){
 
     setContent('');
     setError('');
+    
+    // 등록 성공 후 페이지 이동
+    router.push('/myreviews'); 
   }
 
   return (
@@ -86,7 +87,7 @@ export default function ReviewWriteEdit(){
 
         <div className={styles.btn_broup}>
             <CancelButton />
-            <RegisterButton onClick={onCreate} />
+            <RegisterButton onClickRegister={onCreate} />
         </div>
     </div>
   )
