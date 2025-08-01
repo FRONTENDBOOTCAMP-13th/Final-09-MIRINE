@@ -4,6 +4,7 @@ import CancelButton from '@/components/MypageAside/ReviewWriteEdit/Button/Cancel
 import RegisterButton from '@/components/MypageAside/ReviewWriteEdit/Button/Register/RegisterBtn';
 import styles from '@/components/MypageAside/ReviewWriteEdit/reviewWriteEdit.module.css'
 import Image from "next/image";
+
 // import { useReducer } from 'react';
 
 export default function ReviewWriteEdit(){
@@ -84,7 +85,7 @@ export default function ReviewWriteEdit(){
         </div>
 
         <div className={styles.btn_broup}>
-            <CancelButton />
+            <CancelButton onClickCancel={() => console.log('취소 클릭됨')} />
             <RegisterButton onClick={onCreate} />
         </div>
     </div>
