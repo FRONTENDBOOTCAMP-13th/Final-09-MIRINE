@@ -4,8 +4,8 @@ import ReviewWriteEdit from "@/components/MypageAside/ReviewWriteEdit/ReviewWrit
 export default function MyReviews() {
   return (
     <>
-      <MyReview />
-      {/* <ReviewWriteEdit /> */}
+      {/* <MyReview /> */}
+      <ReviewWriteEdit />
     </>
   );
 }

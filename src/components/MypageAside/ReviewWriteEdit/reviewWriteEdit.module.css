@@ -64,17 +64,30 @@
   font-size: 11px;
 }
 
-.review_write_box{
+/* .review_write_box{
   border: 1px solid var(--black-200);
   background-color: var(--black-50);
   height: 170px;
   margin: 10px 0 10px 0;
+} */
+
+.textarea{
+  width: 100%;
+  border: 1px solid var(--black-200);
+  background-color: var(--black-50);
+  height: 170px;
+  margin: 10px 0 10px 0;
+  font-size: 11px;
+  color: var(--black-950);
+  padding: 10px;
+  resize: none;
+  outline: none;
 }
 
-.text{
+.textarea::placeholder{
   font-size: 11px;
   color: var(--black-400);
-  padding: 10px;
+  /* padding: 10px; */
 }
 
 .btn_broup{
