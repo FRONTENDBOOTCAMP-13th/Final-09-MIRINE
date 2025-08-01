@@ -85,7 +85,7 @@ export default function ReviewWriteEdit(){
         </div>
 
         <div className={styles.btn_broup}>
-            <CancelButton onClickCancel={() => console.log('취소 클릭됨')} />
+            <CancelButton />
             <RegisterButton onClick={onCreate} />
         </div>
     </div>
