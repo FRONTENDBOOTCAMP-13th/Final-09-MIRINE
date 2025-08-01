@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={`${suit.className}`}>
+      <body className={`${suit.className}`} suppressHydrationWarning={true}>
         <Header />
         <main>{children}</main>
         <Footer />
