@@ -2,20 +2,20 @@
 import styles from '@/components/MypageAside/SaveButton/saveButton.module.css'
 
 interface SaveButtonProps {
-  onClick?: () => void; //나중에 수정
+  onClickSave: () => void; 
   disabled?: boolean;
 }
 
-export default function SaveButton({onClick, disabled = false}: SaveButtonProps){
+export default function SaveButton({onClickSave, disabled = false}: SaveButtonProps){
   return(
     <div className={styles.btn}>
       <button 
         type='button'
-        className={styles.save_btn}
-        onClick={onClick}
+        className={`${styles.save_btn} ${disabled ? styles.disabled : ''}`}
+        onClick={onClickSave}
         disabled={disabled}
       >
-        저장
+        <p className={styles.btn_text}>저장</p>
       </button>
     </div>
   )
