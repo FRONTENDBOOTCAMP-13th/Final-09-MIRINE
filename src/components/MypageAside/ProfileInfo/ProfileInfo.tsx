@@ -207,7 +207,7 @@ export default function ProfileInfo(){
     </form>
     
     <SaveButton 
-      onClickSave={handleSave} disabled={isLoading} />
+      onClickSave={handleSave} disabled={isLoading}/>
   </div>
   
   )
