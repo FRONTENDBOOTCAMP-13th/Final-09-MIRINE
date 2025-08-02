@@ -1,5 +1,5 @@
-import LoginForm from "@/components/Login/LoginForm";
+import LoginFormEx from "./LoginFormEx";
 
 export default function PostUser() {
-  return <LoginForm />;
+  return <LoginFormEx />;
 }
