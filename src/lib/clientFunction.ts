@@ -3,9 +3,10 @@
 // export function getFile(path: string) {
 //   return `${URL}/${path}`;
 // }
-const URL = process.env.NEXT_PUBLIC_OPEN_MARKET_URL;
+// const URL = process.env.NEXT_PUBLIC_OPEN_MARKET_URL;
 export function getFile(path: string) {
-  return `${URL}/${path}`;
+  // return `${URL}/${path}`;
+  return `${path}`;
 }
 
 export function getAccessToken() {
