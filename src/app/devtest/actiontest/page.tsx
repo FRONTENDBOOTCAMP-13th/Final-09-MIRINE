@@ -5,6 +5,9 @@ export default function Actiontest() {
   return (
     <ul>
       <li>
+        <Link href={`${crtURL}/dbinit`}>dbinit</Link>
+      </li>
+      <li>
         <Link href={`${crtURL}/postUser`}>postUser</Link>
       </li>
       <li>
