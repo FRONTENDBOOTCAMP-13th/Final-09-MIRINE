@@ -16,3 +16,12 @@ export function getAccessToken() {
 export function getUserID() {
   return localStorage.getItem("userId") || "";
 }
+
+export function addPhoneHyphens(phone: string) {
+  let str = "";
+  Array.from(phone).forEach((e, i) => {
+    str += e;
+    if (i === 2 || i === phone.length - 5) str += "-";
+  });
+  return str;
+}
