@@ -25,6 +25,9 @@ export default function Actiontest() {
       <li>
         <Link href={`${crtURL}/reviewTest`}>reviewTest</Link>
       </li>
+      <li>
+        <Link href={`${crtURL}/patchUser`}>patchUser</Link>
+      </li>
     </ul>
   );
 }
