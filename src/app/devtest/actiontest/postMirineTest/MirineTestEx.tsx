@@ -11,17 +11,17 @@ export default function MirineTestEx() {
     sessionStorage.setItem("answer", "");
   }, []);
   useEffect(() => {
-    if (problemCount === 5) setIsResult(true);
+    if (problemCount > 5) setIsResult(true);
   }, [problemCount]);
   useEffect(() => {
     const numList = [];
     numList.push(Math.floor(Math.random() * 9 + 1));
     numList.push(Math.floor(Math.random() * 9 + 1));
     numList.push(Math.floor(Math.random() * 9 + 1));
-    let str = "";
-    numList.forEach((item) => (str += item));
-    sessionStorage.setItem("product", str);
     setRandomNum(numList);
+    let str = "";
+    randomNum.forEach((item) => (str += item));
+    sessionStorage.setItem("product", str);
   }, [isResult]);
   return (
     <div>
