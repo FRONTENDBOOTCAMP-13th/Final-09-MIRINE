@@ -25,9 +25,9 @@ export default function ProfileInfoEx({ userData }: { userData: UserDataProp | n
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const [postalCode, setPostalCode] = useState(userData?.extra.address.zipCode || "");
-  const [address, setAddress] = useState(userData?.extra.address.mainAddress || "");
-  const [detailAddress, setDetailAddress] = useState(userData?.extra.address.detailAddress || "");
+  const [postalCode, setPostalCode] = useState("");
+  const [address, setAddress] = useState("");
+  const [detailAddress, setDetailAddress] = useState("");
 
   const [token, setToken] = useState<string>("");
   const [userId, setUserId] = useState<string>("");
@@ -37,6 +37,11 @@ export default function ProfileInfoEx({ userData }: { userData: UserDataProp | n
     setToken(accessToken);
     setUserId(id);
   }, []);
+  useEffect(() => {
+    setPostalCode(userData?.extra.address.zipCode || "");
+    setAddress(userData?.extra.address.mainAddress || "");
+    setDetailAddress(userData?.extra.address.detailAddress || "");
+  }, [userData]);
 
   return (
     <form className={styles.profile_info} action={formAction}>
