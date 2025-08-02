@@ -1,9 +1,32 @@
+'use client'
+import { useState } from 'react'; 
 import CancelButton from '@/components/MypageAside/ReviewWriteEdit/Button/Cancel/CancelBtn';
 import RegisterButton from '@/components/MypageAside/ReviewWriteEdit/Button/Register/RegisterBtn';
 import styles from '@/components/MypageAside/ReviewWriteEdit/reviewWriteEdit.module.css'
 import Image from "next/image";
+import { useRouter } from 'next/navigation';
 
 export default function ReviewWriteEdit(){
+  const router = useRouter();
+  const [content, setContent] = useState(""); 
+  const [error, setError] = useState("");   
+  
+  // 리뷰 작성
+  const onCreate = () => {
+    if (content.trim().length < 10){
+      setError('*최소 10자 이상 입력해 주세요.');
+      return;
+    }
+
+    console.log('리뷰 등록됨:', content);
+
+    setContent('');
+    setError('');
+    
+    // 등록 성공 후 페이지 이동
+    router.push('/myreviews'); 
+  }
+
   return (
     <div className={styles.wrapper}>
         <div className={styles.list_group}>
@@ -41,15 +64,30 @@ export default function ReviewWriteEdit(){
           <div className={styles.review_write_wrapper}>
             <p className={styles.review_write_title}>리뷰 작성</p>
               <div className={styles.review_write_box}>
-                <p className={styles.text}>*해당 상품과 무관한 내용이나 동일 문자의 반복 등 부적절한 내용은 삭제될 수 있습니다.</p>
+                <textarea 
+                  className={styles.textarea}
+                  placeholder='*해당 상품과 무관한 내용이나 동일 문자의 반복 등 부적절한 내용은 삭제될 수 있습니다.'
+                  value={content}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    setContent(value);
+                    
+                    if (value.trim().length >= 10){
+                      setError("");
+                    }
+                  
+                  }}
+                />
               </div>
-              <p className={styles.error_text}>*최소 10자 이상 입력해 주세요.</p>
+              <p className={styles.error_text}>
+                {error || error}
+              </p>
           </div>
         </div>
 
         <div className={styles.btn_broup}>
             <CancelButton />
-            <RegisterButton />
+            <RegisterButton onClickRegister={onCreate} />
         </div>
     </div>
   )
