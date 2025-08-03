@@ -5,6 +5,9 @@ export default function Actiontest() {
   return (
     <ul>
       <li>
+        <Link href={`${crtURL}/dbinit`}>dbinit</Link>
+      </li>
+      <li>
         <Link href={`${crtURL}/postUser`}>postUser</Link>
       </li>
       <li>
@@ -21,6 +24,9 @@ export default function Actiontest() {
       </li>
       <li>
         <Link href={`${crtURL}/reviewTest`}>reviewTest</Link>
+      </li>
+      <li>
+        <Link href={`${crtURL}/patchUser`}>patchUser</Link>
       </li>
     </ul>
   );

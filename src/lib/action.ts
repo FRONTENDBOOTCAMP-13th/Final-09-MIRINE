@@ -259,26 +259,28 @@ export async function postUser(state, formData: FormData) {
  * PATCH /users{_id}
  */
 export async function patchUser(state, formData: FormData) {
-  // 임시데이터
+  console.log("formData", formData);
+  const token = formData.get("token") as string;
+  const id = formData.get("user_id") as string;
   const body = {
     type: "user",
-    email: formData.get("email") || "test@test.com",
-    password: formData.get("password") || "1111",
-    name: formData.get("name") || "이름",
-    address: formData.get("address") || "주소",
-    token: formData.get("token"),
+    token,
+    password: formData.get("newPassword"),
+    address: formData.get("mainAddress"),
+    extra: {
+      address: {
+        zipCode: formData.get("zipCode"),
+        mainAddress: formData.get("mainAddress"),
+        detailAddress: formData.get("detailAddress"),
+      },
+    },
   };
-  // const info = {
-  //   type: "user",
-  //   email: "aa@bbb.cc",
-  //   password: "1111",
-  //   name: "이름",
-  // };
+  console.log("body", body);
   try {
-    const res = await fetch(`${URL}/users`, {
+    const res = await fetch(`${URL}/users/${id}`, {
       method: "PATCH",
       headers: {
-        Authorization: `Bearer ${body.token}`,
+        Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
         "Client-Id": CLIENT_ID || "",
       },
