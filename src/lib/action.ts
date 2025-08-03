@@ -173,6 +173,35 @@ export async function postOrder(state, formData: FormData) {
 /**
  * PATCH /orders/{_id}
  */
+export async function patchOrder(token: string, order_id: number, review_id: number) {
+  // console.log("--------------------------");
+  // console.log(token, order_id, review_id);
+  // console.log("--------------------------");
+  // const orderData = (await getOrder(token, order_id)).item;
+  // console.log("--------------------------");
+  // console.log(orderData);
+  // console.log("--------------------------");
+  // orderData.review_id = +review_id;
+  // console.log("--------------------------");
+  // console.log(orderData);
+  // console.log("--------------------------");
+  try {
+    const res = await fetch(`${URL}/orders/${order_id}`, {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+        "Client-Id": CLIENT_ID || "",
+      },
+      body: JSON.stringify({ review_id: review_id }),
+    });
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("error 발생", error);
+    return error;
+  }
+}
 
 /* 찜 관련 함수 */
 /**
