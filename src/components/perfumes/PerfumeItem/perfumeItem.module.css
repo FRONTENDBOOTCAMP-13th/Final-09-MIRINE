@@ -30,3 +30,18 @@
   color: var(--black-950);
   font-weight: bold;
 }
+.plus_btn {
+  width: 40px;
+  height: 40px;
+  background-color: var(--black-900);
+  border-radius: 20px;
+  display: grid;
+  grid-template-areas: 1fr 1fr;
+  place-items: center;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.plus_btn.active {
+  background-color: var(--primary-purple-300);
+}

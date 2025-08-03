@@ -1,11 +1,8 @@
 import SearchBar from "@/components/perfumes/SearchBar/SearchBar";
-// import DetailSearchToggleButton from "@/components/perfumes/DetailSearchToggleButton/DetailSearchToggleButton";
-// import FilterButton from "@/components/perfumes/FilterButton/FilterButton";
 import styles from "./page.module.css";
 import FilterSection from "@/components/perfumes/FilterSection/FilterSection";
 import PerfumeItem from "@/components/perfumes/PerfumeItem/PerfumeItem";
 import { getAllPerfumes, getProduct } from "@/lib/function";
-// import Image from "next/image";
 import { Perfume } from "@/types/perfume";
 export default async function Perfumes() {
   const mainAccordSectionTitle = "메인어코드";
@@ -13,10 +10,8 @@ export default async function Perfumes() {
   const brandSectionTitle = "브랜드";
   const brandFilterTextList = ["전체", "ㄱ", "ㄴ", "ㄷ", "ㄹ", "ㅁ", "ㅂ", "ㅅ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"];
   const itemCount = 123; // db에서 가져올 숫자
-  // const res = await fetch("http://localhost:3000/api/perfumes"); // /src/api/perfumes/route.tsㅅ
-  // const data = await res.json();
   const data = await getAllPerfumes();
-  const data1 = await getProduct(3); // 이거 api 오류임
+  const data1 = await getProduct(3);
   console.log(data);
   console.log(data.item[0].mainImages[0].path);
   console.log();
@@ -24,32 +19,25 @@ export default async function Perfumes() {
   return (
     <div className={styles.perfumes}>
       <h2 className={styles.header}>향수</h2>
+      {/* 검색 바 */}
       <SearchBar id={"perfumeSearch"} />
+      {/* 메인어코드 필터 섹션 */}
       <FilterSection filterSectionTitle={mainAccordSectionTitle} filterTextList={mainAccordFilterTextList} />
+      {/* 브랜드 필터 섹션 */}
       <FilterSection filterSectionTitle={brandSectionTitle} filterTextList={brandFilterTextList} />
+      {/* 향수 섹션 */}
       <section className={styles.perfume_main}>
+        {/* 향수 총 개수 */}
         <p className={styles.perfume_count}>상품 총 {itemCount}개</p>
 
         <ul className={styles.perfume_container}>
           {data.item.map((item: Perfume) => (
             <li key={item._id}>
-              <PerfumeItem path={item.mainImages[0].path} />
+              <PerfumeItem id={item._id} path={item.mainImages[0].path} inMirine={false} />
             </li>
           ))}
         </ul>
-        {/* <PerfumeItem />
-        <PerfumeItem />
-        <PerfumeItem />
-        <PerfumeItem />
-        <PerfumeItem />
-        <PerfumeItem /> */}
       </section>
-      {/* {data.item.map((item: Perfume) => (
-        <Image key={item._id} src={getFile(item.mainImages[0].path)} alt={"alt"} fill />
-      ))} */}
-      {/* {data.item.map((item: Perfume) => (
-        <p key={item._id}>{item.mainImages[0].path}</p>
-      ))} */}
     </div>
   );
 }
