@@ -152,6 +152,29 @@ export async function getAllOrders(token: string) {
   }
 }
 
+/**
+ * GET /orders/{_id}
+ * @description 로그인 한 사용자의 구매 내역을 DB에서 가져오는 함수
+ * @param {string} token 로그인 한 사용자에게 부여되는 Access Token
+ * @param {number} id 구매 내역의 _id
+ * @returns 로그인 한 사용자의 구매 내역 데이터를 결과로 가지는 Promise
+ */
+export async function getOrder(token: string, id: number) {
+  try {
+    const res = await fetch(`${URL}/orders/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "client-Id": CLIENT_ID ?? "",
+      },
+    });
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+}
+
 /* 찜 관련 함수 */
 /**
  * GET /bookmarks/product
