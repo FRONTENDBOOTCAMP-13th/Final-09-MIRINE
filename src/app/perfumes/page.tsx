@@ -33,7 +33,7 @@ export default async function Perfumes() {
         <ul className={styles.perfume_container}>
           {data.item.map((item: Perfume) => (
             <li key={item._id}>
-              <PerfumeItem id={item._id} path={item.mainImages[0].path} inMirine={false} />
+              <PerfumeItem id={item._id} item={item} path={item.mainImages[0].path} inMirine={false} />
             </li>
           ))}
         </ul>
