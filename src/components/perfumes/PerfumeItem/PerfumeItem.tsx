@@ -9,6 +9,7 @@ export default function PerfumeItem({ id, item, path, inMirine }: { id: number; 
   const [isLike, setIsLike] = useState(false);
   const [isInMirine, setIsInMirine] = useState(false);
   return (
+    // <Link href={`/perfumes/${id}/#top`}> // 페이지 이동 시 맨 위로 안올라가짐
     <Link href={`/perfumes/${id}`}>
       <div className={styles.image_wrapper}>
         <Image src={getFile(path)} alt="향수 이미지" fill className={styles.image}></Image>

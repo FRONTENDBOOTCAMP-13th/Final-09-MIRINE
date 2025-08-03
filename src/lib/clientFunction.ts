@@ -35,3 +35,14 @@ export function addPhoneHyphens(phone: string) {
   });
   return str;
 }
+
+export function addHashTag(tag: string) {
+  return "#" + tag;
+}
+
+export function averageRating(ratings: number[]) {
+  console.log("length", ratings.length);
+  if (ratings.length === 0) return "0.00";
+  const sum = ratings.reduce((sum, e) => sum + e, 0);
+  return (sum / ratings.length).toFixed(2);
+}
