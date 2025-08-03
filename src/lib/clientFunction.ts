@@ -35,3 +35,7 @@ export function addPhoneHyphens(phone: string) {
   });
   return str;
 }
+
+export function sortLatest(a: { createdAt: string }, b: { createdAt: string }) {
+  return b.createdAt.localeCompare(a.createdAt);
+}
