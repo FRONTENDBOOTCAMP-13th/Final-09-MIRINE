@@ -35,3 +35,7 @@ export function addPhoneHyphens(phone: string) {
   });
   return str;
 }
+
+export function addHashTag(tag: string) {
+  return "#" + tag;
+}
