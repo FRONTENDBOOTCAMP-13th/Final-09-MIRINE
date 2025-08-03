@@ -1,5 +1,9 @@
 "use server";
 
+import { getUser } from "./function";
+
+// body에 token 넣어서 보낸거 수정해야 함
+
 const URL = process.env.OPEN_MARKET_URL;
 const CLIENT_ID = process.env.CLIENT_ID;
 
@@ -12,32 +16,44 @@ const CLIENT_ID = process.env.CLIENT_ID;
 export async function postReview(state, formData: FormData) {
   try {
     const uploadFiles: File[] = formData.getAll("uploadImages") as File[];
-    const uploadImages = uploadFiles.map(async (item) => {
-      if (item.size > 0) {
-        const imageRes = await uploadFile(item);
-        return imageRes.item[0].path;
-      }
-    });
+    const uploadImages = await Promise.all(
+      uploadFiles.map(async (item) => {
+        if (item.size > 0) {
+          const imageFormData = new FormData();
+          imageFormData.append("attach", item);
+          const imageRes = await uploadFile(imageFormData);
+          return imageRes.item[0].path;
+        }
+      })
+    );
+    const extra = {
+      images: uploadImages,
+      quantity: +(formData.get("quantity") as string),
+      volume: +(formData.get("volume") as string),
+      price: +(formData.get("price") as string),
+    };
     const body = {
-      user_id: formData.get("user_id"),
-      user: formData.get("user"),
-      order_id: formData.get("order_id"),
-      product_id: formData.get("product_id"),
-      rating: formData.get("rating"),
+      order_id: +(formData.get("order_id") as string),
+      product_id: +(formData.get("product_id") as string),
+      rating: +(formData.get("rating") as string),
       content: formData.get("content"),
-      uploadImages: uploadImages,
-      token: formData.get("token"),
+      extra,
     };
     const res = await fetch(`${URL}/replies`, {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${body.token}`,
+        Authorization: `Bearer ${formData.get("token")}`,
         "Content-Type": "application/json",
         "Client-Id": CLIENT_ID || "",
       },
       body: JSON.stringify(body),
     });
     const data = await res.json();
+    await patchOrder(formData.get("token") as string, body.order_id, data.item._id);
+    // const result = await getAllOrders(formData.get("token") as string);
+    // console.log("---------------------------");
+    // console.log("result", result);
+    // console.log("---------------------------");
     return data;
   } catch (error) {
     console.error("error 발생", error);
@@ -51,26 +67,29 @@ export async function postReview(state, formData: FormData) {
 export async function patchReview(state, formData: FormData) {
   try {
     const uploadFiles: File[] = formData.getAll("uploadImages") as File[];
-    const uploadImages = uploadFiles.map(async (item) => {
-      if (item.size > 0) {
-        const imageRes = await uploadFile(item);
-        return imageRes.item[0].path;
-      }
-    });
+    const uploadImages = await Promise.all(
+      uploadFiles.map(async (item) => {
+        if (item.size > 0) {
+          const imageFormData = new FormData();
+          imageFormData.append("attach", item);
+          const imageRes = await uploadFile(imageFormData);
+          return imageRes.item[0].path;
+        }
+      })
+    );
+    const extra = { images: uploadImages };
     const body = {
       user_id: formData.get("user_id"),
       user: formData.get("user"),
-      order_id: formData.get("order_id"),
       product_id: formData.get("product_id"),
       rating: formData.get("rating"),
       content: formData.get("content"),
-      uploadImages: uploadImages,
-      token: formData.get("token"),
+      extra,
     };
     const res = await fetch(`${URL}/replies`, {
       method: "PATCH",
       headers: {
-        Authorization: `Bearer ${body.token}`,
+        Authorization: `Bearer ${formData.get("token")}`,
         "Content-Type": "application/json",
         "Client-Id": CLIENT_ID || "",
       },
@@ -116,10 +135,17 @@ export async function postOrder(state, formData: FormData) {
   });
   const products = await Promise.all(productsPromise);
   // console.log("products[0]", (await products[0])._id);
+  const userData = await getUser(+(formData.get("user_id") as string));
+  const user = {
+    _id: formData.get("user_id"),
+    name: userData.item.name,
+  };
   try {
     const body = {
       user_id: formData.get("user_id"),
+      user,
       products: products,
+      review_id: formData.get("review_id") || 0,
       cost: { total: formData.get("total") || 0 },
       token: formData.get("token"),
     };
@@ -259,7 +285,6 @@ export async function postUser(state, formData: FormData) {
  * PATCH /users{_id}
  */
 export async function patchUser(state, formData: FormData) {
-  console.log("formData", formData);
   const token = formData.get("token") as string;
   const id = formData.get("user_id") as string;
   const body = {
@@ -275,7 +300,6 @@ export async function patchUser(state, formData: FormData) {
       },
     },
   };
-  console.log("body", body);
   try {
     const res = await fetch(`${URL}/users/${id}`, {
       method: "PATCH",
