@@ -6,7 +6,7 @@ export default function ReviewWriteBtn(){
   const router = useRouter();
 
   const handleWriteClick = () => {
-    router.push('/');
+    router.push('/reviews/write');
   }
 
   return(

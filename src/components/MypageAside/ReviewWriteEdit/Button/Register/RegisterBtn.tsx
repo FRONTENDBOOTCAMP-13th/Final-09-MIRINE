@@ -2,16 +2,16 @@
 import styles from '@/components/MypageAside/ReviewWriteEdit/Button/Register/registerBtn.module.css'
 
 interface RegisterButtonProps {
-  onClick?: () => void; //나중에 수정
+  onClickRegister: () => void; 
   disabled?: boolean;
 }
 
-export default function RegisterButton({onClick, disabled = false}: RegisterButtonProps){
+export default function RegisterButton({onClickRegister, disabled = false}: RegisterButtonProps){
   return(
       <button 
         type='button'
         className={styles.register_btn}
-        onClick={onClick}
+        onClick={onClickRegister}
         disabled={disabled}
       >
         <p className={styles.btn_text}>등록하기</p>

@@ -1,103 +1,101 @@
-.profile_info{
+.profile_info {
   border: 1px solid var(--black-200);
   border-radius: 12px;
-  /* width: 100%; */
+  width: 100%;
   padding: 20px;
-  margin: 20px;
 }
 
-.id_section{
+.id_section {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.id_label{
+.id_label {
   font-size: 14px;
   color: var(--black-950);
   font-weight: bold;
 }
 
-.input_id{
+.input_id {
   font-size: 16px;
   color: var(--black-950);
 }
 
-.line{
-  border: 1px solid var(--black-200); 
+.line {
+  border: 1px solid var(--black-200);
   margin: 20px 0 20px 0;
 }
 /* 이름 */
-.name_section{
+.name_section {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.name_label{
+.name_label {
   font-size: 14px;
   color: var(--black-950);
   font-weight: bold;
 }
-.input_name{
+.input_name {
   font-size: 16px;
   color: var(--black-950);
 }
 
 /* 연락처 */
-.num_section{
+.num_section {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.num_label{
+.num_label {
   font-size: 14px;
   color: var(--black-950);
   font-weight: bold;
 }
-.input_num{
+.input_num {
   font-size: 16px;
   color: var(--black-950);
 }
 
-.pw_section{
+.pw_section {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.pw_label, 
-.new_pw_label, 
-.pw_check_label{
+.pw_label,
+.new_pw_label,
+.pw_check_label {
   display: flex;
   flex-direction: column;
   padding-bottom: 10px;
 }
 
-.input_pw, 
-.input_new_pw, 
-.input_pw_check{
+.input_pw,
+.input_new_pw,
+.input_pw_check {
   background-color: var(--primary-blue-100);
   border-radius: 6px;
   height: 40px;
   width: 100%;
   padding: 10px;
-  outline: none;
 }
 
 /* 주소 */
-.address_section{
+.address_section {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.address_label{
+.address_label {
   font-size: 14px;
   color: var(--black-950);
   font-weight: bold;
 }
 .input_num_address,
 .input_address,
-.input_detail_address{
+.input_detail_address {
   background-color: var(--primary-blue-100);
   border-radius: 6px;
   height: 40px;
@@ -105,16 +103,15 @@
   padding: 10px;
   font-size: 14px;
   color: var(--black-950);
-  outline: none;
 }
 
-.address_btn{
+.address_btn {
   display: flex;
   flex-direction: row;
   gap: 10px;
 }
 
-.btn{
+.btn {
   font-size: 13px;
   color: var(--black-950);
   border: 1px solid var(--black-200);
@@ -123,7 +120,7 @@
   width: 110px;
 }
 
-.error_message{
+.error_message {
   font-size: 12px;
   color: var(--error);
   padding: 5px 0 0 0;

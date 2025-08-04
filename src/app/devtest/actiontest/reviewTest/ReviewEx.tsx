@@ -60,7 +60,7 @@ export default function ReviewEx({ data }: { data: ReviewItem }) {
           <ul style={{ display: "flex" }}>
             {data.extra.images.map((path) => (
               <li key={path} style={{ display: "content" }}>
-                <Image src={getFile(path)} alt="리뷰 사진" width={52} height={52} />
+                <Image src={path} alt="리뷰 사진" width={52} height={52} />
               </li>
             ))}
           </ul>
