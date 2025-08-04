@@ -1,0 +1,122 @@
+.aroma_shooter_intro {
+  margin: 20px 0 40px;
+}
+
+.intro_head {
+  height: 280px;
+  margin-bottom: 40px;
+  padding: 40px 20px;
+  border-radius: 25px;
+  background-image: url("/aromaShooter/intro-bg.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: var(--text-white);
+  text-align: center;
+}
+
+.intro_logo {
+  margin-bottom: 16px;
+
+  img {
+    display: inline-block;
+    width: 230px;
+  }
+}
+
+.title {
+  margin-bottom: 16px;
+  font-size: 22px;
+}
+
+.subtitle {
+  font-size: 14px;
+
+  span {
+    display: block;
+    font-size: 12px;
+  }
+}
+
+.description {
+  color: var(--text-blue-400);
+  font-size: 13px;
+  text-align: center;
+  word-break: keep-all;
+
+  p > span {
+    display: block;
+  }
+
+  p > b {
+    display: block;
+
+    > span {
+      color: var(--text-blue-300);
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .aroma_shooter_intro {
+    margin: 50px 0;
+  }
+
+  .intro_head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 313px;
+    margin-bottom: 50px;
+    border-radius: 50px;
+  }
+
+  .intro_logo {
+    img {
+      width: 242px;
+    }
+  }
+
+  .description {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .aroma_shooter_intro {
+    margin: 70px 0;
+  }
+
+  .intro_head {
+    height: 450px;
+    margin-bottom: 100px;
+  }
+
+  .intro_logo {
+    margin-bottom: 30px;
+
+    img {
+      width: 400px;
+    }
+  }
+
+  .title {
+    margin-bottom: 30px;
+    font-size: 40px;
+    line-height: 1;
+  }
+
+  .subtitle {
+    font-size: 22px;
+
+    span {
+      font-size: 14px;
+    }
+  }
+
+  .description {
+    margin-bottom: 100px;
+    font-size: 22px;
+  }
+}
