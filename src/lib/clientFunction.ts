@@ -49,3 +49,6 @@ export function averageRating(ratings: number[]) {
   const sum = ratings.reduce((sum, e) => sum + e, 0);
   return (sum / ratings.length).toFixed(2);
 }
+export function addml(volume: number) {
+  return volume + "ml";
+}
