@@ -40,7 +40,7 @@ export default function PerfumeDetailPage({ id, data }: { id: string; data: Perf
       {/* 구매하기 버튼 */}
       <BuyButton onClick={() => setIsSheetOpen(true)} />
 
-      <BottomSheet isOpen={isSheetOpen} onClose={() => setIsSheetOpen(false)} />
+      <BottomSheet data={data} isOpen={isSheetOpen} onClose={() => setIsSheetOpen(false)} />
     </article>
   );
 }
