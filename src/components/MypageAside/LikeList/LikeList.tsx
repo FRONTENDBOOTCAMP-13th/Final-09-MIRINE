@@ -52,7 +52,11 @@ export default function LikeListPage(){
         const result = await getAllLikes(token);
         console.log('찜 목록 응답:', result);
 
-        setLikedPerfumes(result.item.product || []);
+        console.log('result.item:', result.item);
+        console.log('result.item.product:', result.item.product);
+        console.log('Array.isArray(result.item.product):', Array.isArray(result.item.product));
+
+        setLikedPerfumes(result.item|| []);
       } catch (error) {
         console.error('좋아요 목록 불러오기 실패:', error);
       } finally {
