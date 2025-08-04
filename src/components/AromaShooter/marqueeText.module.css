@@ -1,0 +1,37 @@
+.marquee_text {
+  overflow: hidden;
+
+  p {
+    color: #d1d4df;
+    font-size: 44px;
+    line-height: 1.2;
+    white-space: nowrap;
+    animation: marquee_text 10s linear infinite;
+  }
+}
+
+@keyframes marquee_text {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media (min-width: 768px) {
+  .marquee_text {
+    p {
+      font-size: 98px;
+      line-height: 1;
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  .marquee_text {
+    p {
+      font-size: 140px;
+    }
+  }
+}
