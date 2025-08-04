@@ -1,12 +1,11 @@
-.button_section{
-  position: fixed;
+.button_section {
+  position: sticky;
   bottom: 0;
   width: 100%;
   padding: 20px;
-  z-index: 1001;   
+  z-index: 1001;
 }
-
-.buy_btn{
+.buy_btn {
   background-color: var(--black-950);
   border-radius: 4px;
   font-size: 15px;
