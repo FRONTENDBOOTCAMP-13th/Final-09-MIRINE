@@ -1,14 +1,13 @@
 "use client";
 import { Perfume } from "@/types/perfume";
 import styles from "./bottomSheet.module.css";
-import { addml, addPriceTemplate } from "@/lib/clientFunction";
+import { addml, addPriceTemplate, productTotalPrice } from "@/lib/clientFunction";
 import { useState } from "react";
 import CartItem from "../../CartItem/CartItem";
 
 export default function BottomSheet({ data, isOpen, onClose }: { data: Perfume; isOpen: boolean; onClose: () => void }) {
   const [toggleSelectBtn, setToggleSelectBtn] = useState(false);
-  const [totalPrice, setTotalPrice] = useState(2000);
-  console.log("data", data);
+  const [cartList, setCartList] = useState<{ volume: number; quantity: number; price: number }[]>([]);
   return (
     <div>
       {isOpen && (
@@ -19,7 +18,12 @@ export default function BottomSheet({ data, isOpen, onClose }: { data: Perfume; 
             onClose();
           }}
         >
-          <section className={styles.select_section}>
+          <section
+            className={styles.select_section}
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
             <div className={styles.select_volume}>
               <button
                 type="button"
@@ -37,12 +41,19 @@ export default function BottomSheet({ data, isOpen, onClose }: { data: Perfume; 
                 </span>
               </button>
               <ul className={`${styles.select_list} ${toggleSelectBtn && styles.active}`}>
-                {data.extra.volumes.map((e) => (
+                {data.extra.volumes.map((e, i) => (
                   <li key={e} className={styles.select_item}>
                     <button
                       className={styles.select_item_btn}
-                      onClick={(e) => {
-                        e.stopPropagation();
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        setToggleSelectBtn(false);
+                        const dataIndex = cartList.findIndex((item) => item.volume === e);
+                        if (dataIndex === -1) setCartList([...cartList, { volume: e, quantity: 1, price: data.extra.prices[i] }]);
+                        else {
+                          cartList[dataIndex].quantity++;
+                          setCartList([...cartList]);
+                        }
                       }}
                     >
                       {data.name} / {addml(e)}
@@ -53,33 +64,23 @@ export default function BottomSheet({ data, isOpen, onClose }: { data: Perfume; 
             </div>
             <div className={styles.cart_section}>
               <ul className={styles.cart_list}>
-                <CartItem
-                  data={{
-                    name: "test",
-                    volume: 0,
-                    quantity: 0,
-                    price: 0,
-                  }}
-                />
-                <CartItem
-                  data={{
-                    name: "test",
-                    volume: 0,
-                    quantity: 0,
-                    price: 0,
-                  }}
-                />
-                <CartItem
-                  data={{
-                    name: "마마",
-                    volume: 3,
-                    quantity: 2,
-                    price: 20000,
-                  }}
-                />
+                {cartList.map((e, i) => (
+                  <CartItem
+                    key={e.volume}
+                    data={{
+                      name: data.name,
+                      volume: e.volume,
+                      quantity: e.quantity,
+                      price: e.price,
+                    }}
+                    idx={i}
+                    cartList={cartList}
+                    setCartList={setCartList}
+                  />
+                ))}
               </ul>
               <div className={styles.total_price}>
-                <span>총 금액</span> <span>{addPriceTemplate(totalPrice)}</span>
+                <span>총 금액</span> <span>{addPriceTemplate(productTotalPrice(cartList))}</span>
               </div>
             </div>
             <div className={styles.btn_section}>
