@@ -19,6 +19,7 @@
   p {
     margin-bottom: 30px;
     font-size: 13px;
+    white-space: nowrap;
   }
 
   span {
@@ -30,7 +31,7 @@
   .aromaCartridge {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .image {
@@ -53,6 +54,7 @@
 
 @media (min-width: 1280px) {
   .aromaCartridge {
+    justify-content: space-between;
     padding: 150px 0;
   }
 
