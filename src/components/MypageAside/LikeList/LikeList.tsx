@@ -59,7 +59,7 @@ export default function LikeListPage({ token, userID }: { token: string; userID:
   if (loading) {
     return (
       <div className={styles.list_section}>
-        <p>로딩 중...</p>
+        <p className={styles.loading_text}>로딩 중...</p>
       </div>
     );
   }
@@ -67,7 +67,7 @@ export default function LikeListPage({ token, userID }: { token: string; userID:
   if (likedPerfumes.length === 0) {
     return (
       <div className={styles.list_section}>
-        <p className={styles.like_text}>좋아요한 향수가 없습니다.</p>
+        <p className={styles.like_text}>찜한 상품이 없습니다.</p>
       </div>
     );
   }

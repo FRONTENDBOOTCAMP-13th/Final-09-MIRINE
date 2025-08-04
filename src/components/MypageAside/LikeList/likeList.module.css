@@ -1,12 +1,12 @@
-/* 좋아요 목록 없음 */
-.like_text{
+.list_section{
+  width: 100%;
+}
+/* 로딩중, 좋아요 향수 없음 */
+.loading_text, .like_text{
   font-size: 13px;
   color: var(--black-500);
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 20px;
-  margin: 20px;
 }
 
 .list_wrapper{
