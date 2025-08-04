@@ -1,3 +1,14 @@
+/* 좋아요 목록 없음 */
+.like_text{
+  font-size: 13px;
+  color: var(--black-500);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: 20px;
+}
+
 .list_wrapper{
   padding: 0 20px 10px 20px;
   cursor: pointer
