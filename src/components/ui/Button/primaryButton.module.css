@@ -1,0 +1,76 @@
+.button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 46px;
+  padding: 8px 20px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  border: 0;
+  background-color: var(--black-100);
+  color: var(--black-400);
+}
+
+/* bgColor */
+.bg-white {
+  background-color: var(--bg-white);
+}
+
+.bg-black {
+  background-color: var(--black-950);
+}
+
+.bg-blue-100 {
+  background-color: var(--primary-blue-100);
+}
+
+.bg-blue-200 {
+  background-color: var(--primary-blue-200);
+}
+
+.bg-blue-300 {
+  background-color: var(--primary-blue-300);
+}
+
+/* textColor */
+.text-white {
+  color: var(--text-white);
+}
+
+.text-black {
+  color: var(--black-950);
+}
+
+.text-blue {
+  color: var(--primary-blue-300);
+}
+
+/* line */
+.line-off {
+  border: none;
+}
+
+.line-on {
+  border: 1px solid var(--black-200);
+}
+
+@media (min-width: 1280px) {
+  .button {
+    display: inline-flex;
+    width: 270px;
+    margin: 0 5px;
+  }
+
+  .button.pc-sm {
+    width: 100%;
+    margin: 0;
+  }
+}
