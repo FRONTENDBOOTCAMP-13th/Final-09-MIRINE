@@ -1,0 +1,171 @@
+.product_list {
+  padding: 60px 20px;
+  background-image: url("/aromaShooter/aroma-shooter-bg.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  text-align: center;
+
+  li {
+    position: relative;
+    margin-bottom: 60px;
+    vertical-align: top;
+    color: var(--text-white);
+  }
+}
+
+.image {
+  position: relative;
+  width: 240px;
+  margin: 0 auto 30px;
+  border-radius: 25px;
+  background-color: var(--bg-white);
+}
+
+.text {
+  h3 {
+    margin-bottom: 8px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  p {
+    margin-bottom: 30px;
+    font-size: 13px;
+  }
+}
+
+.circular_text {
+  position: absolute;
+  top: -65px;
+  left: calc(50% - 180px);
+  width: 130px;
+  height: 130px;
+  animation: rotate_image 6s linear infinite;
+  transform-origin: 50% 50%;
+
+  .svg_text {
+    font-size: 24px;
+    font-weight: 800;
+    fill: var(--text-blue-400);
+    letter-spacing: 1px;
+  }
+}
+
+@keyframes rotate_image {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@media (min-width: 768px) {
+  .product_list {
+    padding: 100px 50px;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+  }
+
+  .list_item_1 {
+    text-align: left;
+
+    .text {
+      margin-bottom: 40px;
+      padding-left: 40px;
+    }
+  }
+
+  .list_item_2 {
+    text-align: right;
+
+    .image {
+      order: 2;
+    }
+
+    .text {
+      order: 1;
+      padding-right: 40px;
+    }
+  }
+
+  .image {
+    display: inline-block;
+    width: 284px;
+    margin: 0;
+    border-radius: 50px;
+  }
+
+  .text {
+    display: inline-block;
+    width: 283px;
+
+    h3 {
+      font-size: 26px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .circular_text {
+    left: calc(50% - 65px);
+
+    .svg_text {
+      font-size: 26px;
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  .product_list {
+    padding: 170px 0;
+  }
+
+  .list_item_1 {
+    .text {
+      padding-left: 70px;
+    }
+  }
+
+  .list_item_2 {
+    .text {
+      margin-top: 70px;
+      padding-right: 70px;
+    }
+  }
+
+  .image {
+    width: 380px;
+  }
+
+  .text {
+    width: 380px;
+
+    h3 {
+      font-size: 36px;
+    }
+
+    p {
+      margin-bottom: 50px;
+      font-size: 18px;
+    }
+  }
+
+  .circular_text {
+    top: -100px;
+    left: calc(50% - 100px);
+    width: 200px;
+    height: 200px;
+
+    .svg_text {
+      font-size: 22px;
+      letter-spacing: -0.5px;
+    }
+  }
+}
