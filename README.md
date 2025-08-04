@@ -36,7 +36,7 @@
 
 #### 🚀 배포 링크
 
-[Mirine 프로젝트 보러가기](https://3lines-2048.netlify.app/)
+[Mirine 프로젝트 보러가기](https://final-09-mirine.vercel.app/)
 
 ---
 
