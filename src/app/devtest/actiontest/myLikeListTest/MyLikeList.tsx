@@ -2,77 +2,51 @@
 import { useState, useEffect } from 'react';
 import { deleteLike } from "@/lib/action";
 import { getAllLikes } from "@/lib/function";
-import { getAccessToken, getFile } from "@/lib/clientFunction";
+import { getFile } from "@/lib/clientFunction";
 import styles from '@/components/MypageAside/LikeList/likeList.module.css'
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
 
-export interface PerfumeInfo {
-  _id: number;
-  name: string;
-  extra: {
-    brand: string;
-    mainAccord: string;
-    content: string;
-    prices: number[];
-    volumes: number[];
-    tags: string[];
-  };
-  mainImages: Array<{ name: string; path: string; originalname: string }>;
-}
-
 interface LikedPerfume {
+  product: {
+    _id: number;
+    name: string;
+    extra: {
+      brand: string;
+    };
+    mainImages: Array<{ name: string; path: string; originalname: string }>;
+  };
   _id: number;
-  product: PerfumeInfo;
 }
 
-export default function LikeListPage(){
+export default function LikeListPage({ token }: { token: string; userID: number }){
   const router = useRouter();
-  const [token, setToken] = useState('');
+  
   const [likedPerfumes, setLikedPerfumes] = useState<LikedPerfume[]>([]);
   const [loading, setLoading] = useState(true);
   
-  useEffect(()=>{
-    const accessToken = getAccessToken();
-    setToken(accessToken);
-  }, []);
-  // const token = getAccessToken();
-  // const userID = +getUserID();
-  // console.log("현재 로그인한 사용자:", userID);
-  
   // 좋아요한 향수 목록
   useEffect(() => {
-    if(!token) {
-      setLoading(false);
-      return;
-    }
-
-    const fetchLikedPerfumes = async () => {
+      (async () => {
       try {
         const result = await getAllLikes(token);
-        console.log('찜 목록 응답:', result);
-
-        setLikedPerfumes(result.item.product || []);
+        setLikedPerfumes(result.item || []);
       } catch (error) {
         console.error('좋아요 목록 불러오기 실패:', error);
       } finally {
         setLoading(false);
       }
-    };
-
-    fetchLikedPerfumes();
+    })();
   }, [token]);
 
-  const handleItemClick = (id: number) => {
-    router.push(`/perfumes/${id}`); 
+  const handleItemClick = (perfumeId: number) => {
+    router.push(`/perfumes/${perfumeId}`); 
   }
 
-  // 좋아요 해제
+  // 좋아요 해제 함수
   const handleLikeRemove = async (likeID: number) => {
     try {
-      const result = await deleteLike({ target_id: likeID, token: token });
-      console.log('좋아요 해제 결과:', result);
-
+      await deleteLike({ target_id: likeID, token: token });
       // 목록에서 제거
       setLikedPerfumes(prev => prev.filter(item => item._id !== likeID));
     } catch (error) {
@@ -84,15 +58,6 @@ export default function LikeListPage(){
     return (
       <div className={styles.list_section}>
         <p className={styles.loading_text}>로딩 중...</p>
-      </div>
-    );
-  }
-
-  // 토큰이 없을 때 (로그인 안 함)
-  if (!token) {
-    return (
-      <div className={styles.list_section}>
-        <p className={styles.login_text}>로그인이 필요합니다.</p>
       </div>
     );
   }
@@ -109,13 +74,10 @@ export default function LikeListPage(){
     <div className={styles.list_section}>
       {likedPerfumes.map((item) => (
         <div key={item._id} className={styles.list_wrapper}>
-          <div 
-            className={styles.list_group}
-            onClick={() => handleItemClick(item.product._id)}
-          >
+          <div className={styles.list_group} onClick={() => handleItemClick(item.product._id)}>
             <Image 
               src={getFile(item.product.mainImages[0]?.path) || "/image/perfume1.svg"} 
-              alt="`${item.product.name} 이미지`" 
+              alt="향수 이미지" 
               width={40} 
               height={40} 
               className={styles.perfume_img} 
@@ -144,38 +106,5 @@ export default function LikeListPage(){
     </div>
   )
 }
-// 'use client'
-// import LikeButton from '@/components/MypageAside/LikeList/LikeButton/LikeButton';
-// import styles from '@/components/MypageAside/LikeList/likeList.module.css'
-// import Image from "next/image";
-// import { useRouter } from 'next/navigation';
 
-// export default function LikeListPage(){
-//   const router = useRouter();
-
-//   const handleItemClick = () => {
-//     router.push('/perfumes'); 
-//   }
-
-//   return(
-//     <div className={styles.list_section}>
-//       <div className={styles.list_wrapper} onClick={handleItemClick} >
-//         <div className={styles.list_group}>
-//           <Image src="/image/perfume1.svg" alt="향수 이미지" width="40" height="40" className={styles.perfume_img} />
-          
-//           <div className={styles.item_info}>
-//             <p className={styles.brand_name}>브랜드</p>
-//             <p className={styles.product_name}>향수이름</p>
-//           </div>
-//           <div className={styles.like_btn}>
-//             <LikeButton />
-//           </div>
-          
-//         </div>
-//       </div>
-
-
-//     </div>
-//   )
-// }
 
