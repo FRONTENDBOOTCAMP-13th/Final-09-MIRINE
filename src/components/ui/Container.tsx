@@ -1,5 +1,12 @@
 import styles from "./container.module.css";
 
-export default function Container({ children }: { children: React.ReactNode }) {
-  return <div className={styles.container}>{children}</div>;
+export interface ContainerProps {
+  children: React.ReactNode;
+  pcWidth?: "sm";
+}
+
+export default function Container({ children, pcWidth }: ContainerProps) {
+  const containerClasses = [styles.container, pcWidth && styles[`pc-${pcWidth}`]].filter(Boolean).join(" ");
+
+  return <div className={containerClasses}>{children}</div>;
 }

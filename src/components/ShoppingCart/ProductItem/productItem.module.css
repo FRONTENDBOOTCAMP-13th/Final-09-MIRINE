@@ -1,0 +1,125 @@
+.cart_item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 20px;
+  border: 1px solid var(--black-200);
+  border-radius: 6px;
+}
+
+.checkbox {
+  appearance: none;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 13px;
+  height: 13px;
+  border: 1px solid var(--black-200);
+  border-radius: 2px;
+
+  &:checked {
+    background-image: url("/icon/icon-check.svg"); /* 체크 아이콘 이미지 */
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 11px;
+  }
+}
+
+.item_img {
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+  border-radius: 4px;
+}
+
+.item_info {
+  width: 100%;
+}
+
+.brand_name {
+  color: var(--black-500);
+  font-size: 12px;
+}
+
+.product_name {
+  color: var(--black-950);
+  font-size: 14px;
+}
+
+.count_control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.btn_count {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 76px;
+  height: 28px;
+  margin-right: 10px;
+  border: 1px solid var(--black-200);
+  border-radius: 6px;
+  color: var(--black-950);
+  font-size: 12px;
+}
+
+.btn_minus,
+.btn_plus {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 100%;
+  border: none;
+
+  img {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+  }
+}
+
+.count {
+  width: 24px;
+  height: 100%;
+  align-content: center;
+  text-align: center;
+}
+
+.product_price {
+  color: var(--black-950);
+  font-size: 16px;
+  font-weight: bold;
+  text-align: right;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .cart_item {
+    padding-left: 30px;
+  }
+
+  .item_info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .name {
+    width: 80%;
+    padding-right: 20px;
+  }
+
+  .count_control {
+    margin: 0;
+    width: 40%;
+  }
+}
+
+@media (min-width: 1280px) {
+}

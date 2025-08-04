@@ -1,0 +1,36 @@
+.button {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  min-height: 28px;
+  padding: 4px 8px;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  background-color: var(--black-100);
+  color: var(--black-400);
+}
+
+/* color */
+.color-orange {
+  color: var(--error);
+  border-color: var(--error);
+}
+
+.color-black {
+  color: var(--black-950);
+  border-color: var(--black-200);
+}
+
+.color-blue {
+  color: var(--primary-blue-300);
+  border-color: var(--primary-blue-300);
+}
