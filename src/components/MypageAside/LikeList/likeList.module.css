@@ -1,3 +1,14 @@
+.list_section{
+  width: 100%;
+}
+/* 로딩중, 좋아요 향수 없음 */
+.loading_text, .like_text{
+  font-size: 13px;
+  color: var(--black-500);
+  display: flex;
+  justify-content: center;
+}
+
 .list_wrapper{
   padding: 0 20px 10px 20px;
   cursor: pointer
