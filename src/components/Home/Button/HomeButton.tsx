@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "./homeButton.module.css";
 
-type HomeButton = {
+interface HomeButton {
   href: string;
   children: string;
 };
