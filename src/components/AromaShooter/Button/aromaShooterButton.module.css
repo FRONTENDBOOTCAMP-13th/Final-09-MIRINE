@@ -1,0 +1,33 @@
+.link {
+  display: inline-block;
+  min-width: 166px;
+  padding: 10px 26px;
+  border: 2px solid var(--text-blue-400);
+  border-radius: 50px;
+  background-color: var(--text-blue-400);
+  color: var(--bg-white);
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .link {
+    min-width: 140px;
+    padding: 8px 20px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .link {
+    padding: 12px 54px;
+    font-size: 20px;
+    transition: border-color 0.1s, background-color 0.1s, color 0.1s;
+
+    &:hover {
+      background-color: var(--bg-white);
+      color: var(--text-blue-400);
+    }
+  }
+}
