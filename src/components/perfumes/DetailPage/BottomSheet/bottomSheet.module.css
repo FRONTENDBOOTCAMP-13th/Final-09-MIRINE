@@ -38,6 +38,7 @@
 .select_list {
   display: none;
   flex-flow: column nowrap;
+  margin-top: 20px; /* 버튼 눌렀을 때 위 버튼과의 간격 */
   background-color: var(--bg-white);
   border: 1px solid var(--black-200);
   border-radius: 6px;
