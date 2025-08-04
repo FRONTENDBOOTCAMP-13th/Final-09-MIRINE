@@ -52,3 +52,8 @@ export function averageRating(ratings: number[]) {
 export function addml(volume: number) {
   return volume + "ml";
 }
+
+export function productTotalPrice(cartList: { quantity: number; price: number }[]) {
+  const sum = cartList.reduce((sum, e) => sum + e.quantity * e.price, 0);
+  return sum;
+}
