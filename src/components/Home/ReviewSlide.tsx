@@ -6,6 +6,7 @@ import "swiper/css";
 import styles from "./reviewSlide.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import HomeButton from "@/components/Home/Button/HomeButton";
 
 export default function ReviewSlide() {
   return (
@@ -99,9 +100,7 @@ export default function ReviewSlide() {
         </Swiper>
       </div>
 
-      <Link href="/review" className={styles.link}>
-        View More
-      </Link>
+      <HomeButton href={"/review"}>View More</HomeButton>
     </div>
   );
 }

@@ -1,0 +1,32 @@
+.link {
+  display: inline-block;
+  padding: 10px 26px;
+  border: 1px solid var(--black-200);
+  border-radius: 50px;
+  background-color: var(--bg-white);
+  color: var(--text-blue-400);
+  font-size: 12px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .link {
+    padding: 10px 32px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .link {
+    padding: 12px 54px;
+    font-size: 20px;
+    transition: border-color 0.1s, background-color 0.1s, color 0.1s;
+
+    &:hover {
+      border-color: var(--black-950);
+      background-color: var(--black-950);
+      color: var(--text-white);
+    }
+  }
+}
