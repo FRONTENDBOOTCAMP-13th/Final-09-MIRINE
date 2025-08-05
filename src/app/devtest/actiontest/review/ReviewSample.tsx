@@ -63,32 +63,37 @@ export default function ReviewSample() {
           총 {reviewList?.length || 0}개
         </div>
       </div>
-      <ul style={{ padding: "12px", display: "flex", flexFlow: "column nowrap", gap: "12px" }}>
+      <ul>
       {reviewList?.map((e) => {
         return (
           <li key={e._id} className={styles.reviewlist}>
-            <Link href={`/devtest/actiontest/reviewTest/${e._id}`} className={styles.review} >
-            {/* <p className={styles.review}>리뷰아이디: {e._id}</p>
-            <p className={styles.review}>회원아이디: {e.user._id}</p> */}
-            <p className={styles.user_name}>회원이름: {e.user.name}</p>
-            <p className={styles.date}>생성일: {e.createdAt}</p>
-            <p className={styles.rating}>평점: {e.rating}</p>
-            {/* <p className={styles.review}>제품아이디: {e.product._id}</p> */}
-            <p className={styles.brand_name}>브랜드: {e.product.extra?.brand}</p>
-            <p className={styles.product_name}>제품이름: {e.product.name}</p>
-            <p className={styles.review_text}>리뷰내용: {e.content}</p>
-            <ul className={styles.review_img} style={{ padding: "12px", display: "flex", flexFlow: "row nowrap", gap: "12px" }}>
-              {Array.isArray(e.extra.images) &&
-                e.extra?.images?.map((el) => {
-                  if (typeof el === "string") {
-                    return (
-                      <li key={el}>
-                        <Image src={el} alt="리뷰 이미지" width={52} height={52} />
-                      </li>
-                    );
-                  }
-                })}
-            </ul>
+            <Link href={`/devtest/actiontest/reviewTest/${e._id}`} >
+            <div className={styles.review}>
+              <div className={styles.info_wrapper}>
+                <p className={styles.user_name}>{e.user.name}</p>
+                <p className={styles.date}>{e.createdAt}</p>
+                <p className={styles.rating}>평점:{e.rating}</p>
+              </div>
+              {/* <p className={styles.review}>제품아이디: {e.product._id}</p> */}
+              <ul className={styles.review_img}>
+                {Array.isArray(e.extra.images) &&
+                  e.extra?.images?.map((el) => {
+                    if (typeof el === "string") {
+                      return (
+                        <li key={el}>
+                          <Image src={el} alt="리뷰 이미지" width={52} height={52} className={styles.img} />
+                        </li>
+                      );
+                    }
+                  })}
+              </ul>
+              <div className={styles.text_wrapper}>
+                <p className={styles.brand_name}>브랜드{e.product.extra?.brand}</p>
+                <p className={styles.product_name}>{e.product.name}</p>
+                <p className={styles.review_text}>{e.content}</p>
+              </div>
+              
+            </div>
             </Link>
           </li>
         );

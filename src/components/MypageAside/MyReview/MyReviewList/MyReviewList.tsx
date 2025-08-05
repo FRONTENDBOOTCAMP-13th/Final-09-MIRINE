@@ -4,8 +4,6 @@ import DetailBtn from '@/components/MypageAside/MyReview/Buttons/DetailBtn';
 import EditBtn from '@/components/MypageAside/MyReview/Buttons/EditBtn';
 import styles from '@/components/MypageAside/MyReview/MyReviewList/myReviewList.module.css'
 import MyReviewItem from '@/components/MypageAside/MyReview/MyReviewList/ReviewItem/ReviewItem';
-import Image from "next/image";
-import Link from 'next/link';
 
 export default function MyReviewList(){
 

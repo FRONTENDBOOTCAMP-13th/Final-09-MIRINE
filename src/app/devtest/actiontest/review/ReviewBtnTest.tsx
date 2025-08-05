@@ -1,17 +1,17 @@
 'use client';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "@/components/Review/reviewCommon.module.css"
 import ReviewSample from "@/app/devtest/actiontest/review/ReviewSample";
 
 
 export default function ReviewBtnPage(){
   const [active, setActive] = useState<"mirine"|"perfume"|"aroma">('perfume');
-  const [userId, setUserId] = useState('');
+  // const [userId, setUserId] = useState('');
 
-  useEffect(()=>{
-    const id = localStorage.getItem('userId') || '';
-    setUserId(id);
-  }, []);
+  // useEffect(()=>{
+  //   const id = localStorage.getItem('userId') || '';
+  //   setUserId(id);
+  // }, []);
 
   return(
     <div className={styles.common_section}>
