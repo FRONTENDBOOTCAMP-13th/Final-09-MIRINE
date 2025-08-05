@@ -1,5 +1,5 @@
 import styles from "./aromaShooter.module.css";
-import HomeButton from "@/components/Home/Button/HomeButton";
+import HomeButton from "@/components/pages/Home/Button/HomeButton";
 import Image from "next/image";
 
 export default function AromaShooter() {

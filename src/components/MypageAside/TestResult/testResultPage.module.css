@@ -1,20 +1,27 @@
-.result_container{
-  padding: 0 0 10px 0;
+.result_list {
+  > li:not(:last-of-type) {
+    margin-bottom: 20px;
+  }
 }
 
-.date_share_wrapper{
+.list_head {
   display: flex;
+  align-items: center;
+  justify-content: start;
   gap: 5px;
   width: 100%;
-  justify-content: start;
-  align-items: center;
+  margin-bottom: 10px;
 }
 
-.test_date{
+.test_date {
   font-size: 14px;
+  font-weight: bold;
   color: var(--black-950);
 }
 
-.result_items{
-  padding-top: 10px;
+@media (min-width: 1280px) {
+  .result_item_list {
+    display: flex;
+    gap: 10px;
+  }
 }

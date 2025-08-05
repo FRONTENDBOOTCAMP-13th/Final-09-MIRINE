@@ -6,7 +6,7 @@ import "swiper/css";
 import styles from "./reviewSlide.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import HomeButton from "@/components/Home/Button/HomeButton";
+import HomeButton from "@/components/pages/Home/Button/HomeButton";
 
 export default function ReviewSlide() {
   return (

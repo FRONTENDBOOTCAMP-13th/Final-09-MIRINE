@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./aromaCartridge.module.css";
-import AromaShooterButton from "@/components/AromaShooter/Button/AromaShooterButton";
+import AromaShooterButton from "@/components/pages/AromaShooter/Button/AromaShooterButton";
 import Container from "@/components/ui/Container";
 
 export default function AromaCartridge() {
