@@ -1,4 +1,4 @@
-import AromaShooterButton from "@/components/AromaShooter/Button/AromaShooterButton";
+import AromaShooterButton from "@/components/pages/AromaShooter/Button/AromaShooterButton";
 import styles from "./aromaShooterShop.module.css";
 import Image from "next/image";
 
