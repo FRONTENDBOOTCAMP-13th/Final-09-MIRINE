@@ -1,7 +1,5 @@
-'use client';
-import ReviewWriteEdit from '@/components/MypageAside/ReviewWriteEdit/ReviewWriteEdit';
+import ReviewWriteEdit from "@/components/pages/Mypage/ReviewWriteEdit/ReviewWriteEdit";
 
 export default function ReviewWritePage() {
-
-  return <ReviewWriteEdit />;
+  return <ReviewWriteEdit mode="write" />;
 }
