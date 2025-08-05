@@ -12,7 +12,7 @@ export default function PerfumeItem({ id, item, path, inMirine }: { id: number; 
     // <Link href={`/perfumes/${id}/#top`}> // 페이지 이동 시 맨 위로 안올라가짐
     <Link href={`/perfumes/${id}`}>
       <div className={styles.image_wrapper}>
-        <Image src={getFile(path)} alt="향수 이미지" fill className={styles.image}></Image>
+        <Image src={getFile(path)} alt="향수 이미지" fill sizes="100%" className={styles.image}></Image>
         <button
           type="button"
           className={styles.like_btn}
@@ -42,7 +42,7 @@ export default function PerfumeItem({ id, item, path, inMirine }: { id: number; 
             }}
           >
             <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5 12.5H19M12 5.5V19.5" stroke="var(--bg-white)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M5 12.5H19M12 5.5V19.5" stroke="var(--bg-white)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
         )}
