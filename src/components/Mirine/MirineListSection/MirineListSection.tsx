@@ -1,23 +1,27 @@
 "use client";
-import { useState } from "react";
 import styles from "./mirineListSection.module.css";
 import Image from "next/image";
+import useMirineStore, { MirineItemInState } from "@/store/mirineStore";
+import useShoppingCartStore from "@/store/shoppingCartStore";
+import { seperateArray } from "@/lib/clientFunction";
 export default function MirineListSection() {
-  const [mirineList, setMirineList] = useState<{ id: number; name: string; path: string }[]>([
-    { id: 4, name: "a", path: "/" },
-    { id: 4, name: "a", path: "/" },
-    { id: 4, name: "a", path: "/" },
-  ]);
+  const addItem = useShoppingCartStore((state) => state.addItem);
+  const deleteItem = useMirineStore((state) => state.deleteItem);
+  const resetMirine = useMirineStore((state) => state.resetMirine);
+  const mirine = useMirineStore((state) => state.mirine);
   return (
     <section className={styles.mirine_bottom_sheet}>
       <ul className={styles.mirine_list}>
-        {mirineList.map((e) => (
+        {mirine.map((e) => (
           <li key={e.name}>
             <div className={styles.mirine_item}>
-              <Image src={e.path} alt="alt" width={50} height={50} />
+              <div className={styles.image_wrapper}>
+                <Image src={e.path} alt="alt" width={50} height={50} />
+              </div>
               <button
                 className={styles.delete_item_btn}
                 onClick={() => {
+                  deleteItem(e);
                   alert("미리내에서 아이템 삭제");
                 }}
               >
@@ -28,9 +32,9 @@ export default function MirineListSection() {
             </div>
           </li>
         ))}
-        {mirineList.length < 5 ? (
+        {mirine.length < 5 ? (
           Array.from({ length: 5 }).map((_, i) => {
-            if (i > mirineList.length - 1) {
+            if (i > mirine.length - 1) {
               return (
                 <li key={i}>
                   <div className={styles.mirine_item}>{i + 1}</div>
@@ -40,19 +44,25 @@ export default function MirineListSection() {
           })
         ) : (
           <li>
-            <div className={styles.mirine_item}>{mirineList.length + 1}</div>
+            <div className={styles.mirine_item}>{mirine.length + 1}</div>
           </li>
         )}
       </ul>
       <p className={styles.required_cnt_description}>*최소 5개 필수 선택</p>
       <div className={styles.button_section}>
         <button
-          className={`${styles.buy_btn} ${mirineList.length >= 5 && styles.active}`}
+          className={`${styles.buy_btn} ${mirine.length >= 5 && styles.active}`}
           onClick={() => {
-            alert("장바구니에 미리내 담기");
+            if (mirine.length >= 5) {
+              seperateArray<MirineItemInState>(mirine, 5).forEach((mirineList) => {
+                addItem({ type: "m", content: mirineList });
+              });
+              resetMirine();
+              alert("장바구니에 추가 완료");
+            }
           }}
         >
-          <span>총 {mirineList.length}개</span> 장바구니 담기
+          <span>총 {mirine.length}개</span> 장바구니 담기
         </button>
       </div>
     </section>
