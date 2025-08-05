@@ -56,7 +56,240 @@
   "product": [
     {
       "seller_id": 1,
-      "price": 32000,
+      "price": -1,
+      "show": true,
+      "active": true,
+      "name": "미리내",
+      "quantity": 1,
+      "buyQuantity": 1,
+      "mainImages": [
+        {
+          "path": "uploadFiles/mirine.webp",
+          "name": "mirine.webp"
+        }
+      ]
+    },
+    {
+      "seller_id": 1,
+      "price": 219000,
+      "show": true,
+      "active": true,
+      "name": "아로마슈터 2",
+      "quantity": 150,
+      "buyQuantity": 89,
+      "mainImages": [
+        {
+          "path": "uploadFiles/aromashooter2.webp",
+          "name": "aromashooter2.webp"
+        }
+      ],
+      "extra": {
+        "brand": "아로마조인",
+        "brandInitialKR": "ㅇ",
+        "content": "새로운 향기의 세계로.",
+        "detailContent": "혹시 나중에 필요할까봐 비워 놓음"
+      }
+    },
+    {
+      "seller_id": 1,
+      "price": 309000,
+      "show": true,
+      "active": true,
+      "name": "아로마슈터 3",
+      "quantity": 150,
+      "buyQuantity": 89,
+      "mainImages": [
+        {
+          "path": "uploadFiles/aromashooter3.webp",
+          "name": "aromashooter3.webp"
+        }
+      ],
+      "extra": {
+        "brand": "아로마조인",
+        "brandInitialKR": "ㅇ",
+        "content": "Aroma Shooter ®2 보다 1.4m 멀리",
+        "detailContent": "혹시 나중에 필요할까봐 비워 놓음"
+      }
+    },
+    {
+      "seller_id": 1,
+      "price": 83200,
+      "show": true,
+      "active": true,
+      "name": "자스민(Relax) 카트리지",
+      "quantity": 150,
+      "buyQuantity": 89,
+      "mainImages": [
+        {
+          "path": "uploadFiles/cartridge1.webp",
+          "name": "cartridge1.webp"
+        }
+      ],
+      "extra": {
+        "brand": "아로마조인",
+        "brandInitialKR": "ㅇ",
+        "tags": ["태그 필요"],
+        "content": "카트리지 설명 필요.",
+        "detailContent": "혹시 나중에 필요할까봐 비워 놓음"
+      }
+    },
+    {
+      "seller_id": 1,
+      "price": 83200,
+      "show": true,
+      "active": true,
+      "name": "젖은 땅 카트리지",
+      "quantity": 150,
+      "buyQuantity": 89,
+      "mainImages": [
+        {
+          "path": "uploadFiles/cartridge2.webp",
+          "name": "cartridge2.webp"
+        }
+      ],
+      "extra": {
+        "brand": "아로마조인",
+        "brandInitialKR": "ㅇ",
+        "tags": ["태그 필요"],
+        "content": "카트리지 설명 필요.",
+        "detailContent": "혹시 나중에 필요할까봐 비워 놓음"
+      }
+    },
+    {
+      "seller_id": 1,
+      "price": 83200,
+      "show": true,
+      "active": true,
+      "name": "가드니아 카트리지",
+      "quantity": 150,
+      "buyQuantity": 89,
+      "mainImages": [
+        {
+          "path": "uploadFiles/cartridge3.webp",
+          "name": "cartridge3.webp"
+        }
+      ],
+      "extra": {
+        "brand": "아로마조인",
+        "brandInitialKR": "ㅇ",
+        "tags": ["태그 필요"],
+        "content": "카트리지 설명 필요.",
+        "detailContent": "혹시 나중에 필요할까봐 비워 놓음"
+      }
+    },
+    {
+      "seller_id": 1,
+      "price": 83200,
+      "show": true,
+      "active": true,
+      "name": "자스민(Happy) 카트리지",
+      "quantity": 150,
+      "buyQuantity": 89,
+      "mainImages": [
+        {
+          "path": "uploadFiles/cartridge4.webp",
+          "name": "cartridge4.webp"
+        }
+      ],
+      "extra": {
+        "brand": "아로마조인",
+        "brandInitialKR": "ㅇ",
+        "tags": ["태그 필요"],
+        "content": "카트리지 설명 필요.",
+        "detailContent": "혹시 나중에 필요할까봐 비워 놓음"
+      }
+    },
+    {
+      "seller_id": 1,
+      "price": 83200,
+      "show": true,
+      "active": true,
+      "name": "위스테리아 카트리지",
+      "quantity": 150,
+      "buyQuantity": 89,
+      "mainImages": [
+        {
+          "path": "uploadFiles/cartridge5.webp",
+          "name": "cartridge5.webp"
+        }
+      ],
+      "extra": {
+        "brand": "아로마조인",
+        "brandInitialKR": "ㅇ",
+        "tags": ["태그 필요"],
+        "content": "카트리지 설명 필요.",
+        "detailContent": "혹시 나중에 필요할까봐 비워 놓음"
+      }
+    },
+    {
+      "seller_id": 1,
+      "price": 83200,
+      "show": true,
+      "active": true,
+      "name": "플루메리아 카트리지",
+      "quantity": 150,
+      "buyQuantity": 89,
+      "mainImages": [
+        {
+          "path": "uploadFiles/cartridge6.webp",
+          "name": "cartridge6.webp"
+        }
+      ],
+      "extra": {
+        "brand": "아로마조인",
+        "brandInitialKR": "ㅇ",
+        "tags": ["태그 필요"],
+        "content": "카트리지 설명 필요.",
+        "detailContent": "혹시 나중에 필요할까봐 비워 놓음"
+      }
+    },
+    {
+      "seller_id": 1,
+      "price": 83200,
+      "show": true,
+      "active": true,
+      "name": "간장 카트리지",
+      "quantity": 150,
+      "buyQuantity": 89,
+      "mainImages": [
+        {
+          "path": "uploadFiles/cartridge7.webp",
+          "name": "cartridge7.webp"
+        }
+      ],
+      "extra": {
+        "brand": "아로마조인",
+        "brandInitialKR": "ㅇ",
+        "tags": ["태그 필요"],
+        "content": "카트리지 설명 필요.",
+        "detailContent": "혹시 나중에 필요할까봐 비워 놓음"
+      }
+    },
+    {
+      "seller_id": 1,
+      "price": 83200,
+      "show": true,
+      "active": true,
+      "name": "스노우베리 카트리지",
+      "quantity": 150,
+      "buyQuantity": 89,
+      "mainImages": [
+        {
+          "path": "uploadFiles/cartridge8.webp",
+          "name": "cartridge8.webp"
+        }
+      ],
+      "extra": {
+        "brand": "아로마조인",
+        "brandInitialKR": "ㅇ",
+        "tags": ["태그 필요"],
+        "content": "카트리지 설명 필요.",
+        "detailContent": "혹시 나중에 필요할까봐 비워 놓음"
+      }
+    },
+    {
+      "seller_id": 1,
+      "price": 57900,
       "show": true,
       "active": true,
       "name": "라벤더 드림 퍼퓸",
@@ -81,7 +314,7 @@
     },
     {
       "seller_id": 1,
-      "price": 32000,
+      "price": 49900,
       "show": true,
       "active": true,
       "name": "로지 블룸 퍼퓸",
@@ -106,7 +339,7 @@
     },
     {
       "seller_id": 1,
-      "price": 32000,
+      "price": 58900,
       "show": true,
       "active": true,
       "name": "무스크 헤이븐 퍼퓸",
@@ -131,7 +364,7 @@
     },
     {
       "seller_id": 1,
-      "price": 32000,
+      "price": 53900,
       "show": true,
       "active": true,
       "name": "스위트 시나몬 퍼퓸",
@@ -156,7 +389,7 @@
     },
     {
       "seller_id": 1,
-      "price": 32000,
+      "price": 44900,
       "show": true,
       "active": true,
       "name": "시트러스 브리즈 퍼퓸",
@@ -181,7 +414,7 @@
     },
     {
       "seller_id": 1,
-      "price": 32000,
+      "price": 61900,
       "show": true,
       "active": true,
       "name": "우디 네롤리 퍼퓸",
@@ -206,7 +439,7 @@
     },
     {
       "seller_id": 1,
-      "price": 32000,
+      "price": 46900,
       "show": true,
       "active": true,
       "name": "블랑쉬 플로르 퍼퓸",
@@ -231,7 +464,7 @@
     },
     {
       "seller_id": 1,
-      "price": 32000,
+      "price": 54900,
       "show": true,
       "active": true,
       "name": "코튼 머스크 퍼퓸",
@@ -256,7 +489,7 @@
     },
     {
       "seller_id": 1,
-      "price": 32000,
+      "price": 49900,
       "show": true,
       "active": true,
       "name": "바닐라 슈가 퍼퓸",
@@ -281,7 +514,7 @@
     },
     {
       "seller_id": 1,
-      "price": 32000,
+      "price": 45900,
       "show": true,
       "active": true,
       "name": "레몬 민트 퍼퓸",
@@ -306,7 +539,7 @@
     },
     {
       "seller_id": 1,
-      "price": 32000,
+      "price": 58900,
       "show": true,
       "active": true,
       "name": "시더레인 퍼퓸",
@@ -331,7 +564,7 @@
     },
     {
       "seller_id": 1,
-      "price": 32000,
+      "price": 49900,
       "show": true,
       "active": true,
       "name": "피오니 블러쉬 퍼퓸",
@@ -356,7 +589,7 @@
     },
     {
       "seller_id": 1,
-      "price": 32000,
+      "price": 41900,
       "show": true,
       "active": true,
       "name": "스킨 머스크 퍼퓸",
@@ -381,7 +614,7 @@
     },
     {
       "seller_id": 1,
-      "price": 32000,
+      "price": 53900,
       "show": true,
       "active": true,
       "name": "허니 플럼 퍼퓸",
@@ -406,7 +639,7 @@
     },
     {
       "seller_id": 1,
-      "price": 32000,
+      "price": 55900,
       "show": true,
       "active": true,
       "name": "자몽티 퍼퓸",
@@ -432,7 +665,7 @@
     [
       {
         "seller_id": 1,
-        "price": 32000,
+        "price": 59900,
         "show": true,
         "active": true,
         "name": "블랙 우드 퍼퓸",
@@ -457,7 +690,7 @@
       },
       {
         "seller_id": 1,
-        "price": 32000,
+        "price": 50900,
         "show": true,
         "active": true,
         "name": "로즈 페탈 퍼퓸",
@@ -482,7 +715,7 @@
       },
       {
         "seller_id": 1,
-        "price": 32000,
+        "price": 44900,
         "show": true,
         "active": true,
         "name": "화이트 머스크 샤워코롱",
@@ -507,7 +740,7 @@
       },
       {
         "seller_id": 1,
-        "price": 32000,
+        "price": 57900,
         "show": true,
         "active": true,
         "name": "카라멜 블룸 퍼퓸",
@@ -532,7 +765,7 @@
       },
       {
         "seller_id": 1,
-        "price": 32000,
+        "price": 52900,
         "show": true,
         "active": true,
         "name": "자몽버스트 퍼퓸",
@@ -557,7 +790,7 @@
       },
       {
         "seller_id": 1,
-        "price": 32000,
+        "price": 49900,
         "show": true,
         "active": true,
         "name": "플로럴 그린 퍼퓸",
@@ -592,7 +825,7 @@
       },
       "products": [
         {
-          "_id": 7,
+          "_id": 18,
           "seller_id": 1,
           "quantity": 2,
           "volume": 30,
@@ -613,7 +846,7 @@
       },
       "products": [
         {
-          "_id": 1,
+          "_id": 12,
           "seller_id": 1,
           "quantity": 3,
           "volume": 50,
@@ -634,14 +867,56 @@
       },
       "products": [
         {
-          "_id": 3,
+          "_id": 14,
+          "seller_id": 1,
+          "quantity": 2,
+          "volume": 100,
+          "price": 104900
+        }
+      ],
+      "cost": {
+        "total": 209800
+      },
+      "review_id": 2,
+      "createdAt": "2025.08.02 17:47:50"
+    },
+    {
+      "user_id": 3,
+      "user": {
+        "_id": 3,
+        "name": "차은우"
+      },
+      "products": [
+        {
+          "_id": 12,
+          "seller_id": 1,
+          "quantity": 3,
+          "volume": 50,
+          "price": 57900
+        }
+      ],
+      "cost": {
+        "total": 173700
+      },
+      "review_id": 0,
+      "createdAt": "2025.08.02 17:47:50"
+    },
+    {
+      "user_id": 3,
+      "user": {
+        "_id": 3,
+        "name": "차은우"
+      },
+      "products": [
+        {
+          "_id": 14,
           "seller_id": 1,
           "quantity": 1,
           "volume": 75,
           "price": 81900
         },
         {
-          "_id": 4,
+          "_id": 15,
           "seller_id": 1,
           "quantity": 1,
           "volume": 100,
@@ -651,7 +926,7 @@
       "cost": {
         "total": 177800
       },
-      "review_id": 0,
+      "review_id": 3,
       "createdAt": "2025.02.04 17:47:50"
     }
   ],
@@ -662,10 +937,41 @@
       "user": {
         "_id": 3
       },
-      "product_id": 2,
+      "product_id": 12,
       "rating": 5,
       "content": "아이가 좋아해요.",
-      "extra": { "images": ["uploadFiles/review1.webp", "uploadFiles/review2.webp", "uploadFiles/review3.webp", "uploadFiles/review4.webp"] },
+      "extra": {
+        "images": ["uploadFiles/review1.webp", "uploadFiles/review2.webp", "uploadFiles/review3.webp", "uploadFiles/review4.webp"],
+        "products": [12]
+      },
+      "createdAt": "2025.08.03 17:47:50"
+    },
+    {
+      "user_id": 3,
+      "user": {
+        "_id": 3
+      },
+      "product_id": 14,
+      "rating": 5,
+      "content": "어른이 좋아해요.",
+      "extra": {
+        "images": ["uploadFiles/review5.webp", "uploadFiles/review6.webp", "uploadFiles/review7.webp", "uploadFiles/review8.webp"],
+        "products": [14]
+      },
+      "createdAt": "2025.08.03 17:47:50"
+    },
+    {
+      "user_id": 3,
+      "user": {
+        "_id": 3
+      },
+      "product_id": 14,
+      "rating": 5,
+      "content": "향 굿굿",
+      "extra": {
+        "images": ["uploadFiles/review9.webp", "uploadFiles/review10.webp", "uploadFiles/review11.webp", "uploadFiles/review12.webp", "uploadFiles/review13.webp"],
+        "products": [14, 15]
+      },
       "createdAt": "2025.08.03 17:47:50"
     }
   ],
@@ -674,14 +980,49 @@
 
   "bookmark": [
     {
-      "user_id": 1,
+      "user_id": 3,
       "user": {
-        "_id": 1,
-        "name": "제이지",
-        "image": "uploadFiles/user-jayg.webp"
+        "_id": 3,
+        "name": "차은우"
       },
       "type": "product",
-      "target_id": 4
+      "target_id": 13
+    },
+    {
+      "user_id": 3,
+      "user": {
+        "_id": 3,
+        "name": "차은우"
+      },
+      "type": "product",
+      "target_id": 17
+    },
+    {
+      "user_id": 3,
+      "user": {
+        "_id": 3,
+        "name": "차은우"
+      },
+      "type": "product",
+      "target_id": 22
+    },
+    {
+      "user_id": 3,
+      "user": {
+        "_id": 3,
+        "name": "차은우"
+      },
+      "type": "product",
+      "target_id": 23
+    },
+    {
+      "user_id": 3,
+      "user": {
+        "_id": 3,
+        "name": "차은우"
+      },
+      "type": "product",
+      "target_id": 25
     }
   ],
 
@@ -693,9 +1034,31 @@
       },
       "extra": {
         "answers": [1, 2, 3, 4, 4],
-        "products": [4, 5, 1]
+        "products": [15, 16, 12]
       },
       "createdAt": "2025.08.03 17:47:50"
+    },
+    {
+      "type": "post",
+      "user": {
+        "_id": 3
+      },
+      "extra": {
+        "answers": [4, 2, 3, 2, 1],
+        "products": [14, 15, 12]
+      },
+      "createdAt": "2025.08.03 17:47:50"
+    },
+    {
+      "type": "post",
+      "user": {
+        "_id": 2
+      },
+      "extra": {
+        "answers": [2, 2, 4, 1, 1],
+        "products": [15, 16, 11]
+      },
+      "createdAt": "2025.08.05 12:32:08"
     }
   ],
 
