@@ -14,14 +14,16 @@ export interface ReviewItem {
   product: {
     _id: number;
     name: string;
+    brand: string;
     image: {
       path: string;
     };
-    extra?: {
-      brand?: string;
-    }
+    // extra?: {
+    //   brand?: string;
+    // }
   };
   extra: {
+    // brand: string;
     images: string[];
   };
 }
@@ -88,7 +90,7 @@ export default function ReviewSample() {
                   })}
               </ul>
               <div className={styles.text_wrapper}>
-                <p className={styles.brand_name}>브랜드{e.product.extra?.brand}</p>
+                <p className={styles.brand_name}></p>
                 <p className={styles.product_name}>{e.product.name}</p>
                 <p className={styles.review_text}>{e.content}</p>
               </div>

@@ -13,6 +13,27 @@ export default function ReviewBtnPage(){
   //   setUserId(id);
   // }, []);
 
+  const renderContent = () => {
+    switch(active){
+      case 'mirine':
+        return (
+          <div className={styles.message}>
+            <p>미리내 리뷰 준비중입니다.</p>
+          </div>
+        );
+        case 'perfume':
+          return <ReviewSample />;
+        case 'aroma':
+          return(
+            <div className={styles.message}>
+            <p>아로마슈터 리뷰 준비중입니다.</p>
+          </div>
+          );
+        default:
+          return null;
+    }
+  };
+
   return(
     <div className={styles.common_section}>
       <nav className={styles.btn_group}>
@@ -42,9 +63,7 @@ export default function ReviewBtnPage(){
       </nav>
 
       <section className={styles.tab_content}>
-        {active === "mirine" && ('미리내 리뷰 준비중입니다.')}
-        {active === "perfume" &&  <ReviewSample />}
-        {active === "aroma" && ('아로마슈터 리뷰 준비중입니다.')}
+        {renderContent()}
       </section>
     </div>
   )
