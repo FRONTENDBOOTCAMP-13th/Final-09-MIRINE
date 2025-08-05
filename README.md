@@ -80,71 +80,18 @@ npm i
 
 #### 👨‍👩‍👧‍👦 팀 소개
 
-> "향을 모르고 사는 시대는 끝났다"<br>우리는 향수를 파는 게 아니라,<br>향기로 완성되는 일상의 행복을 판다.<br>
+> "향을 모르고 사는 시대는 끝났다."<br>
+> 우리는 향수를 파는 게 아니라,<br>
+> 향기로 완성되는 일상의 행복을 판다.
 
-**안녕하세요 향수와 아로마슈터를 판매하는 팀 미리내입니다!**
+**안녕하세요! 향수와 아로마슈터를 판매하는 팀 미리내입니다.**
 
-| 팀장 | 팀원 | 팀원 | 팀원 |
-| ---- | ---- | ---- | ---- |
-
-|
-
-<!-- (승균님)이미지 -->
-
-|
-
-<!-- (상희님)이미지 -->
-
-|  
-<img src="./public/dongsu.png" height="150px" width="150px">  
-|
-
-<!-- (예린님)이미지 -->
-
-|
-| 최승균  
-| 박상희  
-| 신동수  
-| 홍예린  
-|
-|
-![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
-|
-![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
-|
-![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
-|
-![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
-|
-|  
-[최승균 깃허브 링크](https://github.com/seuchoi0531)  
-|  
-[박상희 깃허브 링크](https://github.com/2sign)  
-|  
-[신동수 깃허브 링크](https://github.com/Dongsusin?tab=repositories)  
-|  
-[홍예린 깃허브 링크](https://github.com/hhongye)  
-|
-|
-
----
-
-##### ✨ 주요 컴포넌트 및 페이지
-
-✅ 헤더  
-✅ 푸터  
-✅ 홈(메인)페이지  
-✅ 미리내 페이지  
-✅ 향수 페이지  
-✅ 아로마 슈터 페이지
-✅ 향수 테스트 페이지
-✅ 리뷰 페이지
-✅ 로그인 페이지
-✅ 회원가입 페이지
-✅ 마이 페이지
-✅ 장바구니
-
----
+|                                                 팀장                                                  |                                                 팀원                                                  |                                                 팀원                                                  |                                                 팀원                                                  |
+| :---------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------: |
+|                 <img src="./public/readme/seuchoi.png" height="150px" width="150px">                  |                  <img src="./public/readme/2sign.png" height="150px" width="150px">                   |                  <img src="./public/readme/dongsu.png" height="150px" width="150px">                  |                 <img src="./public/readme/hhongye.png" height="150px" width="150px">                  |
+|                                                최승균                                                 |                                                박상희                                                 |                                                신동수                                                 |                                                홍예린                                                 |
+| ![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white) | ![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white) | ![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white) | ![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white) |
+|                            [최승균 GitHub](https://github.com/seuchoi0531)                            |                               [박상희 GitHub](https://github.com/2sign)                               |                             [신동수 GitHub](https://github.com/Dongsusin)                             |                              [홍예린 GitHub](https://github.com/hhongye)                              |
 
 #### 📁 프로젝트 구조
 
