@@ -9,15 +9,19 @@ export default function ReviewCommon(){
       <h2 className={styles.title}>리뷰</h2>
 
       <nav className={styles.btn_group}>
+        
         <ul className={styles.category_list}>
+          {/* <div className={styles.count_icon_section}>
+            <p className={styles.count}>총 {count}개</p>
+            <ListGrid />
+          </div> */}
           <ReviewButton />
+          
         </ul>
       </nav>
 
-      <div className={styles.count_icon_section}>
-        <p className={styles.count}>총 {count}개</p>
-        <ListGrid />
-      </div>
+
+      
     </div>
   )
 }

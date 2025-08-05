@@ -1,10 +1,10 @@
 'use client';
 import { useEffect, useState } from "react";
-import styles from "./reviewButton.module.css";
-import ReviewEx from "@/app/devtest/actiontest/reviewTest/ReviewEx";
+import styles from "@/components/Review/reviewCommon.module.css"
+import ReviewSample from "@/app/devtest/actiontest/review/ReviewSample";
 
 
-export default function ReviewButton(){
+export default function ReviewBtnPage(){
   const [active, setActive] = useState<"mirine"|"perfume"|"aroma">('perfume');
   const [userId, setUserId] = useState('');
 
@@ -43,7 +43,7 @@ export default function ReviewButton(){
 
       <section className={styles.tab_content}>
         {active === "mirine" && ('미리내 리뷰 준비중입니다.')}
-        {active === "perfume" &&  <ReviewEx />}
+        {active === "perfume" &&  <ReviewSample />}
         {active === "aroma" && ('아로마슈터 리뷰 준비중입니다.')}
       </section>
     </div>
