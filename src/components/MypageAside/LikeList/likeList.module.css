@@ -2,11 +2,14 @@
   width: 100%;
 }
 /* 로딩중, 좋아요 향수 없음 */
-.loading_text, .like_text{
+.loading_text, .like_text, .login_text{
   font-size: 13px;
   color: var(--black-500);
   display: flex;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 300px;
 }
 
 .list_wrapper{
