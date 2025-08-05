@@ -4,11 +4,17 @@ import Image from "next/image";
 import useMirineStore, { MirineItemInState } from "@/store/mirineStore";
 import useShoppingCartStore from "@/store/shoppingCartStore";
 import { seperateArray } from "@/lib/clientFunction";
+import { useEffect, useState } from "react";
 export default function MirineListSection() {
+  const [mounted, setMounted] = useState(false);
   const addItem = useShoppingCartStore((state) => state.addItem);
   const deleteItem = useMirineStore((state) => state.deleteItem);
   const resetMirine = useMirineStore((state) => state.resetMirine);
   const mirine = useMirineStore((state) => state.mirine);
+  useEffect(() => {
+    if (!mounted) setMounted(true);
+  }, []);
+  if (!mounted) return null;
   return (
     <section className={styles.mirine_bottom_sheet}>
       <ul className={styles.mirine_list}>
