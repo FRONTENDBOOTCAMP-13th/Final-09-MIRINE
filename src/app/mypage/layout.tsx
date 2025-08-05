@@ -1,7 +1,7 @@
 "use client";
 
 import Container from "@/components/ui/Container";
-import MypageAside from "@/components/MypageAside/MypageAside";
+import MyPageSidebar from "@/components/layout/Sidebar/MyPageSidebar";
 import styles from "./layout.module.css";
 import { usePathname } from "next/navigation";
 
@@ -33,8 +33,6 @@ export default function RootLayout({
   ];
 
   const getCurrentPageTitle = () => {
-    console.log(pathname);
-
     for (const group of optionGroups) {
       const foundOption = group.options.find((option) => option.value === pathname);
       if (foundOption) {
@@ -54,7 +52,7 @@ export default function RootLayout({
           <h1 className={styles.current_title}>{currentTitle}</h1>
         </div>
         <div className={styles.mypage_layout}>
-          <MypageAside className={styles.mypage_sidebar} groups={optionGroups} />
+          <MyPageSidebar className={styles.mypage_sidebar} groups={optionGroups} />
           <div className={styles.mypage_content}>{children}</div>
         </div>
       </Container>

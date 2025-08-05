@@ -1,6 +1,7 @@
 "use client";
+
 import { useState } from "react";
-import styles from "./mypageAside.module.css";
+import styles from "./myPageSidebar.module.css";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -21,7 +22,7 @@ interface SelectBoxProps {
   className?: string;
 }
 
-export default function MypageAside({ groups, defaultValue, placeholder = "내 정보", className }: SelectBoxProps) {
+export default function MyPageSidebar({ groups, defaultValue, placeholder = "내 정보", className }: SelectBoxProps) {
   const [isOpen, setIsOpen] = useState(false); //드롭다운
   const [selectedValue, setSelectedValue] = useState(defaultValue || ""); //선택값
 
@@ -48,31 +49,29 @@ export default function MypageAside({ groups, defaultValue, placeholder = "내 �
   };
 
   return (
-    <div className={`${styles.aside_dropdown} ${className || ""}`}>
+    <div className={`${styles.aside_dropdown} ${className || ""} ${isOpen && styles.active}`}>
       <button type="button" className={styles.dropdown_header} onClick={toggleDropdown}>
         <span className={styles.select_text}>{getSelectedLabel()}</span>
-        <Image src="/icon/Icon-chevron-down.svg" alt="드롭다운 화살표" className={`${styles.icon} ${isOpen ? styles.rotate : ""}`} width={16} height={16} />
+        <Image src="/icon/Icon-chevron-down.svg" alt="드롭다운 화살표" className={styles.icon} width={16} height={16} />
       </button>
 
       {/* 드롭다운 리스트 */}
-      {isOpen && (
-        <ul className={styles.dropdown_list}>
-          {groups.map((group, groupIndex) => (
-            <li key={groupIndex} className={styles.option_group}>
-              {/* 그룹 제목 */}
-              <p className={styles.group_title}>{group.title}</p>
-              {/* 리스트 */}
-              <ul className={styles.option_list}>
-                {group.options.map((option) => (
-                  <li key={option.value} className={`${styles.option_item} ${selectedValue === option.value ? styles.selected : ""}`} onClick={() => handleOptionSelect(option.value)} role="option" aria-selected={selectedValue === option.value}>
-                    {option.label}
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ))}
-        </ul>
-      )}
+      <ul className={styles.dropdown_list}>
+        {groups.map((group, groupIndex) => (
+          <li key={groupIndex} className={styles.option_group}>
+            {/* 그룹 제목 */}
+            <p className={styles.group_title}>{group.title}</p>
+            {/* 리스트 */}
+            <ul className={styles.option_list}>
+              {group.options.map((option) => (
+                <li key={option.value} className={`${styles.option_item} ${selectedValue === option.value ? styles.selected : ""}`} onClick={() => handleOptionSelect(option.value)} role="option" aria-selected={selectedValue === option.value}>
+                  {option.label}
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
