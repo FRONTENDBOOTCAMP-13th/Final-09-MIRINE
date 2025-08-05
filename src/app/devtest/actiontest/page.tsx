@@ -29,7 +29,7 @@ export default function Actiontest() {
         <Link href={`${crtURL}/patchUser`}>patchUser</Link>
       </li>
       <li>
-        <Link href={`${crtURL}/myLikeListTest`}>myLikeListTest</Link>
+        <Link href={`${crtURL}/Wishlist`}>Wishlist</Link>
       </li>
     </ul>
   );

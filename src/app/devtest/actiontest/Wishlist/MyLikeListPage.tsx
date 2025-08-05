@@ -26,7 +26,7 @@ interface LikedPerfume {
   product: PerfumeInfo;
 }
 
-export default function LikeListPage(){
+export default function MyLikeListPage(){
   const router = useRouter();
   const [token, setToken] = useState('');
   const [likedPerfumes, setLikedPerfumes] = useState<LikedPerfume[]>([]);
