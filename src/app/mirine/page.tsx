@@ -11,7 +11,6 @@ export default async function Mirine() {
   const mainAccordFilterTextList = ["전체", "우디", "시트러스", "머스크", "플로럴", "스위트"];
   const brandSectionTitle = "브랜드";
   const brandFilterTextList = ["전체", "ㄱ", "ㄴ", "ㄷ", "ㄹ", "ㅁ", "ㅂ", "ㅅ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"];
-  const itemCount = 123; // db에서 가져올 숫자
   const data = await getAllPerfumes();
   // const data1 = await getProduct(3);
   // console.log(data);
@@ -32,7 +31,7 @@ export default async function Mirine() {
         {/* 향수 섹션 */}
         <section className={styles.perfume_main}>
           {/* 향수 총 개수 */}
-          <p className={styles.perfume_count}>상품 총 {itemCount}개</p>
+          <p className={styles.perfume_count}>상품 총 {data.item.length}개</p>
 
           <ul className={styles.perfume_container}>
             {data.item.map((item: Perfume) => (
