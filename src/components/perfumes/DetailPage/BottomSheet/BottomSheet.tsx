@@ -4,10 +4,14 @@ import styles from "./bottomSheet.module.css";
 import { addml, addPriceTemplate, productTotalPrice } from "@/lib/clientFunction";
 import { useState } from "react";
 import CartItem from "../../CartItem/CartItem";
+import useShoppingCartStore from "@/store/shoppingCartStore";
+import { CartItemInStore } from "@/types/shoppingCart";
 
 export default function BottomSheet({ data, isOpen, onClose }: { data: Perfume; isOpen: boolean; onClose: () => void }) {
   const [toggleSelectBtn, setToggleSelectBtn] = useState(false);
   const [cartList, setCartList] = useState<{ volume: number; quantity: number; price: number }[]>([]);
+  const addItem = useShoppingCartStore((state) => state.addItem);
+
   return (
     <div>
       {isOpen && (
@@ -84,8 +88,30 @@ export default function BottomSheet({ data, isOpen, onClose }: { data: Perfume; 
               </div>
             </div>
             <div className={styles.btn_section}>
-              <button className={styles.cart_btn}>장바구니</button>
-              <button className={styles.buy_btn}>구매하기</button>
+              <button
+                onClick={() => {
+                  const cartItem: CartItemInStore[] = cartList.map((item) => ({
+                    type: "p",
+                    content: [data._id, data.name, item.volume, item.quantity, item.price],
+                  }));
+                  cartItem.forEach((e) => addItem(e));
+                  alert("장바구니에 추가됐다!");
+                  setToggleSelectBtn(false);
+                  onClose();
+                  setCartList([]);
+                }}
+                className={styles.cart_btn}
+              >
+                장바구니
+              </button>
+              <button
+                onClick={() => {
+                  alert("구매하기를 눌렀다!");
+                }}
+                className={styles.buy_btn}
+              >
+                구매하기
+              </button>
             </div>
           </section>
         </div>
