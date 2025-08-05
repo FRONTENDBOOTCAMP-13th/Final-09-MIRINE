@@ -41,7 +41,7 @@ ul.f_menu {
 
 @media (min-width: 1280px) {
   .inner {
-    width: 1280px;
+    max-width: 1280px;
     margin: 0 auto;
     padding: 20px 0;
   }
