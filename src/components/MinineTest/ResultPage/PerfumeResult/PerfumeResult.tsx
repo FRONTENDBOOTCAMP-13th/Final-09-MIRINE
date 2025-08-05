@@ -14,7 +14,7 @@ export default function PerfumeResultList(){
     <div className={styles.result_section}>
       {/* 향수 결과 정보 */}
       <div className={styles.perfume}>
-        <Image src="/image/perfume1.svg" alt="향수 이미지" width="40" height="40" className={styles.perfume_img} />
+        <Image src="/image/perfume-test.webp" alt="향수 이미지" width="40" height="40" className={styles.perfume_img} />
         <div className={styles.perfume_info}>
           <p className={styles.brand_name}>브랜드</p>
           <p className={styles.product_name}>향수이름</p>
