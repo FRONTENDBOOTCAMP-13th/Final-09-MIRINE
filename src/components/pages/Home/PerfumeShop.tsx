@@ -1,5 +1,5 @@
 import styles from "./perfumeShop.module.css";
-import HomeButton from "@/components/Home/Button/HomeButton";
+import HomeButton from "@/components/pages/Home/Button/HomeButton";
 import Container from "@/components/ui/Container";
 
 export default function PerfumeShop() {

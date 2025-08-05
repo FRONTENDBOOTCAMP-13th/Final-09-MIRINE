@@ -1,6 +1,6 @@
 import styles from "./findScent.module.css";
 import Container from "@/components/ui/Container";
-import HomeButton from "@/components/Home/Button/HomeButton";
+import HomeButton from "@/components/pages/Home/Button/HomeButton";
 
 export default function FindScent() {
   return (
