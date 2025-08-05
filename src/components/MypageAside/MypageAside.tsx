@@ -1,8 +1,8 @@
-'use client';
-import { useState } from 'react';
-import styles from './mypageAside.module.css';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation'; 
+"use client";
+import { useState } from "react";
+import styles from "./mypageAside.module.css";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 interface Option {
   value: string;
@@ -21,16 +21,11 @@ interface SelectBoxProps {
   className?: string;
 }
 
-export default function MypageAside({
-  groups,
-  defaultValue,
-  placeholder = '내 정보',
-  className,
-}: SelectBoxProps) {
+export default function MypageAside({ groups, defaultValue, placeholder = "내 정보", className }: SelectBoxProps) {
   const [isOpen, setIsOpen] = useState(false); //드롭다운
-  const [selectedValue, setSelectedValue] = useState(defaultValue || ''); //선택값
+  const [selectedValue, setSelectedValue] = useState(defaultValue || ""); //선택값
 
-  const router = useRouter(); 
+  const router = useRouter();
 
   //드롭다운
   const toggleDropdown = () => setIsOpen(!isOpen);
@@ -38,9 +33,9 @@ export default function MypageAside({
   //옵션 선택 시 실행
   const handleOptionSelect = async (value: string) => {
     setSelectedValue(value);
-    setIsOpen(false);  //드롭다운 닫기
+    setIsOpen(false); //드롭다운 닫기
 
-    router.push(`/mypage/${value}`); 
+    router.push(`${value}`);
   };
 
   //선택값 라벨 찾기
@@ -51,23 +46,12 @@ export default function MypageAside({
     }
     return placeholder;
   };
-  
 
   return (
-    <div className={`${styles.aside_dropdown} ${className || ''}`}>
-      <button 
-        type="button" 
-        className={styles.dropdown_header} 
-        onClick={toggleDropdown}>
+    <div className={`${styles.aside_dropdown} ${className || ""}`}>
+      <button type="button" className={styles.dropdown_header} onClick={toggleDropdown}>
         <span className={styles.select_text}>{getSelectedLabel()}</span>
-        <Image
-          src="/icon/Icon-chevron-down.svg"
-          alt="드롭다운 화살표"
-          className={`${styles.icon} ${isOpen ? styles.rotate : ''}`}
-          width={16}
-          height={16}
-        />
-
+        <Image src="/icon/Icon-chevron-down.svg" alt="드롭다운 화살표" className={`${styles.icon} ${isOpen ? styles.rotate : ""}`} width={16} height={16} />
       </button>
 
       {/* 드롭다운 리스트 */}
@@ -80,15 +64,7 @@ export default function MypageAside({
               {/* 리스트 */}
               <ul className={styles.option_list}>
                 {group.options.map((option) => (
-                  <li
-                    key={option.value}
-                    className={`${styles.option_item} ${
-                      selectedValue === option.value ? styles.selected : ''
-                    }`}
-                    onClick={() => handleOptionSelect(option.value)}
-                    role="option"
-                    aria-selected={selectedValue === option.value}
-                  >
+                  <li key={option.value} className={`${styles.option_item} ${selectedValue === option.value ? styles.selected : ""}`} onClick={() => handleOptionSelect(option.value)} role="option" aria-selected={selectedValue === option.value}>
                     {option.label}
                   </li>
                 ))}
