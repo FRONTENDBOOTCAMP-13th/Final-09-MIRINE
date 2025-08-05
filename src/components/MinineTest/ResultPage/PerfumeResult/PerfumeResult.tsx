@@ -11,6 +11,7 @@ export default function PerfumeResultList() {
     router.push("/perfumes");
   };
 
+
   return (
     <li className={styles.perfume}>
       <Image src="/image/perfume1.svg" alt="향수 이미지" width="40" height="40" className={styles.perfume_img} />
