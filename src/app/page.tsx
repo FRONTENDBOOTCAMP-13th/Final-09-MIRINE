@@ -1,9 +1,9 @@
-import MainVisualSlide from "@/components/Home/MainVisualSlide";
-import FindScent from "@/components/Home/FindScent";
-import MirineShop from "@/components/Home/MirineShop";
-import PerfumeShop from "@/components/Home/PerfumeShop";
-import AromaShooter from "@/components/Home/AromaShooter";
-import ReviewSlide from "@/components/Home/ReviewSlide";
+import MainVisualSlide from "@/components/pages/Home/MainVisualSlide";
+import FindScent from "@/components/pages/Home/FindScent";
+import MirineShop from "@/components/pages/Home/MirineShop";
+import PerfumeShop from "@/components/pages/Home/PerfumeShop";
+import AromaShooter from "@/components/pages/Home/AromaShooter";
+import ReviewSlide from "@/components/pages/Home/ReviewSlide";
 
 export default function Home() {
   return (
