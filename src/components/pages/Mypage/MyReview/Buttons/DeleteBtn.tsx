@@ -1,15 +1,12 @@
-import styles from "@/components/pages/Mypage/MyReview/Buttons/deleteBtn.module.css";
+import { SmallButton } from "@/components/ui/Button/SmallButton";
 
 export default function DeleteBtn() {
   return (
-    <div className={styles.delete_btn_wrapper}>
-      <button
-        type="button"
-        className={styles.delete_btn}
-        // onClick={handleWriteClick}
-      >
-        리뷰 삭제
-      </button>
-    </div>
+    <SmallButton
+      ButtonColor="orange"
+      // onClick={handleWriteClick}
+    >
+      리뷰 삭제
+    </SmallButton>
   );
 }

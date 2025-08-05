@@ -1,5 +1,5 @@
 "use client";
-import styles from "@/components/pages/Mypage/MyReview/Buttons/reviewWriteBtn.module.css";
+import { SmallButton } from "@/components/ui/Button/SmallButton";
 import { useRouter } from "next/navigation";
 
 export default function ReviewWriteBtn() {
@@ -10,10 +10,8 @@ export default function ReviewWriteBtn() {
   };
 
   return (
-    <div className={styles.write_btn_wrapper}>
-      <button type="button" className={styles.write_btn} onClick={handleWriteClick}>
-        리뷰쓰기
-      </button>
-    </div>
+    <SmallButton ButtonColor="blue" onClick={handleWriteClick}>
+      리뷰쓰기
+    </SmallButton>
   );
 }

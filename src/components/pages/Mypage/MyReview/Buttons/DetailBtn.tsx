@@ -1,6 +1,6 @@
 "use client";
-import styles from "@/components/pages/Mypage/MyReview/Buttons/detailBtn.module.css";
-// import Link from 'next/link'
+
+import { SmallButton } from "@/components/ui/Button/SmallButton";
 import { useRouter } from "next/navigation";
 
 export default function DetailBtn() {
@@ -11,12 +11,8 @@ export default function DetailBtn() {
   };
 
   return (
-    <div className={styles.detail_btn_wrapper}>
-      {/* <Link href="/" className={styles.review_link}>  */}
-      <button type="button" className={styles.detail_btn} onClick={handleDetailClick}>
-        리뷰 상세보기
-      </button>
-      {/* </Link> */}
-    </div>
+    <SmallButton ButtonColor="black" onClick={handleDetailClick}>
+      리뷰 상세보기
+    </SmallButton>
   );
 }

@@ -1,15 +1,15 @@
-import styles from "@/components/pages/Mypage/MyReview/Buttons/editBtn.module.css";
+import { SmallButton } from "@/components/ui/Button/SmallButton";
+// import { useRouter } from "next/navigation";
 
 export default function EditBtn() {
+  // const router = useRouter();
+
   return (
-    <div className={styles.edit_btn_wrapper}>
-      <button
-        type="button"
-        className={styles.edit_btn}
-        // onClick={handleWriteClick}
-      >
-        리뷰 수정
-      </button>
-    </div>
+    <SmallButton
+      ButtonColor="black"
+      // onClick={() => router.push(`/reviews/edit/${reviewId}`)}
+    >
+      리뷰 수정
+    </SmallButton>
   );
 }
