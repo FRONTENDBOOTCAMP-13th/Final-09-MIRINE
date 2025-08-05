@@ -1,0 +1,19 @@
+"use client";
+import styles from "@/components/pages/Mypage/MyReview/Buttons/reviewWriteBtn.module.css";
+import { useRouter } from "next/navigation";
+
+export default function ReviewWriteBtn() {
+  const router = useRouter();
+
+  const handleWriteClick = () => {
+    router.push("/reviews/write");
+  };
+
+  return (
+    <div className={styles.write_btn_wrapper}>
+      <button type="button" className={styles.write_btn} onClick={handleWriteClick}>
+        리뷰쓰기
+      </button>
+    </div>
+  );
+}
