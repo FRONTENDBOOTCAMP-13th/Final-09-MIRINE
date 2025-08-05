@@ -17,3 +17,4 @@ const useMirineStore = create(
     }
   )
 );
+export default useMirineStore;

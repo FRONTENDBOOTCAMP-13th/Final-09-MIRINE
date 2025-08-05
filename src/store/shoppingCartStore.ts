@@ -3,7 +3,7 @@ import { createJSONStorage, persist } from "zustand/middleware";
 
 // 타입 지정해줘야 함
 const useShoppingCartStore = create(
-  persist(
+  persist<CartState>(
     (set, get) => ({
       shoppingCart: [],
       addItem: (item) => set((state) => ({ shoppingCart: [...state.shoppingCart, item] })),
@@ -17,3 +17,5 @@ const useShoppingCartStore = create(
     }
   )
 );
+
+export default useShoppingCartStore;

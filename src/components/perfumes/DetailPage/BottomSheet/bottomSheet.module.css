@@ -1,0 +1,109 @@
+.bottom_sheet {
+  position: fixed;
+  z-index: 1001;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(44, 39, 53, 0.702);
+}
+
+.select_section {
+  padding: 20px;
+  position: fixed;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 20px;
+  bottom: 0;
+  width: 100vw;
+  background-color: var(--bg-white);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.select_volume {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.select_button {
+  padding: 14px 12px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  font-size: 14px;
+  background-color: var(--bg-white);
+  border: 1px solid var(--black-200);
+  border-radius: 6px;
+  color: var(--black-950);
+}
+
+.select_list {
+  display: none;
+  flex-flow: column nowrap;
+  margin-top: 20px; /* 버튼 눌렀을 때 위 버튼과의 간격 */
+  background-color: var(--bg-white);
+  border: 1px solid var(--black-200);
+  border-radius: 6px;
+
+  .select_item {
+    font-size: 13px;
+    border-top: 1px solid var(--black-200);
+    .select_item_btn {
+      padding: 14px 12px;
+      width: 100%;
+      text-align: start;
+    }
+  }
+
+  .select_item:first-child {
+    border-top: 0;
+  }
+}
+.select_list.active {
+  display: flex;
+}
+
+.cart_section {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+}
+.cart_list {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+}
+
+.total_price {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--black-950);
+  padding-top: 10px;
+  border-top: 2px solid var(--black-950);
+  &:last-child {
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+.btn_section {
+  display: grid;
+  grid-template-columns: 12fr 19fr;
+  gap: 10px;
+  .cart_btn {
+    padding: 14px;
+    background-color: var(--bg-white);
+    border: 1px solid var(--black-200);
+    border-radius: 4px;
+    font-size: 15px;
+    color: var(--black-950);
+    cursor: pointer;
+  }
+  .buy_btn {
+    padding: 14px;
+    background-color: var(--black-950);
+    border-radius: 4px;
+    font-size: 15px;
+    color: var(--primary-blue-300);
+    cursor: pointer;
+  }
+}
