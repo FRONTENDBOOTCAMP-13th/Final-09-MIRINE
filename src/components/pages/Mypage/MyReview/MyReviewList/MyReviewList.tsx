@@ -1,37 +1,18 @@
 "use client";
-import DeleteBtn from "@/components/pages/Mypage/MyReview/Buttons/DeleteBtn";
-import DetailBtn from "@/components/pages/Mypage/MyReview/Buttons/DetailBtn";
-import EditBtn from "@/components/pages/Mypage/MyReview/Buttons/EditBtn";
+
 import styles from "@/components/pages/Mypage/MyReview/MyReviewList/myReviewList.module.css";
 import MyReviewItem from "@/components/pages/Mypage/MyReview/MyReviewList/ReviewItem/ReviewItem";
 
 export default function MyReviewList() {
   return (
-    <div className={styles.review_wrapper}>
+    <>
       <p className={styles.title}>내가 작성한 리뷰</p>
 
-      <div className={styles.list_wrapper}>
-        {/* <Link href="/" className={styles.review_link}> */}
+      <ul className={styles.list}>
         <MyReviewItem />
-
-        <div className={styles.btn_wrapper}>
-          {/* 리뷰 상세보기 버튼 */}
-          <div className={styles.detail_btn}>
-            <DetailBtn />
-          </div>
-
-          {/* 수정버튼 */}
-          <div className={styles.edit_btn}>
-            <EditBtn />
-          </div>
-
-          {/* 삭제버튼 */}
-          <div className={styles.delete_btn}>
-            <DeleteBtn />
-          </div>
-        </div>
-        {/* </Link> */}
-      </div>
-    </div>
+        <MyReviewItem />
+        <MyReviewItem />
+      </ul>
+    </>
   );
 }
