@@ -18,27 +18,42 @@ export default async function Mirine() {
   // console.log();
   // console.log(data1);
   return (
-    <div className={styles.perfumes}>
-      <h2 className={styles.header}>미리내</h2>
-      {/* 검색 바 */}
-      <SearchBar id={"perfumeSearch"} />
-      {/* 메인어코드 필터 섹션 */}
-      <FilterSection filterSectionTitle={mainAccordSectionTitle} filterTextList={mainAccordFilterTextList} />
-      {/* 브랜드 필터 섹션 */}
-      <FilterSection filterSectionTitle={brandSectionTitle} filterTextList={brandFilterTextList} />
-      {/* 향수 섹션 */}
-      <section className={styles.perfume_main}>
-        {/* 향수 총 개수 */}
-        <p className={styles.perfume_count}>상품 총 {itemCount}개</p>
+    <>
+      <div className={styles.perfumes}>
+        <h2 className={styles.header}>미리내</h2>
+        {/* 검색 바 */}
+        <SearchBar id={"perfumeSearch"} />
+        {/* 메인어코드 필터 섹션 */}
+        <FilterSection filterSectionTitle={mainAccordSectionTitle} filterTextList={mainAccordFilterTextList} />
+        {/* 브랜드 필터 섹션 */}
+        <FilterSection filterSectionTitle={brandSectionTitle} filterTextList={brandFilterTextList} />
+        {/* 향수 섹션 */}
+        <section className={styles.perfume_main}>
+          {/* 향수 총 개수 */}
+          <p className={styles.perfume_count}>상품 총 {itemCount}개</p>
 
-        <ul className={styles.perfume_container}>
-          {data.item.map((item: Perfume) => (
-            <li key={item._id}>
-              <PerfumeItem id={item._id} item={item} path={item.mainImages[0].path} inMirine={true} />
-            </li>
-          ))}
+          <ul className={styles.perfume_container}>
+            {data.item.map((item: Perfume) => (
+              <li key={item._id}>
+                <PerfumeItem id={item._id} item={item} path={item.mainImages[0].path} inMirine={true} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
+      <section className={styles.mirine_bottom_sheet}>
+        <ul className={styles.mirine_list}>
+          <li>
+            <div className={styles.mirine_item}>{1}</div>
+          </li>
         </ul>
+        <p className={styles.required_cnt_description}>*최소 5개 필수 선택</p>
+        <div className={styles.button_section}>
+          <button className={styles.buy_btn}>
+            <span>총 {2}개</span> 장바구니 담기
+          </button>
+        </div>
       </section>
-    </div>
+    </>
   );
 }

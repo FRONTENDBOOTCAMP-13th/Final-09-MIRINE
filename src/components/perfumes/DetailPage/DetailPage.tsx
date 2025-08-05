@@ -1,4 +1,5 @@
 "use client";
+import MirineButton from "@/components/Mirine/Button/MirineButton";
 import styles from "./detailPage.module.css";
 import ProductHeader from "@/components/Mirine/ProductHeader/ProductHeader";
 import ProductInfo from "@/components/Mirine/ProductInfo/ProductInfo";
@@ -39,6 +40,8 @@ export default function PerfumeDetailPage({ id, data }: { id: string; data: Perf
 
       {/* 구매하기 버튼 */}
       <BuyButton onClick={() => setIsSheetOpen(true)} />
+      {/* 미리내담기버튼 */}
+      {/* <MirineButton /> */}
 
       <BottomSheet data={data} isOpen={isSheetOpen} onClose={() => setIsSheetOpen(false)} />
     </article>

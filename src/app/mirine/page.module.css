@@ -39,3 +39,62 @@
 .perfume_container {
   display: contents;
 }
+
+.mirine_bottom_sheet {
+  position: sticky;
+  width: 100vw;
+  bottom: 0;
+  padding: 20px;
+  background-color: var(--primary-purple-200);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.mirine_list {
+  margin-bottom: 10px;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 10px;
+  overflow-x: scroll;
+  .mirine_item {
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+    background-color: var(--primary-purple-100);
+    border: 1px solid var(--primary-purple-300);
+    border-radius: 25px;
+    color: var(--primary-purple-300);
+    font-size: 15px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 48px;
+  }
+}
+
+.required_cnt_description {
+  font-size: 12px;
+  color: var(--error);
+  margin-bottom: 5px;
+}
+
+.button_section {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  z-index: 1001;
+}
+
+.buy_btn {
+  padding: 15px;
+  background-color: var(--black-950);
+  border-radius: 4px;
+  font-size: 15px;
+  color: var(--text-white);
+  width: 100%;
+  cursor: pointer;
+  span {
+    color: var(--primary-purple-300);
+    font-weight: bold;
+  }
+}
