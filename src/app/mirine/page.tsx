@@ -5,6 +5,7 @@ import PerfumeItem from "@/components/perfumes/PerfumeItem/PerfumeItem";
 // import { getAllPerfumes, getProduct } from "@/lib/function";
 import { getAllPerfumes } from "@/lib/function";
 import { Perfume } from "@/types/perfume";
+import MirineListSection from "@/components/Mirine/MirineListSection/MirineListSection";
 export default async function Mirine() {
   const mainAccordSectionTitle = "메인어코드";
   const mainAccordFilterTextList = ["전체", "우디", "시트러스", "머스크", "플로럴", "스위트"];
@@ -17,6 +18,7 @@ export default async function Mirine() {
   // console.log(data.item[0].mainImages[0].path);
   // console.log();
   // console.log(data1);
+
   return (
     <>
       <div className={styles.perfumes}>
@@ -41,19 +43,7 @@ export default async function Mirine() {
           </ul>
         </section>
       </div>
-      <section className={styles.mirine_bottom_sheet}>
-        <ul className={styles.mirine_list}>
-          <li>
-            <div className={styles.mirine_item}>{1}</div>
-          </li>
-        </ul>
-        <p className={styles.required_cnt_description}>*최소 5개 필수 선택</p>
-        <div className={styles.button_section}>
-          <button className={styles.buy_btn}>
-            <span>총 {2}개</span> 장바구니 담기
-          </button>
-        </div>
-      </section>
+      <MirineListSection />
     </>
   );
 }
