@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import styles from "./myPageSidebar.module.css";
+import styles from "./mypageSidebar.module.css";
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
 
