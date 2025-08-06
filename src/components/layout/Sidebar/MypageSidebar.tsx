@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import styles from "./myPageSidebar.module.css";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 interface Option {
   value: string;
@@ -27,6 +27,29 @@ export default function MyPageSidebar({ groups, defaultValue, placeholder = "내
   const [selectedValue, setSelectedValue] = useState(defaultValue || ""); //선택값
 
   const router = useRouter();
+  const pathname = usePathname(); // 현재 경로 가져오기
+
+  const findOptionByPath = useCallback(
+    (path: string) => {
+      for (const group of groups) {
+        const found = group.options.find((opt) => opt.value === path);
+        if (found) return found;
+      }
+      return null;
+    },
+    [groups]
+  );
+
+  useEffect(() => {
+    const currentOption = findOptionByPath(pathname);
+    if (currentOption) {
+      setSelectedValue(currentOption.value);
+    } else {
+      if (pathname === "/mypage" && groups.length > 0 && groups[0].options.length > 0) {
+        setSelectedValue(groups[0].options[0].value);
+      }
+    }
+  }, [pathname, findOptionByPath, groups]);
 
   //드롭다운
   const toggleDropdown = () => setIsOpen(!isOpen);
