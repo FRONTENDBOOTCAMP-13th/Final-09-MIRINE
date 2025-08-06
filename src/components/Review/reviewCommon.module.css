@@ -1,6 +1,5 @@
 .common_section{
   padding: 20px 20px 10px 20px;
-  /* width: 100%; */
 }
 
 .title{
@@ -9,7 +8,6 @@
   padding-bottom: 20px;
 }
 
-/* 탭 */
 .category_list{
   display: flex;
   font-size: 13px;
@@ -35,7 +33,7 @@
 }
 
 .active {
-  background-color: var(--primary-blue-100); /* 예: 파란색 강조 */
+  background-color: var(--primary-blue-100); 
   border-color: var(--primary-blue-300);
   color: var(--primary-blue-300);
 }
@@ -50,6 +48,12 @@
 .count{
   font-size: 13px;
   color: var(--black-500);
+}
+
+.message{
+  font-size: 13px;
+  color: var(--black-500);
+  padding: 20px 20px 0 0;
 }
 
 /* .view_options{
