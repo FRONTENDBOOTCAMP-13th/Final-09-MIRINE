@@ -8,22 +8,14 @@ import Image from "next/image";
 import useUserStore from "@/store/userStore";
 import { getUserID } from "@/lib/clientFunction";
 
-declare global {
-  interface Window {
-    Kakao;
-  }
-}
-
 export default function Header() {
   const router = useRouter();
   const pathname = usePathname();
   const [isOpenning, setIsOpenning] = useState(false);
-  // const [user, setUser] = useState<User | { kakao?: boolean; naver?: boolean } | null>(null);
   const userData = useUserStore((state) => state.user);
   const userID = getUserID();
   const resetUser = useUserStore((state) => state.resetUser);
   const [user, setUser] = useState(userData && true);
-  // const [mounted, setMounted] = useState(false);
   const handlePrev = () => {
     router.back();
   };
@@ -33,26 +25,8 @@ export default function Header() {
   }, [pathname]);
 
   useEffect(() => {
-    // setUser(typeof userData !== null);
-    console.log("user", user);
-    console.log("userData", userData);
-  }, []);
-
-  useEffect(() => {
     setUser(!!userID);
   }, [userID]);
-
-  // useEffect(() => {
-  //   console.log("user", user);
-  //   console.log("userData", userData);
-  //   setUser(userData && true);
-  // }, [userData]);
-
-  // useEffect(() => {
-  //   if (!mounted) setMounted(true);
-  // }, []);
-
-  // if (!mounted) return null;
 
   if (pathname === "/mirine-test") return;
   else {
