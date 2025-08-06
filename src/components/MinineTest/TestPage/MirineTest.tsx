@@ -15,7 +15,7 @@ export default function MirineTest() {
         </div>
       </div>
       {/* 질문 */}
-      <p className={styles.question}>질문</p>
+      <p className={styles.question}>다음 중 가장 끌리는 향은 무엇인가요?</p>
       {/* 비행기 이미지 */}
       <div className={styles.img}>
         <Image src="/image/test-plane.svg" alt="이미지" width={152} height={152} priority />
@@ -25,13 +25,13 @@ export default function MirineTest() {
         <button 
           type="button" 
           className={styles.answer1}
-          >선택1</button>
+          >디저트의 달콤함</button>
         <button 
           type="button" 
-          className={styles.answer2}>선택2</button>
+          className={styles.answer2}>사탕, 망고와 같은 상큼 없는 달콤함</button>
         <button 
           type="button" 
-          className={styles.answer3}>선택3</button>
+          className={styles.answer3}>과일, 꽃의</button>
         <button 
           type="button" 
           className={styles.answer4}>선택4</button>

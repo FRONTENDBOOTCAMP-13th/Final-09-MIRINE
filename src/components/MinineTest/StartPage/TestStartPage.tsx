@@ -8,7 +8,7 @@ export default function TestStartPage(){
 
   // 테스트 시작하기
   const handleStartTest = () => {
-    router.push('/')
+    router.push('/mirine-test/test')
   }
   // 홈으로 이동하기
   const handleGoHome = () => {
