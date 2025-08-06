@@ -5,6 +5,8 @@ import RegisterButton from "@/components/pages/Mypage/ReviewWriteEdit/Button/Reg
 import styles from "@/components/pages/Mypage/ReviewWriteEdit/reviewWriteEdit.module.css";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Container from "@/components/ui/Container";
+import StarRating from "@/components/pages/Mypage/StartRating/StarRating";
 
 interface ReviewWriteEditProps {
   mode: "write" | "edit";
@@ -77,65 +79,67 @@ export default function ReviewWriteEdit({ mode = "write", reviewId, initialData 
   const pageTitle = mode === "write" ? "리뷰 작성" : "리뷰 수정";
 
   return (
-    <div className={styles.wrapper}>
+    <Container>
       <h1 className={styles.page_title}>{pageTitle}</h1>
 
-      <div className={styles.list_group}>
+      <div className={styles.item_info}>
         <Image src={initialData?.productInfo?.image || "/image/perfume1.svg"} alt="향수 이미지" width="40" height="40" className={styles.perfume_img} />
-        <div className={styles.item_info}>
+        <div className={styles.name}>
           <p className={styles.brand_name}>{initialData?.productInfo?.brand || "브랜드"}</p>
           <p className={styles.product_name}>{initialData?.productInfo?.name || "향수이름"}</p>
         </div>
       </div>
 
-      <div className={styles.write_wrapper}>
-        <div className={styles.star_wrapper}>
-          <p className={styles.star_title}>별점주기</p>
+      <form className={styles.write_form}>
+        <div className={styles.section}>
+          <label className={styles.label}>별점주기</label>
           <div>
-            {/* 별점 컴포넌트 추가 예정 */}
-            {/* <StarRating rating={rating} onChange={setRating} /> */}
+            <StarRating rating={rating} onChange={setRating} />
           </div>
         </div>
 
-        <div className={styles.line}></div>
+        <hr className={styles.line} />
 
-        <div className={styles.photo_wrapper}>
-          <p className={styles.photo_title}>사진 업로드</p>
-          <div className={styles.photo_box}>
-            {[...Array(5)].map((_, index) => (
-              <Image key={index} src={images[index] || "/"} alt="이미지" width={52} height={52} className={styles.img_box} />
-            ))}
+        <div className={styles.section}>
+          <label className={styles.label}>사진 업로드</label>
+          <div className={styles.review_photo}>
+            <div className={styles.photo_box}>
+              {[...Array(5)].map((_, index) => (
+                <Image key={index} src={images[index] || "/"} alt="이미지" width={76} height={76} className={styles.photo_img} />
+              ))}
+            </div>
+            <p className={styles.error_text}>*최대 5까지 등록 가능합니다.</p>
           </div>
-          <p className={styles.error_text}>*최대 5까지 등록 가능합니다.</p>
         </div>
 
-        <div className={styles.line}></div>
+        <hr className={styles.line} />
 
-        <div className={styles.review_write_wrapper}>
-          <p className={styles.review_write_title}>리뷰 작성</p>
-          <div className={styles.review_write_box}>
-            <textarea
-              className={styles.textarea}
-              placeholder="*해당 상품과 무관한 내용이나 동일 문자의 반복 등 부적절한 내용은 삭제될 수 있습니다."
-              value={content}
-              onChange={(e) => {
-                const value = e.target.value;
-                setContent(value);
+        <div className={styles.section}>
+          <label htmlFor="review_text" className={styles.label}>
+            리뷰 작성
+          </label>
+          <textarea
+            id="review_text"
+            className={styles.textarea}
+            placeholder="*해당 상품과 무관한 내용이나 동일 문자의 반복 등 부적절한 내용은 삭제될 수 있습니다."
+            value={content}
+            onChange={(e) => {
+              const value = e.target.value;
+              setContent(value);
 
-                if (value.trim().length >= 10) {
-                  setError("");
-                }
-              }}
-            />
-          </div>
-          <p className={styles.error_text}>{error}</p>
+              if (value.trim().length >= 10) {
+                setError("");
+              }
+            }}
+          />
+          {error && <p className={styles.error_text}>{error}</p>}
         </div>
-      </div>
+      </form>
 
       <div className={styles.btn_group}>
         <CancelButton />
         <RegisterButton onClickRegister={onSubmit} buttonText={buttonText} />
       </div>
-    </div>
+    </Container>
   );
 }
