@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import useUserStore from "@/store/userStore";
 import { getUserID } from "@/lib/clientFunction";
+import useMirineStore from "@/store/mirineStore";
+import useShoppingCartStore from "@/store/shoppingCartStore";
 
 export default function Header() {
   const router = useRouter();
@@ -15,6 +17,8 @@ export default function Header() {
   const userData = useUserStore((state) => state.user);
   const userID = getUserID();
   const resetUser = useUserStore((state) => state.resetUser);
+  const resetMirine = useMirineStore((state) => state.resetMirine);
+  const resetShoppingCart = useShoppingCartStore((state) => state.resetShoppingCart);
   const [user, setUser] = useState(userData && true);
   const handlePrev = () => {
     router.back();
@@ -81,6 +85,8 @@ export default function Header() {
                   onClick={() => {
                     if (confirm("로그아웃 하시겠습니까?")) {
                       resetUser();
+                      resetShoppingCart();
+                      resetMirine();
                       setUser(false);
                     }
                   }}
@@ -157,6 +163,8 @@ export default function Header() {
                   onClick={() => {
                     if (confirm("로그아웃 하시겠습니까?")) {
                       resetUser();
+                      resetShoppingCart();
+                      resetMirine();
                       setUser(false);
                     }
                   }}
