@@ -23,6 +23,10 @@ export interface User {
   loginType: "email" | "kakao" | "google" | "naver";
   createdAt: string;
   updatedAt: string;
+  token: {
+    accessToken?: string;
+    refreshToken?: string;
+  };
   extra: {
     address: AddressInfo;
   };
@@ -38,4 +42,11 @@ export interface AddressInfo {
   zipCode: string;
   mainAddress: string;
   detailAddress: string;
+}
+
+export interface UserState {
+  user: User | null;
+  setUser: (user: User) => void;
+  resetUser: () => void;
+  getUser: () => User | null;
 }

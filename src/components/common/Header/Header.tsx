@@ -5,21 +5,17 @@ import styles from "./header.module.css";
 import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { auth, signOut } from "../../../api/firebase/firebase";
-import { User } from "firebase/auth";
-
-declare global {
-  interface Window {
-    Kakao;
-  }
-}
+import useUserStore from "@/store/userStore";
+import { getUserID } from "@/lib/clientFunction";
 
 export default function Header() {
   const router = useRouter();
   const pathname = usePathname();
   const [isOpenning, setIsOpenning] = useState(false);
-  const [user, setUser] = useState<User | { kakao?: boolean; naver?: boolean } | null>(null);
-
+  const userData = useUserStore((state) => state.user);
+  const userID = getUserID();
+  const resetUser = useUserStore((state) => state.resetUser);
+  const [user, setUser] = useState(userData && true);
   const handlePrev = () => {
     router.back();
   };
@@ -28,79 +24,16 @@ export default function Header() {
     setIsOpenning(false);
   }, [pathname]);
 
-  // Kakao SDK
   useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://developers.kakao.com/sdk/js/kakao.min.js";
-    script.async = true;
-    script.onload = () => {
-      if (window.Kakao && !window.Kakao.isInitialized()) {
-        window.Kakao.init("5f119b39694599fdc09f409b96af8449");
-      }
-    };
-    document.head.appendChild(script);
-  }, []);
+    setUser(!!userID);
+  }, [userID]);
 
-  // 로그인 상태 확인
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        const kakao = localStorage.getItem("kakaoLogin");
-        const naver = localStorage.getItem("naverLogin");
-        if (kakao === "true") {
-          setUser({ kakao: true });
-        } else if (naver === "true") {
-          setUser({ naver: true });
-        } else {
-          setUser(null);
-        }
-      }
-    });
-    return () => unsubscribe();
-  }, [pathname]);
-
-  const handleLogout = async () => {
-    try {
-      await signOut(auth);
-    } catch (error) {
-      console.error("Firebase logout error:", error);
-    }
-
-    // Kakao 로그아웃
-    if (window.Kakao && window.Kakao.Auth) {
-      if (!window.Kakao.isInitialized()) {
-        window.Kakao.init("5f119b39694599fdc09f409b96af8449");
-      }
-
-      window.Kakao.Auth.logout(() => {
-        console.log("카카오 로그아웃 완료");
-        localStorage.removeItem("kakaoLogin");
-        setUser(null);
-        window.location.reload();
-      });
-    }
-
-    // Naver 로그아웃
-    if (localStorage.getItem("naverLogin") === "true") {
-      localStorage.removeItem("naverLogin");
-      setUser(null);
-      window.location.href = "https://nid.naver.com/nidlogin.logout";
-      return;
-    }
-
-    localStorage.removeItem("kakaoLogin");
-    localStorage.removeItem("naverLogin");
-    setUser(null);
-    window.location.reload();
-  };
   if (pathname === "/mirine-test") return;
   else {
     return (
       <header className={styles.header}>
         <div className={styles.inner}>
-          {(pathname === "/mirine" || pathname === "/perfumes") && (
+          {!(pathname === "/") && (
             <button onClick={handlePrev} className={styles.prev_btn}>
               <Image src="/icon/Icon-prev.svg" alt="이전으로 이동" width="24" height="24" />
             </button>
@@ -144,7 +77,16 @@ export default function Header() {
             </li>
             <li>
               {user ? (
-                <button onClick={handleLogout}>로그아웃</button>
+                <button
+                  onClick={() => {
+                    if (confirm("로그아웃 하시겠습니까?")) {
+                      resetUser();
+                      setUser(false);
+                    }
+                  }}
+                >
+                  로그아웃
+                </button>
               ) : (
                 <Link href="/login" className={pathname === "/login" ? styles.active : ""}>
                   로그인
@@ -152,9 +94,15 @@ export default function Header() {
               )}
             </li>
             <li>
-              <Link href="/mypage" className={pathname === "/mypage" ? styles.active : ""}>
-                마이페이지
-              </Link>
+              {user ? (
+                <Link href="/mypage" className={pathname === "/mypage" ? styles.active : ""}>
+                  마이페이지
+                </Link>
+              ) : (
+                <Link href="/signup" className={pathname === "/signup" ? styles.active : ""}>
+                  회원가입
+                </Link>
+              )}
             </li>
             <li>
               <Link href="/shopping-cart" className={pathname === "/shopping-cart" ? styles.active : ""}>
@@ -205,7 +153,16 @@ export default function Header() {
             </li>
             <li>
               {user ? (
-                <button onClick={handleLogout}>로그아웃</button>
+                <button
+                  onClick={() => {
+                    if (confirm("로그아웃 하시겠습니까?")) {
+                      resetUser();
+                      setUser(false);
+                    }
+                  }}
+                >
+                  로그아웃
+                </button>
               ) : (
                 <Link href="/login" className={pathname === "/login" ? styles.active : ""}>
                   로그인
@@ -213,9 +170,15 @@ export default function Header() {
               )}
             </li>
             <li>
-              <Link href="/mypage" className={pathname === "/mypage" ? styles.active : ""}>
-                마이페이지
-              </Link>
+              {user ? (
+                <Link href="/mypage" className={pathname === "/mypage" ? styles.active : ""}>
+                  마이페이지
+                </Link>
+              ) : (
+                <Link href="/signup" className={pathname === "/signup" ? styles.active : ""}>
+                  회원가입
+                </Link>
+              )}
             </li>
             <li>
               <Link href="/shopping-cart" className={pathname === "/shopping-cart" ? styles.active : ""}>

@@ -3,6 +3,7 @@
 // export function getFile(path: string) {
 //   return `${URL}/${path}`;
 // }
+
 // const URL = process.env.NEXT_PUBLIC_OPEN_MARKET_URL;
 export function getFile(path: string) {
   // return `${URL}/${path}`;
@@ -10,12 +11,12 @@ export function getFile(path: string) {
 }
 
 export function getAccessToken() {
-  if (typeof window !== "undefined") return localStorage.getItem("accessToken") || "";
+  if (typeof window !== "undefined") return JSON.parse(localStorage.getItem("user") || "").state.token || "";
   return "";
 }
 
 export function getUserID() {
-  if (typeof window !== "undefined") return localStorage.getItem("userId") || "";
+  if (typeof window !== "undefined") return JSON.parse(localStorage.getItem("user") || "").state.userID || "";
   return "";
 }
 
