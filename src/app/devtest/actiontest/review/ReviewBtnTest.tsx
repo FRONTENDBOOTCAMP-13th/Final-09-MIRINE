@@ -1,17 +1,38 @@
 'use client';
-import { useEffect, useState } from "react";
-import styles from "./reviewButton.module.css";
-import ReviewEx from "@/app/devtest/actiontest/reviewTest/ReviewEx";
+import { useState } from "react";
+import styles from "@/components/Review/reviewCommon.module.css"
+import ReviewSample from "@/app/devtest/actiontest/review/ReviewSample";
 
 
-export default function ReviewButton(){
+export default function ReviewBtnPage(){
   const [active, setActive] = useState<"mirine"|"perfume"|"aroma">('perfume');
-  const [userId, setUserId] = useState('');
+  // const [userId, setUserId] = useState('');
 
-  useEffect(()=>{
-    const id = localStorage.getItem('userId') || '';
-    setUserId(id);
-  }, []);
+  // useEffect(()=>{
+  //   const id = localStorage.getItem('userId') || '';
+  //   setUserId(id);
+  // }, []);
+
+  const renderContent = () => {
+    switch(active){
+      case 'mirine':
+        return (
+          <div className={styles.message}>
+            <p>미리내 리뷰 준비중입니다.</p>
+          </div>
+        );
+        case 'perfume':
+          return <ReviewSample />;
+        case 'aroma':
+          return(
+            <div className={styles.message}>
+            <p>아로마슈터 리뷰 준비중입니다.</p>
+          </div>
+          );
+        default:
+          return null;
+    }
+  };
 
   return(
     <div className={styles.common_section}>
@@ -42,9 +63,7 @@ export default function ReviewButton(){
       </nav>
 
       <section className={styles.tab_content}>
-        {active === "mirine" && ('미리내 리뷰 준비중입니다.')}
-        {active === "perfume" &&  <ReviewEx />}
-        {active === "aroma" && ('아로마슈터 리뷰 준비중입니다.')}
+        {renderContent()}
       </section>
     </div>
   )
