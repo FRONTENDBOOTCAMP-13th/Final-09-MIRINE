@@ -13,16 +13,19 @@
   justify-content: space-between;
 }
 
-.title{
+.title_wrapper{
   display: flex;
   justify-content: center;
+  margin-top: 100px;
+}
+
+.title{
   font-size: 24px;
   color: var(--black-950);
-  padding: 67px;
 }
 
 .btn {
-  width: 100%;
+  width: 400px;
   height: 42px;
   font-size: 14px;
   border-radius: 50px;
@@ -32,6 +35,7 @@
 .btn_group {
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 0 20px 50px 20px;
   gap: 10px;
 }
