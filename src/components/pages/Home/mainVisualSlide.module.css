@@ -47,7 +47,7 @@
 .mvs_1 {
   position: relative;
 
-  .text_content {
+  .sld_content {
     position: absolute;
     top: 50%;
     left: 20px;
@@ -106,6 +106,78 @@
   }
 }
 
+.mvs_2 {
+  position: relative;
+  text-align: center;
+
+  .sld_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .text {
+    margin-bottom: 20px;
+    color: var(--text-white);
+  }
+
+  .sub_script {
+    font-size: 14px;
+  }
+
+  .main_script {
+    font-size: 20px;
+    white-space: nowrap;
+
+    strong {
+      font-weight: bold;
+    }
+  }
+
+  .button {
+    p {
+      margin-bottom: 5px;
+      color: var(--text-blue-400);
+      font-size: 12px;
+    }
+  }
+}
+
+.mvs_3 {
+  position: relative;
+  text-align: center;
+
+  .sld_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .text {
+    margin-bottom: 30px;
+    color: var(--text-white);
+  }
+
+  .text_color {
+    color: var(--text-blue-400);
+  }
+
+  .main_script {
+    font-size: 20px;
+    white-space: nowrap;
+
+    strong {
+      font-weight: bold;
+    }
+  }
+
+  .sub_script {
+    font-size: 14px;
+  }
+}
+
 .main_visual_logo {
   z-index: 100;
   position: absolute;
@@ -135,7 +207,7 @@
   }
 
   .mvs_1 {
-    .text_content {
+    .sld_content {
       left: 30px;
     }
 
@@ -199,7 +271,7 @@
   }
 
   .mvs_1 {
-    .text_content {
+    .sld_content {
       left: 100px;
     }
 
@@ -220,6 +292,40 @@
     .main_script {
       margin-bottom: 30px;
       font-size: 32px;
+    }
+
+    .sub_script {
+      font-size: 22px;
+    }
+  }
+
+  .mvs_2 {
+    .text {
+      margin-bottom: 30px;
+    }
+
+    .sub_script {
+      font-size: 22px;
+    }
+
+    .main_script {
+      font-size: 34px;
+    }
+
+    .button {
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .mvs_3 {
+    .text {
+      margin-bottom: 40px;
+    }
+
+    .main_script {
+      font-size: 34px;
     }
 
     .sub_script {
