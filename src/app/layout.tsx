@@ -3,6 +3,16 @@ import "./globals.css";
 import "./reset.css";
 import Header from "@/components/common/Header/Header";
 import Footer from "@/components/common/Footer/Footer";
+import { Metadata } from "next";
+
+export function generateMetadata(): Metadata {
+  return {
+    title: "MIRINE",
+    icons: {
+      icon: "/favicon/favicon.ico",
+    },
+  };
+}
 
 const suit = localFont({
   src: "../../public/font/SUIT-Variable-woff2/SUIT-Variable.woff2",
