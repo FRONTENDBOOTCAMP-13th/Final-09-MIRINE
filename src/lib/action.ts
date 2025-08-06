@@ -1,6 +1,9 @@
 "use server";
 
-import { getUser } from "./function";
+import { CartItemInStore } from "@/types/shoppingCart";
+import { getProduct, getUser } from "./function";
+import { OrderProduct } from "@/types/order";
+import { MirineItemInState } from "@/store/mirineStore";
 
 // body에 token 넣어서 보낸거 수정해야 함
 
@@ -444,4 +447,101 @@ export async function uploadFileForDev(state, formData: FormData) {
   });
   const data = await res.json();
   return data;
+}
+
+export async function postOrders(cartList: CartItemInStore[], user_id: number, token: string) {
+  const userData = await getUser(user_id);
+  const orderList = cartList.map(async (e) => postEachOtherOrder(e, user_id, userData.item.name, token));
+  return orderList;
+
+  // const productIDList: string[] = formData.getAll("product_id") as string[];
+  // const productQuantityList: string[] = formData.getAll("product_quantity") as string[];
+  // const productsPromise = productIDList.map(async (product_id: string, idx: number) => {
+  //   return { _id: +product_id, quantity: +productQuantityList[idx] };
+  // });
+  // const products = await Promise.all(productsPromise);
+  // // console.log("products[0]", (await products[0])._id);
+  // // const userData = await getUser(user_id);
+  // const user = {
+  //   _id: user_id,
+  //   name: userData.item.name,
+  // };
+  // try {
+  //   const body = {
+  //     user_id: formData.get("user_id"),
+  //     user,
+  //     products: products,
+  //     review_id: formData.get("review_id") || 0,
+  //     cost: { total: formData.get("total") || 0 },
+  //     token: formData.get("token"),
+  //   };
+  //   // if (body.cost.total === 0) {
+  //   //   const resolvedProducts = await Promise.all(products);
+  //   //   body.cost.total = resolvedProducts.reduce((sum, item) => sum + item.price, 0);
+  //   // }
+  //   const res = await fetch(`${URL}/orders`, {
+  //     method: "POST",
+  //     headers: {
+  //       Authorization: `Bearer ${body.token}`,
+  //       "Content-Type": "application/json",
+  //       "Client-Id": CLIENT_ID || "",
+  //     },
+  //     body: JSON.stringify(body),
+  //   });
+  //   const data = await res.json();
+  //   return data;
+  // } catch (error) {
+  //   console.error("error 발생", error);
+  //   return error;
+  // }
+}
+
+async function postEachOtherOrder(item: CartItemInStore, user_id: number, userName: string, token: string) {
+  const user = {
+    _id: user_id,
+    name: userName,
+  };
+  const body: OrderProduct = {
+    user_id,
+    user,
+    review_id: 0,
+    products: [],
+    cost: { total: 0 },
+    extra: {
+      type: item.type,
+    },
+  };
+  if (item.type === "m") {
+    body.products.push({ _id: 1, quantity: 1 });
+    body.extra.products = [...(item.content as MirineItemInState[])];
+    body.cost.total = body.extra.products.reduce((sum, e) => e.price / 10 + sum, 0);
+  } else if (item.type === "p") {
+    body.products.push({ _id: (item.content as [number, string, number, number, number])[0], quantity: (item.content as [number, string, number, number, number])[3] });
+    body.extra.volume = (item.content as [number, string, number, number, number])[2];
+    body.extra.price = (item.content as [number, string, number, number, number])[4];
+    const productData = (await getProduct(body.products[0]._id)).item;
+    body.extra.products = [];
+    body.extra.products.push({
+      id: body.products[0]._id,
+      name: productData.name,
+      path: productData.mainImages[0].path,
+      price: body.extra.price,
+    });
+  }
+  try {
+    const res = await fetch(`${URL}/orders`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+        "Client-Id": CLIENT_ID || "",
+      },
+      body: JSON.stringify(body),
+    });
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("error 발생", error);
+    return error;
+  }
 }

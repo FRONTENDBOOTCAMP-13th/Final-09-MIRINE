@@ -6,9 +6,15 @@ import { PrimaryButton } from "@/components/ui/Button/PrimaryButton";
 import useShoppingCartStore from "@/store/shoppingCartStore";
 import { useEffect, useState } from "react";
 import { MirineItemInState } from "@/store/mirineStore";
-import { addPriceTemplate, productTotalPrice } from "@/lib/clientFunction";
+import { addPriceTemplate, getAccessToken, getUserID, productTotalPrice } from "@/lib/clientFunction";
+import { postOrders } from "@/lib/action";
+import { getAllOrders } from "@/lib/function";
+import { CartItemInStore } from "@/types/shoppingCart";
 
 export default function CartWithItems() {
+  const userID = getUserID();
+  const token = getAccessToken();
+  const [isBuying, setIsBuying] = useState(false);
   const shoppingCart = useShoppingCartStore((state) => state.shoppingCart);
   const deleteItem = useShoppingCartStore((state) => state.deleteItem);
   const [checkedArray, isCheckedArray] = useState(new Array<boolean>(shoppingCart.length).fill(false));
@@ -25,6 +31,25 @@ export default function CartWithItems() {
     });
     setTotalPrice(productTotalPrice(cartList));
   }, [shoppingCart, checkedArray]);
+
+  useEffect(() => {
+    if (isBuying) {
+      (async () => {
+        const buyingCart: CartItemInStore[] = [];
+        shoppingCart.forEach((e, i) => {
+          if (checkedArray[i]) buyingCart.push(e);
+        });
+        const data = await postOrders(buyingCart, userID, token);
+        console.log("dataaljkafsdljkfasdlkjfasdlk", data);
+        const orderList = await getAllOrders(token);
+        console.log("orderList", orderList);
+        shoppingCart.forEach((e, i) => {
+          if (checkedArray[i]) deleteItem(e);
+        });
+        isCheckedArray(() => new Array<boolean>(shoppingCart.length).fill(false));
+      })();
+    }
+  }, [isBuying]);
   return (
     <div>
       <CartControls
@@ -64,7 +89,15 @@ export default function CartWithItems() {
           <p className={styles.total}>Total {addPriceTemplate(totalPrice + shippingFee)}</p>
         </div>
 
-        <PrimaryButton bgColor="black" textColor="blue" line="on" pcWidth="sm">
+        <PrimaryButton
+          bgColor="black"
+          textColor="blue"
+          line="on"
+          pcWidth="sm"
+          onClick={() => {
+            setIsBuying(true);
+          }}
+        >
           결제하기
         </PrimaryButton>
       </div>
