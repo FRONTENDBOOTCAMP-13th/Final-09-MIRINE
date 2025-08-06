@@ -16,7 +16,7 @@ export default function NaverLoginCallback() {
 
     const params = new URLSearchParams(hash.substring(1));
     const accessToken = params.get("access_token");
-    const state = params.get("state");
+    // const state = params.get("state");
 
     if (accessToken) {
       console.log("네이버 access token:", accessToken);

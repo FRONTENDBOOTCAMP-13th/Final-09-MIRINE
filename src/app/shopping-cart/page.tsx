@@ -1,6 +1,6 @@
 "use client";
 import CartWithItems from "@/components/ShoppingCart/CartWithItem/CartWithItems";
-import EmptyCart from "@/components/ShoppingCart/EmptyCart/EmptyCart";
+// import EmptyCart from "@/components/ShoppingCart/EmptyCart/EmptyCart";
 import styles from "./page.module.css";
 import Container from "@/components/ui/Container";
 

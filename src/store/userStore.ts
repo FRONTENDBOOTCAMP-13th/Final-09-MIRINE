@@ -8,6 +8,7 @@ const useUserStore = create(
       user: null,
       setUser: (user) => set({ user }),
       resetUser: () => set({ user: null }),
+      getUser: () => get(),
     }),
     {
       name: "accessToken",

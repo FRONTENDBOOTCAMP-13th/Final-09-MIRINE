@@ -7,7 +7,7 @@
 .list_head {
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   gap: 5px;
   width: 100%;
   margin-bottom: 10px;
