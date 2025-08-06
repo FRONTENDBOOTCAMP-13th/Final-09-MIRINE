@@ -18,12 +18,14 @@ export default function TestStartPage(){
   return(
     <div className={styles.test_start}>
       <TestHeader />
-      <h2 className={styles.title}>당신의 향수는?</h2>
+      <div className={styles.title_wrapper}>
+        <h2 className={styles.title}>당신의 향수는?</h2>
+      </div>
       <nav className={styles.btn_group}>
         <button 
           type="button" 
           className={`${styles.btn} ${styles.btn_start}`} 
-          onClick={handleStartTest} >테스트 시작하기</button>
+          onClick={handleStartTest}>테스트 시작하기</button>
         <button 
           type="button" 
           className={`${styles.btn} ${styles.btn_home}`} 

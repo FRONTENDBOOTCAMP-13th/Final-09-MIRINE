@@ -14,7 +14,7 @@ export default function TestHeader() {
       </h1>
 
       <Link href="/" className={styles.home_logo}>
-        <Image src="/icon/Icon-home.svg" alt="모바일 홈" width="24" height="24" />
+        <Image src="/icon/Icon-home.svg" alt="모바일 홈" width={20} height={20} />
       </Link>
     </header>
   );
