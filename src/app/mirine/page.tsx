@@ -1,25 +1,17 @@
 import SearchBar from "@/components/perfumes/SearchBar/SearchBar";
 import styles from "./page.module.css";
 import FilterSection from "@/components/perfumes/FilterSection/FilterSection";
-import PerfumeItem from "@/components/perfumes/PerfumeItem/PerfumeItem";
-// import { getAllPerfumes, getProduct } from "@/lib/function";
 import { getAllPerfumes } from "@/lib/function";
 import { Perfume } from "@/types/perfume";
 import MirineListSection from "@/components/Mirine/MirineListSection/MirineListSection";
+import PerfumeList from "@/components/perfumes/PerfumeList/PerfumeList";
 export default async function Mirine() {
   const mainAccordSectionTitle = "메인어코드";
   const mainAccordFilterTextList = ["전체", "우디", "시트러스", "머스크", "플로럴", "스위트"];
   const brandSectionTitle = "브랜드";
   const brandFilterTextList = ["전체", "ㄱ", "ㄴ", "ㄷ", "ㄹ", "ㅁ", "ㅂ", "ㅅ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"];
-
   const perfumeData: { ok: number; item: Perfume[] } = await getAllPerfumes();
   const data = { ok: perfumeData.ok, item: perfumeData.item.slice(0, perfumeData.item.length - 11) };
-  // const data1 = await getProduct(3);
-  // console.log(data);
-  // console.log(data.item[0].mainImages[0].path);
-  // console.log();
-  // console.log(data1);
-
   return (
     <>
       <div className={styles.perfumes}>
@@ -35,13 +27,7 @@ export default async function Mirine() {
           {/* 향수 총 개수 */}
           <p className={styles.perfume_count}>상품 총 {data.item.length}개</p>
 
-          <ul className={styles.perfume_container}>
-            {data.item.map((item: Perfume) => (
-              <li key={item._id}>
-                <PerfumeItem id={item._id} item={item} path={item.mainImages[0].path} inMirine={true} />
-              </li>
-            ))}
-          </ul>
+          <PerfumeList data={data} inMirine={false} />
         </section>
       </div>
       <MirineListSection />
