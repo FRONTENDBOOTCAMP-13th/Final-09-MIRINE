@@ -11,13 +11,29 @@ export function getFile(path: string) {
 }
 
 export function getAccessToken() {
-  if (typeof window !== "undefined") return JSON.parse(localStorage.getItem("user") || "").state.token || "";
-  return "";
+  if (typeof window === "undefined") return "";
+  try {
+    const user = localStorage.getItem("user");
+    if (!user) return "";
+    const token = JSON.parse(user)?.state?.token;
+    return token || "";
+  } catch (e) {
+    console.error(e);
+    return "";
+  }
 }
 
 export function getUserID() {
-  if (typeof window !== "undefined") return JSON.parse(localStorage.getItem("user") || "").state.userID || "";
-  return "";
+  if (typeof window === "undefined") return "";
+  try {
+    const user = localStorage.getItem("user");
+    if (!user) return "";
+    const userID = JSON.parse(user)?.state?.userID;
+    return userID || "";
+  } catch (e) {
+    console.error(e);
+    return "";
+  }
 }
 
 export function addPriceTemplate(price: number) {
