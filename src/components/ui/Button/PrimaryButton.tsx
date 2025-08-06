@@ -7,7 +7,7 @@ import styles from "./primaryButton.module.css";
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   bgColor: "white" | "black" | "blue-100" | "blue-200" | "blue-300";
   textColor: "white" | "black" | "blue";
-  line?: "on" | "off";
+  line?: "on" | "off" | "blue";
   pcWidth?: "sm";
   children: ReactNode;
 }

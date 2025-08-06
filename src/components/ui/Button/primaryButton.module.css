@@ -62,6 +62,10 @@
   border: 1px solid var(--black-200);
 }
 
+.line-blue {
+  border: 1px solid var(--primary-blue-300);
+}
+
 @media (min-width: 1280px) {
   .button {
     display: inline-flex;
