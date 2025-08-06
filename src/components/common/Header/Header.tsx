@@ -6,10 +6,11 @@ import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { auth, signOut } from "../../../api/firebase/firebase";
+import { User } from "firebase/auth";
 
 declare global {
   interface Window {
-    Kakao: any;
+    Kakao;
   }
 }
 
@@ -17,7 +18,7 @@ export default function Header() {
   const router = useRouter();
   const pathname = usePathname();
   const [isOpenning, setIsOpenning] = useState(false);
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<User | { kakao?: boolean; naver?: boolean } | null>(null);
 
   const handlePrev = () => {
     router.back();

@@ -10,11 +10,13 @@ export function getFile(path: string) {
 }
 
 export function getAccessToken() {
-  return localStorage.getItem("accessToken") || "";
+  if (typeof window !== "undefined") return localStorage.getItem("accessToken") || "";
+  return "";
 }
 
 export function getUserID() {
-  return localStorage.getItem("userId") || "";
+  if (typeof window !== "undefined") return localStorage.getItem("userId") || "";
+  return "";
 }
 
 export function addPriceTemplate(price: number) {

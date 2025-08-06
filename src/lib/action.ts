@@ -402,7 +402,7 @@ export async function uploadFile(formData: FormData) {
 }
 
 /* 테스트용 함수 */
-export async function postTestUser(state, formData: FormData) {
+export async function postTestUser(/*state, formData: FormData*/) {
   // 임시데이터
   const info = {
     type: "user",

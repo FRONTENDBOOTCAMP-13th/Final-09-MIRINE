@@ -25,16 +25,16 @@ const useShoppingCartStore = create(
         set((state) => {
           const newCart = [...state.shoppingCart];
           if (typeof item === "number" && newCart[item].type === "p") {
-            const content = [...(newCart[item].content as number[])];
-            content[3]++; // quantity 증가
-            newCart[item] = { ...newCart[item], content };
+            const contents = [...(newCart[item].content as [number, string, number, number, number])];
+            (contents as [number, string, number, number, number])[3]++; // quantity 증가
+            newCart[item] = { ...newCart[item], content: contents as [number, string, number, number, number] };
             return { shoppingCart: newCart };
           } else if ((item as CartItemInStore).type === "p") {
             const index = newCart.findIndex((i) => i === item);
             if (index !== -1) {
-              const content = [...((item as CartItemInStore).content as number[])];
-              content[3]++;
-              newCart[index] = { ...newCart[index], content };
+              const contents = [...((item as CartItemInStore).content as number[])];
+              (contents as [number, string, number, number, number])[3]++;
+              newCart[index] = { ...newCart[index], content: contents as [number, string, number, number, number] };
               return { shoppingCart: newCart };
             }
           }
@@ -58,16 +58,16 @@ const useShoppingCartStore = create(
         set((state) => {
           const newCart = [...state.shoppingCart];
           if (typeof item === "number" && newCart[item].type === "p") {
-            const content = [...(newCart[item].content as number[])];
-            content[3]--; // quantity 증가
-            newCart[item] = { ...newCart[item], content };
+            const contents = [...(newCart[item].content as [number, string, number, number, number])];
+            (contents as [number, string, number, number, number])[3]--; // quantity 감소
+            newCart[item] = { ...newCart[item], content: contents as [number, string, number, number, number] };
             return { shoppingCart: newCart };
           } else if ((item as CartItemInStore).type === "p") {
             const index = newCart.findIndex((i) => i === item);
             if (index !== -1) {
-              const content = [...((item as CartItemInStore).content as number[])];
-              content[3]--;
-              newCart[index] = { ...newCart[index], content };
+              const contents = [...((item as CartItemInStore).content as number[])];
+              (contents as [number, string, number, number, number])[3]--;
+              newCart[index] = { ...newCart[index], content: contents as [number, string, number, number, number] };
               return { shoppingCart: newCart };
             }
           }
