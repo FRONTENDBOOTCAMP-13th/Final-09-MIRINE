@@ -1,17 +1,16 @@
+"use clilent";
 import styles from "./mirineButton.module.css";
 
-export default function MirineButton(){
-  const handleAddToCart = () => {
-    console.log('미리내 담기')
-  }
+export default function MirineButton({ handleAddToCart }: { handleAddToCart: () => void }) {
+  // const handleAddToCart = () => {
+  //   console.log("미리내 담기");
+  // };
 
   return (
     <div className={styles.mirin_cart_section}>
-      <button className={styles.mirine_cart_btn} 
-        onClick={handleAddToCart}>
+      <button className={styles.mirine_cart_btn} onClick={handleAddToCart}>
         미리내 담기
       </button>
     </div>
-  )
-  
+  );
 }

@@ -57,3 +57,13 @@ export function productTotalPrice(cartList: { quantity: number; price: number }[
   const sum = cartList.reduce((sum, e) => sum + e.quantity * e.price, 0);
   return sum;
 }
+
+export function seperateArray<T>(array: Array<T>, cnt: number) {
+  const resultArray: Array<Array<T>> = [];
+  const newArray = [...array];
+  newArray.forEach((item, i) => {
+    if (i % cnt === 0) resultArray.push([item]);
+    else resultArray[resultArray.length - 1].push(item);
+  });
+  return resultArray;
+}
