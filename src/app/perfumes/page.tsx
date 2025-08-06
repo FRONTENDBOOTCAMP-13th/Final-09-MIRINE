@@ -2,7 +2,8 @@ import SearchBar from "@/components/perfumes/SearchBar/SearchBar";
 import styles from "./page.module.css";
 import FilterSection from "@/components/perfumes/FilterSection/FilterSection";
 import PerfumeItem from "@/components/perfumes/PerfumeItem/PerfumeItem";
-import { getAllPerfumes, getProduct } from "@/lib/function";
+// import { getAllPerfumes, getProduct } from "@/lib/function";
+import { getAllPerfumes } from "@/lib/function";
 import { Perfume } from "@/types/perfume";
 export default async function Perfumes() {
   const mainAccordSectionTitle = "메인어코드";
@@ -11,11 +12,11 @@ export default async function Perfumes() {
   const brandFilterTextList = ["전체", "ㄱ", "ㄴ", "ㄷ", "ㄹ", "ㅁ", "ㅂ", "ㅅ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"];
   const itemCount = 123; // db에서 가져올 숫자
   const data = await getAllPerfumes();
-  const data1 = await getProduct(3);
-  console.log(data);
-  console.log(data.item[0].mainImages[0].path);
-  console.log();
-  console.log(data1);
+  // const data1 = await getProduct(3);
+  // console.log(data);
+  // console.log(data.item[0].mainImages[0].path);
+  // console.log();
+  // console.log(data1);
   return (
     <div className={styles.perfumes}>
       <h2 className={styles.header}>향수</h2>

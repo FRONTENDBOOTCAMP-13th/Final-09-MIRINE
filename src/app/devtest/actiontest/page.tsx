@@ -31,6 +31,9 @@ export default function Actiontest() {
       <li>
         <Link href={`${crtURL}/Wishlist`}>Wishlist</Link>
       </li>
+      <li>
+        <Link href={`${crtURL}/review`}>review</Link>
+      </li>
     </ul>
   );
 }

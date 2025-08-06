@@ -1,22 +1,31 @@
 "use client";
 import Image from "next/image";
 import styles from "./perfumeItem.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { addPriceTemplate, getFile } from "@/lib/clientFunction";
 import Link from "next/link";
 import { Perfume } from "@/types/perfume";
+import useMirineStore from "@/store/mirineStore";
 export default function PerfumeItem({ id, item, path, inMirine }: { id: number; item: Perfume; path: string; inMirine: boolean }) {
   const [isLike, setIsLike] = useState(false);
-  const [isInMirine, setIsInMirine] = useState(false);
+  const mirine = useMirineStore((state) => state.mirine);
+  const [isInMirine, setIsInMirine] = useState(mirine.findIndex((e) => e.id === id) !== -1);
+  const addItem = useMirineStore((state) => state.addItem);
+  const deleteItem = useMirineStore((state) => state.deleteItem);
+  useEffect(() => {
+    setIsInMirine(mirine.findIndex((e) => e.id === +id) !== -1);
+  }, [mirine]);
+
   return (
     // <Link href={`/perfumes/${id}/#top`}> // 페이지 이동 시 맨 위로 안올라가짐
-    <Link href={`/perfumes/${id}`}>
+    <Link href={`/perfumes/${id}${inMirine ? "?prev=mirine" : ""}`}>
       <div className={styles.image_wrapper}>
-        <Image src={getFile(path)} alt="향수 이미지" fill className={styles.image}></Image>
+        <Image src={getFile(path)} alt="향수 이미지" fill sizes="100%" className={styles.image}></Image>
         <button
           type="button"
           className={styles.like_btn}
           onClick={(e) => {
+            e.preventDefault();
             e.stopPropagation();
             setIsLike(!isLike);
           }}
@@ -37,12 +46,30 @@ export default function PerfumeItem({ id, item, path, inMirine }: { id: number; 
             type="button"
             className={`${styles.plus_btn} ${isInMirine && styles.active}`}
             onClick={(e) => {
+              e.preventDefault();
               e.stopPropagation();
-              setIsInMirine(!isInMirine);
+              if (mirine.findIndex((e) => e.id === +id) === -1) {
+                addItem({
+                  id: +id,
+                  name: item.name,
+                  path: path,
+                  price: item.price,
+                });
+                setIsInMirine(true);
+              } else {
+                alert("딜리트해야함");
+                deleteItem({
+                  id: +id,
+                  name: item.name,
+                  path: path,
+                  price: item.price,
+                });
+                setIsInMirine(false);
+              }
             }}
           >
             <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5 12.5H19M12 5.5V19.5" stroke="var(--bg-white)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M5 12.5H19M12 5.5V19.5" stroke="var(--bg-white)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
         )}
