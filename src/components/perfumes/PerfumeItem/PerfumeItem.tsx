@@ -7,7 +7,6 @@ import Link from "next/link";
 import { Perfume } from "@/types/perfume";
 import useMirineStore from "@/store/mirineStore";
 import { deleteLike, postLike } from "@/lib/action";
-import { getAllLikes, getAllUsers, getUsersLikes } from "@/lib/function";
 export default function PerfumeItem({ id, item, path, inMirine, isLike, token, userID }: { id: number; item: Perfume; path: string; inMirine: boolean; isLike: { productID: number; likeID: number } | undefined; token: string; userID: number }) {
   const [isActive, setIsActive] = useState(isLike !== undefined);
   const [likeID, setLikeID] = useState<number | null>(isLike === undefined ? null : isLike.likeID);
@@ -31,27 +30,13 @@ export default function PerfumeItem({ id, item, path, inMirine, isLike, token, u
             e.preventDefault();
             e.stopPropagation();
             if (isActive) {
-              if (typeof likeID === "number") console.log(deleteLike({ target_id: likeID, token: token }));
+              if (typeof likeID === "number") deleteLike({ target_id: likeID, token: token });
             } else {
               postLike({ user_id: userID, target_id: item._id, token: token }).then((res) => {
-                console.log("북마크 아이디", res.item._id);
                 setLikeID(+res.item._id);
               });
             }
-            const data = getAllLikes(token);
-            console.log("getAllLikes", data);
-            const data1 = getAllUsers();
-            console.log("getAllUsers", data1);
             setIsActive(!isActive);
-            const data2 = getUsersLikes(userID).then((result) => {
-              console.log("getUsersLikes", result);
-              console.log(
-                "usersLikes",
-                result.item.product.map((e: { product: { _id: number } }) => e.product._id)
-              );
-            });
-            console.log("getUsersLikes", data2);
-            console.log("isActive", isActive);
           }}
         >
           {isActive ? (
