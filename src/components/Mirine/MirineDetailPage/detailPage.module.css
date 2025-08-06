@@ -1,12 +1,10 @@
-.product_detail {
+/* .product_detail {
   display: flex;
   flex-direction: column;
   width: 100%;
   margin: 0 auto;
-  /* gap: 20px; */
 }
 
-/* 라인 */
 .line {
   height: 4px;
   background-color: var(--black-100);
@@ -22,6 +20,4 @@
   .line {
     display: none;
   }
-}
-
-
+} */
