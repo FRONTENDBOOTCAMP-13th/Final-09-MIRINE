@@ -1,12 +1,14 @@
 "use client";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import styles from "./productHeader.module.css";
 import Image from "next/image";
 import { getAccessToken, getUserID } from "@/lib/clientFunction";
 import { deleteLike, postLike } from "@/lib/action";
-import { getAllLikes, getAllUsers, getUsersLikes } from "@/lib/function";
+import { getUsersLikes } from "@/lib/function";
 
 export default function ProductHeader({ path, data }: { path: string; data: { id: number } }) {
+  const pathname = usePathname();
   const [isActive, setIsActive] = useState<boolean>(false);
   const [likeID, setLikeID] = useState<number | undefined>(undefined);
   const userID = +getUserID();
@@ -19,8 +21,14 @@ export default function ProductHeader({ path, data }: { path: string; data: { id
       setLikeID(likeProduct?._id);
     })();
   }, []);
-  const handleButtonClick = () => {
-    console.log("링크 복사");
+  const handleButtonClick = async () => {
+    try {
+      const url = `${window.location.origin}${pathname}`;
+      await navigator.clipboard.writeText(url);
+      console.log("링크 복사");
+    } catch (err) {
+      console.error("복사 실패:", err);
+    }
   };
 
   return (
@@ -43,27 +51,13 @@ export default function ProductHeader({ path, data }: { path: string; data: { id
               e.preventDefault();
               e.stopPropagation();
               if (isActive) {
-                if (typeof likeID === "number") console.log(deleteLike({ target_id: likeID, token: token }));
+                if (typeof likeID === "number") deleteLike({ target_id: likeID, token: token });
               } else {
                 postLike({ user_id: userID, target_id: data.id, token: token }).then((res) => {
-                  console.log("북마크 아이디", res.item._id);
                   setLikeID(+res.item._id);
                 });
               }
-              const data3 = getAllLikes(token);
-              console.log("getAllLikes", data3);
-              const data1 = getAllUsers();
-              console.log("getAllUsers", data1);
               setIsActive(!isActive);
-              const data2 = getUsersLikes(userID).then((result) => {
-                console.log("getUsersLikes", result);
-                console.log(
-                  "usersLikes",
-                  result.item.product.map((e: { product: { _id: number } }) => e.product._id)
-                );
-              });
-              console.log("getUsersLikes", data2);
-              console.log("isActive", isActive);
             }}
           >
             {isActive ? (
