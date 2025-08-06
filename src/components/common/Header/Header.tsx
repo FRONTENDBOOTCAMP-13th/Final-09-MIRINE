@@ -5,6 +5,8 @@ import styles from "./header.module.css";
 import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import useUserStore from "@/store/userStore";
+import { getUserID } from "@/lib/clientFunction";
 
 declare global {
   interface Window {
@@ -16,9 +18,12 @@ export default function Header() {
   const router = useRouter();
   const pathname = usePathname();
   const [isOpenning, setIsOpenning] = useState(false);
-  const [user, setUser] = useState(null);
   // const [user, setUser] = useState<User | { kakao?: boolean; naver?: boolean } | null>(null);
-
+  const userData = useUserStore((state) => state.user);
+  const userID = getUserID();
+  const resetUser = useUserStore((state) => state.resetUser);
+  const [user, setUser] = useState(userData && true);
+  // const [mounted, setMounted] = useState(false);
   const handlePrev = () => {
     router.back();
   };
@@ -26,6 +31,28 @@ export default function Header() {
   useEffect(() => {
     setIsOpenning(false);
   }, [pathname]);
+
+  useEffect(() => {
+    // setUser(typeof userData !== null);
+    console.log("user", user);
+    console.log("userData", userData);
+  }, []);
+
+  useEffect(() => {
+    setUser(!!userID);
+  }, [userID]);
+
+  // useEffect(() => {
+  //   console.log("user", user);
+  //   console.log("userData", userData);
+  //   setUser(userData && true);
+  // }, [userData]);
+
+  // useEffect(() => {
+  //   if (!mounted) setMounted(true);
+  // }, []);
+
+  // if (!mounted) return null;
 
   if (pathname === "/mirine-test") return;
   else {
@@ -78,7 +105,10 @@ export default function Header() {
               {user ? (
                 <button
                   onClick={() => {
-                    alert("로그아웃됨!");
+                    if (confirm("로그아웃 하시겠습니까?")) {
+                      resetUser();
+                      setUser(false);
+                    }
                   }}
                 >
                   로그아웃
@@ -151,7 +181,10 @@ export default function Header() {
               {user ? (
                 <button
                   onClick={() => {
-                    alert("로그아웃됨!");
+                    if (confirm("로그아웃 하시겠습니까?")) {
+                      resetUser();
+                      setUser(false);
+                    }
                   }}
                 >
                   로그아웃
