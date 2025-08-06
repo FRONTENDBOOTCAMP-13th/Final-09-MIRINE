@@ -279,20 +279,22 @@ export async function login(state, formData: FormData) {
  * POST /users
  */
 export async function postUser(state, formData: FormData) {
-  // 임시데이터
+  const extra = {
+    address: {
+      zipCode: formData.get("zipCode"),
+      mainAddress: formData.get("mainAddress"),
+      detailAddress: formData.get("detailAddress"),
+    },
+  };
   const body = {
     type: "user",
-    email: formData.get("email") || "test@test.com",
-    password: formData.get("password") || "1111",
-    name: formData.get("name") || "이름",
-    address: formData.get("address") || "주소",
+    email: formData.get("email"),
+    phone: formData.get("phone"),
+    password: formData.get("password"),
+    name: formData.get("name"),
+    address: (extra.address.mainAddress as string) + " " + (extra.address.detailAddress as string),
+    extra,
   };
-  // const info = {
-  //   type: "user",
-  //   email: "aa@bbb.cc",
-  //   password: "1111",
-  //   name: "이름",
-  // };
   try {
     const res = await fetch(`${URL}/users`, {
       method: "POST",
