@@ -392,7 +392,7 @@
       "price": 44900,
       "show": true,
       "active": true,
-      "name": "라방드 32 오 드 퍼퓸",
+      "name": "라방드 31 오 드 퍼퓸",
       "quantity": 150,
       "buyQuantity": 95,
       "mainImages": [
@@ -453,7 +453,7 @@
       ],
       "extra": {
         "mainAccord": "floral",
-        "brand": "랑방",
+        "brand": "랄프로렌",
         "brandInitialKR": "ㄹ",
         "volumes": [30, 50, 90],
         "prices": [46900, 72900, 92900],
@@ -492,7 +492,7 @@
       "price": 49900,
       "show": true,
       "active": true,
-      "name": "아쿠아 알레고리아 오렌지 쏠레이아",
+      "name": "라쁘띠 로브 느와르 오 드 뚜왈렛",
       "quantity": 150,
       "buyQuantity": 74,
       "mainImages": [
@@ -503,12 +503,12 @@
       ],
       "extra": {
         "mainAccord": "sweet",
-        "brand": "겐조",
+        "brand": "겔랑",
         "brandInitialKR": "ㄱ",
         "volumes": [30, 70, 100],
         "prices": [49900, 78900, 95900],
         "tags": ["달콤함", "바닐라", "부드러움", "겨울", "따뜻함"],
-        "content": "물기 가득한 오렌지에 레몬즙과 민트 잎을 곁들여 완성하는 올여름 리프레쉬 레시피",
+        "content": "석양진 연회장에서 퍼지는 고급스러운 체리와 로즈의 향기",
         "detailContent": "uploadFiles/perfumeinfo9.webp"
       }
     },
@@ -517,7 +517,7 @@
       "price": 45900,
       "show": true,
       "active": true,
-      "name": "패러독스 버추얼 플라워 오 드 퍼퓸",
+      "name": "프라다 레 인퓨전 드 프라다",
       "quantity": 150,
       "buyQuantity": 91,
       "mainImages": [
@@ -528,12 +528,12 @@
       ],
       "extra": {
         "mainAccord": "citrus",
-        "brand": "프레쉬",
+        "brand": "프라다",
         "brandInitialKR": "ㅍ",
         "volumes": [50, 100],
         "prices": [45900, 82900],
         "tags": ["시트러스", "상큼함", "민트", "여름", "샤워코롱"],
-        "content": "베르가못과 네롤리처럼 또렷한 눈빛과 자스민의 여유로움, 세련된 감각의 여성미",
+        "content": "리넨 셔츠를 레몬 향 섬유유연제로 세탁한 듯 여유로운 베티버 비누 향기",
         "detailContent": "uploadFiles/perfumeinfo10.webp"
       }
     },
@@ -567,7 +567,7 @@
       "price": 49900,
       "show": true,
       "active": true,
-      "name": "블랙베리 앤 베이 코롱",
+      "name": "다크 앰버 앤 진저 릴리 코롱 인텐스",
       "quantity": 150,
       "buyQuantity": 76,
       "mainImages": [
@@ -583,7 +583,7 @@
         "volumes": [30, 50, 100],
         "prices": [49900, 76900, 93900],
         "tags": ["플로럴", "부드러움", "사랑스러움", "샤워코롱", "여성스러움"],
-        "content": "조말론 베스트셀러, 한 손 가득 블랙베리를 움켜쥐었을 때 손에 밴 청량하고 기분 좋은 단내",
+        "content": "조말론 인텐스 베스트셀러, 몽환적인 다크앰버와 진저의 달콤 쌉싸름함",
         "detailContent": "uploadFiles/perfumeinfo12.webp"
       }
     },
@@ -592,7 +592,7 @@
       "price": 41900,
       "show": true,
       "active": true,
-      "name": "오데썽 오 드 뚜왈렛",
+      "name": "필로시코스 오 드 퍼퓸",
       "quantity": 150,
       "buyQuantity": 68,
       "mainImages": [
@@ -608,7 +608,7 @@
         "volumes": [50, 100],
         "prices": [41900, 74900],
         "tags": ["머스크", "살냄새", "자연스러움", "무향같은향", "데일리"],
-        "content": "오렌지, 허브가 연출하는 자연 섬유유연제 향기",
+        "content": "자상하고 따뜻한 나무 향기의 정석",
         "detailContent": "uploadFiles/perfumeinfo13.webp"
       }
     },
@@ -704,7 +704,7 @@
         ],
         "extra": {
           "mainAccord": "floral",
-          "brand": "조말론",
+          "brand": "조 말론 런던",
           "brandInitialKR": "ㅈ",
           "volumes": [30, 50, 100],
           "prices": [50900, 77900, 95900],
@@ -718,7 +718,7 @@
         "price": 44900,
         "show": true,
         "active": true,
-        "name": "화렌화이트 오 드 뚜왈렛",
+        "name": "미스디올 블루밍부케 오 드 뚜왈렛",
         "quantity": 150,
         "buyQuantity": 87,
         "mainImages": [
@@ -734,7 +734,7 @@
           "volumes": [50, 100],
           "prices": [44900, 79900],
           "tags": ["머스크", "샤워코롱", "깨끗함", "가벼움", "중성적"],
-          "content": "샤워 직후의 깨끗한 느낌을 담은 머스크 기반의 코롱.",
+          "content": "미스 디올 베스트셀러, 학생과 여인의 정체성 사이 화사하게 핀 피오니 향기",
           "detailContent": "uploadFiles/perfumeinfo18.webp"
         }
       },
@@ -793,7 +793,7 @@
         "price": 49900,
         "show": true,
         "active": true,
-        "name": "다크 앰버 앤 진저 릴리 코롱 인텐스",
+        "name": "미르토 디 파나레아 오 드 뚜왈렛",
         "quantity": 150,
         "buyQuantity": 88,
         "mainImages": [
@@ -804,12 +804,12 @@
         ],
         "extra": {
           "mainAccord": "floral",
-          "brand": "조말론",
+          "brand": "아쿠아 디 파르마",
           "brandInitialKR": "ㅈ",
           "volumes": [30, 50, 100],
           "prices": [49900, 76900, 93900],
           "tags": ["플로럴", "그린노트", "자연", "청량함", "봄"],
-          "content": "조말론 인텐스 베스트셀러, 몽환적인 다크앰버와 진저의 달콤 쌉싸름함",
+          "content": "청량한 비누향수의 대명사, 아쿠아 디 파르마 베스트셀러",
           "detailContent": "uploadFiles/perfumeinfo21.webp"
         }
       }
