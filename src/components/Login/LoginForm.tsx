@@ -5,17 +5,23 @@ import styles from "./loginForm.module.css";
 import { useActionState, useEffect } from "react";
 import { login } from "@/lib/action";
 import useUserStore from "@/store/userStore";
+import useMirineStore from "@/store/mirineStore";
+import useShoppingCartStore from "@/store/shoppingCartStore";
 
 export default function LoginForm() {
   const router = useRouter();
   const [userState, formAction, isLoading] = useActionState(login, null);
   const setUser = useUserStore((state) => state.setUser);
+  const resetMirine = useMirineStore((state) => state.resetMirine);
+  const resetShoppingCart = useShoppingCartStore((state) => state.resetShoppingCart);
   console.log(isLoading, userState);
   useEffect(() => {
     if (userState?.ok) console.log("userState", userState);
     else console.log("userState", userState);
     if (userState?.ok) {
       setUser(userState.item);
+      resetShoppingCart();
+      resetMirine();
       router.push("/");
     }
   });

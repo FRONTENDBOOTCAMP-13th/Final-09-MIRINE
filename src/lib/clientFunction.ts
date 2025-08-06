@@ -36,14 +36,14 @@ export function getUserID() {
   }
 }
 
-export function addPriceTemplate(price: number) {
+export function addPriceTemplate(price: number, type: "unit" | "won" = "unit") {
   const priceStr = price.toString();
   let str = "";
   Array.from(priceStr).forEach((e, i) => {
     str += e;
     if (i !== priceStr.length - 1 && i % 3 === (priceStr.length - 1) % 3) str += ",";
   });
-  return "￦" + str;
+  return type === "unit" ? "￦" + str : str + "원";
 }
 
 export function addPhoneHyphens(phone: string) {

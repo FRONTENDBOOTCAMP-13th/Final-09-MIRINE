@@ -60,8 +60,8 @@
       "show": true,
       "active": true,
       "name": "미리내",
-      "quantity": 1,
-      "buyQuantity": 1,
+      "quantity": 99999,
+      "buyQuantity": 99999,
       "mainImages": [
         {
           "path": "uploadFiles/mirine.webp",
