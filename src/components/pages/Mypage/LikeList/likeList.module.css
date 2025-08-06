@@ -1,49 +1,78 @@
-.list_section {
-  width: 100%;
-}
 /* 로딩중, 좋아요 향수 없음 */
 .loading_text,
 .like_text,
 .login_text {
-  font-size: 13px;
-  color: var(--black-500);
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 150px;
+  background-color: var(--black-50);
+  color: var(--black-500);
+  font-size: 15px;
   text-align: center;
-  padding-top: 200px;
 }
 
-.list_wrapper {
-  padding: 0 0 10px 0;
-  cursor: pointer;
+.list_section {
+  display: grid;
+  gap: 10px;
+  width: 100%;
 }
-.list_group {
+
+.list_item {
+  cursor: pointer;
   display: grid;
   grid-template-columns: auto 1fr auto;
+  padding: 20px;
   border: 1px solid var(--black-200);
   border-radius: 12px;
-  padding: 20px;
+}
+
+.perfume_img {
+  border-radius: 4px;
 }
 
 .item_info {
-  padding-left: 20px;
   display: flex;
   flex-direction: column;
   gap: 3px;
+  padding-left: 20px;
 }
 
 .brand_name {
-  font-size: 12px;
   color: var(--black-500);
+  font-size: 12px;
 }
 
 .product_name {
-  font-size: 14px;
   color: var(--black-950);
+  font-size: 14px;
 }
 
 .like_btn {
   display: flex;
   align-items: center;
+}
+
+@media (min-width: 768px) {
+  .loading_text,
+  .like_text,
+  .login_text {
+    height: 350px;
+  }
+
+  .list_section {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1280px) {
+  .loading_text,
+  .like_text,
+  .login_text {
+    height: 500px;
+  }
+
+  .list_section {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
