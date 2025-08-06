@@ -1,0 +1,38 @@
+.starsContainer {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  cursor: pointer;
+  color: var(--black-200);
+  font-size: 32px;
+  font-weight: 100;
+  line-height: 1;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.filledStar {
+  color: var(--primary-purple-300);
+
+  &:hover {
+    color: var(--primary-purple-300);
+    transform: scale(1.1);
+    animation: starPulse 0.3s ease;
+  }
+}
+
+@keyframes starPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
