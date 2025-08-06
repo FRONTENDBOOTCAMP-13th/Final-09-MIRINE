@@ -19,6 +19,7 @@ export default function Header() {
   const resetUser = useUserStore((state) => state.resetUser);
   const resetMirine = useMirineStore((state) => state.resetMirine);
   const resetShoppingCart = useShoppingCartStore((state) => state.resetShoppingCart);
+  const shoppingCart = useShoppingCartStore((state) => state.shoppingCart);
   const [user, setUser] = useState(userData && true);
   const handlePrev = () => {
     router.back();
@@ -114,7 +115,7 @@ export default function Header() {
               <Link href="/shopping-cart" className={pathname === "/shopping-cart" ? styles.active : ""}>
                 장바구니
               </Link>
-              <span className={styles.cart_cnt}>0</span>
+              <span className={styles.cart_cnt}>{shoppingCart.length}</span>
             </li>
           </ul>
 
@@ -192,7 +193,7 @@ export default function Header() {
               <Link href="/shopping-cart" className={pathname === "/shopping-cart" ? styles.active : ""}>
                 장바구니
               </Link>
-              <span className={styles.cart_cnt}>0</span>
+              <span className={styles.cart_cnt}>{shoppingCart.length}</span>
             </li>
           </ul>
         </div>
