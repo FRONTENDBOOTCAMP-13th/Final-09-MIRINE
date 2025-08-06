@@ -56,12 +56,12 @@
   "product": [
     {
       "seller_id": 1,
-      "price": -1,
+      "price": 1,
       "show": true,
       "active": true,
       "name": "미리내",
-      "quantity": 99999,
-      "buyQuantity": 99999,
+      "quantity": 999,
+      "buyQuantity": 999,
       "mainImages": [
         {
           "path": "uploadFiles/mirine.webp",

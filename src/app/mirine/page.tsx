@@ -11,7 +11,9 @@ export default async function Mirine() {
   const mainAccordFilterTextList = ["전체", "우디", "시트러스", "머스크", "플로럴", "스위트"];
   const brandSectionTitle = "브랜드";
   const brandFilterTextList = ["전체", "ㄱ", "ㄴ", "ㄷ", "ㄹ", "ㅁ", "ㅂ", "ㅅ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"];
-  const data = await getAllPerfumes();
+
+  const perfumeData: { ok: number; item: Perfume[] } = await getAllPerfumes();
+  const data = { ok: perfumeData.ok, item: perfumeData.item.slice(0, perfumeData.item.length - 11) };
   // const data1 = await getProduct(3);
   // console.log(data);
   // console.log(data.item[0].mainImages[0].path);
