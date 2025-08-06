@@ -2,22 +2,28 @@
 
 import { useRouter } from "next/navigation";
 import styles from "./loginForm.module.css";
+import { useActionState, useEffect } from "react";
+import { login } from "@/lib/action";
+import useUserStore from "@/store/userStore";
 
 export default function LoginForm() {
   const router = useRouter();
+  const [userState, formAction, isLoading] = useActionState(login, null);
+  const setUser = useUserStore((state) => state.setUser);
+  console.log(isLoading, userState);
+  useEffect(() => {
+    if (userState?.ok) console.log("userState", userState);
+    else console.log("userState", userState);
+    if (userState?.ok) {
+      setUser(userState.item);
+      router.push("/");
+    }
+  });
 
   return (
-    <form className={styles.form}>
-      <input
-        type="text"
-        placeholder="아이디를 입력해주세요"
-        className={styles.input}
-      />
-      <input
-        type="password"
-        placeholder="비밀번호를 입력해주세요"
-        className={styles.input}
-      />
+    <form action={formAction} className={styles.form}>
+      <input type="text" name="email" placeholder="아이디를 입력해주세요" className={styles.input} />
+      <input type="password" name="password" placeholder="비밀번호를 입력해주세요" className={styles.input} />
 
       <div className={styles.options}>
         <label className={styles.checkboxLabel}>
@@ -33,16 +39,13 @@ export default function LoginForm() {
         <button type="submit" className={styles.loginButton}>
           로그인
         </button>
-        <button
-          type="button"
-          className={styles.signupButton}
-          onClick={() => router.push("/signup")}
-        >
+        <button type="button" className={styles.signupButton} onClick={() => router.push("/signup")}>
           회원가입
         </button>
       </div>
 
-      <div className={styles.easyLogin}>
+      {/* 간편 로그인 기능 있을 시 */}
+      {/* <div className={styles.easyLogin}>
         <h3>간편 로그인</h3>
         <div className={styles.easyLoginButtons}>
           <button
@@ -67,7 +70,7 @@ export default function LoginForm() {
             <span className={styles.kakaoIcon} />
           </button>
         </div>
-      </div>
+      </div> */}
     </form>
   );
 }
