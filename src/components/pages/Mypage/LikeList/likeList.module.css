@@ -1,8 +1,10 @@
-.list_section{
+.list_section {
   width: 100%;
 }
 /* 로딩중, 좋아요 향수 없음 */
-.loading_text, .like_text, .login_text{
+.loading_text,
+.like_text,
+.login_text {
   font-size: 13px;
   color: var(--black-500);
   display: flex;
@@ -12,37 +14,36 @@
   padding-top: 200px;
 }
 
-.list_wrapper{
+.list_wrapper {
   padding: 0 0 10px 0;
-  cursor: pointer
+  cursor: pointer;
 }
-.list_group{
+.list_group {
   display: grid;
   grid-template-columns: auto 1fr auto;
   border: 1px solid var(--black-200);
   border-radius: 12px;
   padding: 20px;
-
 }
 
-.item_info{
+.item_info {
   padding-left: 20px;
   display: flex;
   flex-direction: column;
   gap: 3px;
 }
 
-.brand_name{
+.brand_name {
   font-size: 12px;
   color: var(--black-500);
 }
 
-.product_name{
+.product_name {
   font-size: 14px;
   color: var(--black-950);
 }
 
-.like_btn{
+.like_btn {
   display: flex;
   align-items: center;
 }

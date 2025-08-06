@@ -1,9 +1,10 @@
 "use client";
 
 import Container from "@/components/ui/Container";
-import MyPageSidebar from "@/components/layout/Sidebar/MyPageSidebar";
+// import MyPageSidebar from "@/components/layout/Sidebar/MyPageSidebar";
 import styles from "./layout.module.css";
 import { usePathname } from "next/navigation";
+import MyPageSidebar from "@/components/layout/Sidebar/MypageSidebar";
 
 export default function RootLayout({
   children,
