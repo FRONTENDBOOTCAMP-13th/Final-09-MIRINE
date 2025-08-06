@@ -1,0 +1,39 @@
+.perfume {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid var(--black-200);
+  border-radius: 12px;
+  background-color: var(--bg-white);
+
+  &:not(:last-of-type) {
+    margin-bottom: 10px;
+  }
+}
+
+.perfume_img {
+  border-radius: 4px;
+}
+
+.brand_name {
+  font-size: 12px;
+  color: var(--black-500);
+}
+
+.product_name {
+  font-size: 14px;
+  color: var(--black-950);
+}
+
+.perfume_info {
+  width: 100%;
+  padding: 0 20px;
+}
+
+@media (min-width: 1280px) {
+  .perfume:not(:last-of-type) {
+    margin-bottom: 0;
+  }
+}

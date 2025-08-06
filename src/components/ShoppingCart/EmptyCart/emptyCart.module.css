@@ -1,0 +1,23 @@
+.alert_text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 150px;
+  margin-bottom: 20px;
+  background-color: var(--black-50);
+  color: var(--black-400);
+  font-size: 13px;
+}
+
+@media (min-width: 768px) {
+  .alert_text {
+    min-height: 280px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .alert_text {
+    font-size: 16px;
+  }
+}

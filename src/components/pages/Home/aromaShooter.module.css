@@ -1,0 +1,126 @@
+.aroma_shooter {
+  background-color: #faf8f4;
+}
+
+.inner {
+  padding: 50px 0;
+}
+
+.cont_head {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.title {
+  color: var(--black-950);
+  font-size: 22px;
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.description {
+  margin-bottom: 20px;
+
+  span {
+    display: block;
+    color: var(--text-blue-400);
+    font-size: 14px;
+  }
+}
+
+ul.product_list {
+  text-align: center;
+
+  li {
+    color: var(--black-950);
+
+    &:not(:last-child) {
+      margin-bottom: 40px;
+    }
+  }
+
+  img {
+    display: inline-block;
+    width: 250px;
+    margin-bottom: 20px;
+    border-radius: 30px;
+    background-color: var(--bg-white);
+  }
+
+  h4 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) {
+  .inner {
+    padding: 100px 0;
+  }
+
+  .title {
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
+
+  .description {
+    margin-bottom: 30px;
+  }
+
+  ul.product_list {
+    li {
+      display: inline-block;
+
+      &:not(:last-child) {
+        margin-bottom: 0;
+        margin-right: 40px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  .inner {
+    width: 1280px;
+    margin: 0 auto;
+    padding: 150px 0;
+  }
+
+  .cont_head {
+    margin-bottom: 70px;
+  }
+
+  .title {
+    margin-bottom: 30px;
+    font-size: 40px;
+  }
+
+  .description {
+    span {
+      font-size: 18px;
+    }
+  }
+
+  ul.product_list {
+    li {
+      &:not(:last-child) {
+        margin-right: 60px;
+      }
+    }
+
+    img {
+      margin-bottom: 30px;
+      width: 300px;
+    }
+
+    h4 {
+      font-size: 26px;
+    }
+  }
+}

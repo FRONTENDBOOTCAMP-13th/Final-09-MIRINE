@@ -1,0 +1,27 @@
+.result_list {
+  > li:not(:last-of-type) {
+    margin-bottom: 20px;
+  }
+}
+
+.list_head {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.test_date {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--black-950);
+}
+
+@media (min-width: 1280px) {
+  .result_item_list {
+    display: flex;
+    gap: 10px;
+  }
+}

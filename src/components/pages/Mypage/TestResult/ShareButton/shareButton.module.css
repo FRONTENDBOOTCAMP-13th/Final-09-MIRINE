@@ -1,0 +1,14 @@
+.share_group{
+  width: 75px;
+  height: 28px;
+  border: 1px solid var(--black-500);
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+.share_btn{
+  font-size: 11px;
+  color: var(--black-950);
+}

@@ -1,0 +1,30 @@
+/* 탭 */
+.category_list{
+  display: flex;
+  font-size: 13px;
+  gap: 8px;
+}
+
+.category_btn{
+  height: 30px;
+  border: 1px solid var(--black-200);
+  border-radius: 50px;
+  background-color: var(--bg-white);
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  color: var(--black-950);
+}
+
+.category_btn button{
+  all: unset;
+  cursor: pointer;
+  font-size: inherit;
+  color: inherit;
+}
+
+.active {
+  background-color: var(--primary-blue-100); /* 예: 파란색 강조 */
+  border-color: var(--primary-blue-300);
+  color: var(--primary-blue-300);
+}

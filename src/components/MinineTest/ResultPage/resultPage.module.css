@@ -1,0 +1,22 @@
+.result_page{
+  width: 100%;
+  /* min-height: 100%; */
+}
+
+.title{
+  text-align: center;
+  font-size: 24px;
+  color: var(--black-950);
+  padding: 20px;
+}
+
+.result{
+  padding: 20px;
+}
+
+.text{
+  text-align: start;
+  font-size: 12px;
+  color: var(--error);
+  padding: 0 20px 0 20px;
+}
