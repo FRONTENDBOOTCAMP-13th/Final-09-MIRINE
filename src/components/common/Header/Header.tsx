@@ -100,7 +100,7 @@ export default function Header() {
     return (
       <header className={styles.header}>
         <div className={styles.inner}>
-          {(pathname === "/mirine" || pathname === "/perfumes") && (
+          {!(pathname === "/") && (
             <button onClick={handlePrev} className={styles.prev_btn}>
               <Image src="/icon/Icon-prev.svg" alt="이전으로 이동" width="24" height="24" />
             </button>
