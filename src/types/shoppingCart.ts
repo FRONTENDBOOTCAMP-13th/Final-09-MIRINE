@@ -4,18 +4,28 @@
 
 import { MirineItemInState } from "@/store/mirineStore";
 
+export interface ProductItemInStore {
+  id: number;
+  name: string;
+  volume: number;
+  quantity: number;
+  path: string;
+  brand: string;
+  price: number;
+}
+
 // 미리내 페이지 구현하다보면 type이 m일때의 배열이 달라질 수 있음
 export interface CartItemInStore {
   type: "m" | "p";
-  content: MirineItemInState[] | [number, string, number, number, number];
+  content: MirineItemInState[] | ProductItemInStore;
 }
 
 export interface CartState {
   shoppingCart: CartItemInStore[];
   addItem: (item: CartItemInStore) => void;
   deleteItem: (item: CartItemInStore) => void;
-  increaseItemQuantity: (item: CartItemInStore | number) => void;
-  decreaseItemQuantity: (item: CartItemInStore | number) => void;
+  increaseItemQuantity: (item: CartItemInStore) => void;
+  decreaseItemQuantity: (item: CartItemInStore) => void;
   resetShoppingCart: () => void;
   getShoppingCart: () => CartItemInStore[];
 }

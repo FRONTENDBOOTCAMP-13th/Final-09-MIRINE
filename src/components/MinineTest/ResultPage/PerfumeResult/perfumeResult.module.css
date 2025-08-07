@@ -34,6 +34,6 @@
 
 @media (min-width: 1280px) {
   .perfume:not(:last-of-type) {
-    margin-bottom: 0;
+    /* margin-bottom: 0; */
   }
 }

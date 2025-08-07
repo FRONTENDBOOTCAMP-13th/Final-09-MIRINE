@@ -1,12 +1,12 @@
 .share_group{
-  width: 75px;
-  height: 28px;
+  width: 70px;
+  height: 23px;
   border: 1px solid var(--black-500);
   border-radius: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 3px;
+  gap: 2px;
 }
 .share_btn{
   font-size: 11px;

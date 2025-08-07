@@ -24,6 +24,14 @@
   object-fit: cover;
   transition: opacity 0.1s ease;
 }
+.itemb {
+  background-color: var(--black-400);
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+  transition: opacity 0.1s ease;
+}
 
 .photo_image:hover {
   opacity: 0.8;
@@ -31,12 +39,16 @@
 
 @media (min-width: 768px) {
   .photo {
+
     grid-template-columns: repeat(4, 1fr);
+
   }
 }
 
 @media (min-width: 1280px) {
   .photo {
+
     grid-template-columns: repeat(5, 1fr);
+
   }
 }
