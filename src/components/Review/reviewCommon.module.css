@@ -1,20 +1,20 @@
-.common_section{
+.common_section {
   padding: 20px 20px 10px 20px;
 }
 
-.title{
+.title {
   font-size: 24px;
   color: var(--black-950);
   padding-bottom: 20px;
 }
 
-.category_list{
+.category_list {
   display: flex;
   font-size: 13px;
   gap: 8px;
 }
 
-.category_btn{
+.category_btn {
   height: 30px;
   border: 1px solid var(--black-200);
   border-radius: 50px;
@@ -25,7 +25,7 @@
   color: var(--black-950);
 }
 
-.category_btn button{
+.category_btn button {
   all: unset;
   cursor: pointer;
   font-size: inherit;
@@ -33,24 +33,24 @@
 }
 
 .active {
-  background-color: var(--primary-blue-100); 
+  background-color: var(--primary-blue-100);
   border-color: var(--primary-blue-300);
   color: var(--primary-blue-300);
 }
 
 /* 총 개수 */
-.count_icon_section{
+.count_icon_section {
   display: flex;
   justify-content: space-between;
   padding: 20px 0 0 0;
 }
 
-.count{
+.count {
   font-size: 13px;
   color: var(--black-500);
 }
 
-.message{
+.message {
   font-size: 13px;
   color: var(--black-500);
   padding: 20px 20px 0 0;
@@ -62,3 +62,8 @@
   gap: 10px;
 } */
 
+.tab_content {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+}

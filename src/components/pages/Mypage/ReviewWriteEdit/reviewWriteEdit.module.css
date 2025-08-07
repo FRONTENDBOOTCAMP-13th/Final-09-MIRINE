@@ -62,10 +62,16 @@
 }
 
 .photo_img {
-  max-width: 52px;
-  border: 1px solid var(--black-300);
+  /* max-width: 52px; */
+  width: 76px;
+  height: 76px;
+  max-width: 76px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--black-200);
   border-radius: 2px;
-  background-color: var(--black-200);
+  background-color: var(--black-100);
+  cursor: pointer;
 }
 
 .error_text {
@@ -136,4 +142,10 @@
     gap: 0;
     margin-bottom: 100px;
   }
+}
+
+.input_files {
+  visibility: hidden;
+  width: 0;
+  height: 0;
 }

@@ -3,11 +3,11 @@
 import { SmallButton } from "@/components/ui/Button/SmallButton";
 import { useRouter } from "next/navigation";
 
-export default function DetailBtn() {
+export default function DetailBtn({ reviewID }: { reviewID: number }) {
   const router = useRouter();
 
   const handleDetailClick = () => {
-    router.push("/");
+    router.push("/reviews/" + reviewID);
   };
 
   return (

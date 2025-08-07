@@ -2,11 +2,11 @@
 import { SmallButton } from "@/components/ui/Button/SmallButton";
 import { useRouter } from "next/navigation";
 
-export default function ReviewWriteBtn() {
+export default function ReviewWriteBtn({ orderID }: { orderID: number }) {
   const router = useRouter();
 
   const handleWriteClick = () => {
-    router.push("/reviews/write");
+    router.push(`/reviews/write/${orderID}`);
   };
 
   return (

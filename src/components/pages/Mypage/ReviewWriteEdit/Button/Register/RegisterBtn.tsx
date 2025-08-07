@@ -10,7 +10,7 @@ interface RegisterButtonProps {
 export default function RegisterButton({ onClickRegister, buttonText = "등록하기", disabled = false }: RegisterButtonProps) {
   return (
     <>
-      <PrimaryButton bgColor="blue-100" textColor="blue" line="blue" onClick={onClickRegister} disabled={disabled}>
+      <PrimaryButton bgColor="blue-100" textColor="blue" line="blue" onClick={onClickRegister} disabled={disabled} type="submit">
         {buttonText}
       </PrimaryButton>
     </>

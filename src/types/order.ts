@@ -1,5 +1,7 @@
 // import { FileUpload } from "./file";
 
+import { Perfume } from "./perfume";
+
 /**
  * 구매 내역 인터페이스
  * @property {number} _id 구매 내역 번호(고유값)
@@ -42,6 +44,7 @@ export interface OrderProduct {
     volume?: number;
     price?: number;
     name?: string;
+    brand?: string;
     products?: {
       id: number;
       name: string;
@@ -61,4 +64,27 @@ export interface OrderProduct {
 export interface OrderCost {
   // products: number;
   total: number;
+}
+
+export interface OrderItem {
+  _id: number;
+  user_id: number;
+  user: {
+    _id: number;
+    name: string;
+  };
+  products: Perfume[];
+  cost: { total: number };
+  createdAt: string;
+  review_id: number;
+  history?: {
+    updated: { review_id: number };
+  };
+  extra: {
+    type: "p" | "m";
+    volume?: number;
+    quantity?: number;
+    price?: number;
+    products?: { id: number; name: string; path: string; price: number }[];
+  };
 }

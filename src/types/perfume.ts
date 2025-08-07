@@ -20,7 +20,8 @@ export interface Perfume {
   active: true;
   name: string;
   quantity: number;
-  mainImages: FileUpload[];
+  mainImages?: FileUpload[];
+  image?: { path: string };
   createdAt: string;
   updatedAt: string;
   extra: PerfumeInfo;

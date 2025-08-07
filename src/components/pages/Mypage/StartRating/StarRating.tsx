@@ -1,4 +1,5 @@
 // components/StarRating/StarRating.tsx
+"use client";
 import React, { useState } from "react";
 import styles from "./starRating.module.css";
 
@@ -11,8 +12,10 @@ interface StarRatingProps {
 
 export default function StarRating({ rating, onChange, maxStars = 5, disabled = false }: StarRatingProps) {
   const [hoverRating, setHoverRating] = useState<number>(0);
+  const [submitRating, setSubmitRating] = useState(rating);
 
   const handleStarClick = (starIndex: number) => {
+    setSubmitRating(starIndex);
     if (disabled) return;
     onChange(starIndex);
   };
@@ -31,6 +34,7 @@ export default function StarRating({ rating, onChange, maxStars = 5, disabled = 
 
   return (
     <div className={styles.starRating}>
+      <input type="hidden" name="rating" value={submitRating} />
       <div className={styles.starsContainer} onMouseLeave={handleMouseLeave}>
         {Array.from({ length: maxStars }, (_, index) => {
           const starIndex = index + 1;
