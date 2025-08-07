@@ -1,6 +1,5 @@
 "use client";
 import styles from "./mirineTest.module.css";
-import Image from "next/image";
 
 export default function MirineTest() {
   const handleButtonClick = () => {
