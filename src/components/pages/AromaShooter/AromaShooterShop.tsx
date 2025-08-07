@@ -10,7 +10,7 @@ export default function AromaShooterShop() {
         <div className={styles.text}>
           <h3>Aroma Shooter ®2</h3>
           <p>새로운 향기의 세계로.</p>
-          <AromaShooterButton href={"/"}>Buy Now</AromaShooterButton>
+          <AromaShooterButton href={"https://aromajoin.com/products/aroma-shooter"}>Buy Now</AromaShooterButton>
         </div>
       </li>
       <li className={styles.list_item_2}>
@@ -31,7 +31,7 @@ export default function AromaShooterShop() {
             <br />
             1.4m 멀리
           </p>
-          <AromaShooterButton href={"/"}>Buy Now</AromaShooterButton>
+          <AromaShooterButton href={"https://aromajoin.com/products/aroma-shooter-3"}>Buy Now</AromaShooterButton>
         </div>
       </li>
     </ul>

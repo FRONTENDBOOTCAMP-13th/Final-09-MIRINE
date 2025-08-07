@@ -15,7 +15,7 @@ export default function Photo({ data }: { data: ReviewItem[] | null }) {
       {reviewList &&
         reviewList.map((e) => (
           <Link key={e._id} href={`/reviews/${e._id}`}>
-            <Image src={e.extra.images[0]} alt="리뷰 사진" width={106} height={106} className={styles.item} />
+            <Image src={e.extra?.images[0] || "logo/logo-black-pc.svg"} alt="리뷰 사진" width={106} height={106} className={!!e.extra?.images[0] ? styles.item : styles.itemb} />
           </Link>
         ))}
     </div>

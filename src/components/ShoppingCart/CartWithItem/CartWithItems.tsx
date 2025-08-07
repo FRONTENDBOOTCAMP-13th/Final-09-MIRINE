@@ -9,7 +9,7 @@ import { MirineItemInState } from "@/store/mirineStore";
 import { addPriceTemplate, getAccessToken, getUserID, productTotalPrice } from "@/lib/clientFunction";
 import { postOrders } from "@/lib/action";
 import { getAllOrders } from "@/lib/function";
-import { CartItemInStore } from "@/types/shoppingCart";
+import { CartItemInStore, ProductItemInStore } from "@/types/shoppingCart";
 
 export default function CartWithItems() {
   const userID = getUserID();
@@ -24,7 +24,7 @@ export default function CartWithItems() {
   useEffect(() => {
     const cartList = shoppingCart.map((e, i) => {
       if (checkedArray[i]) {
-        if (e.type === "p") return { quantity: (e.content as [number, string, number, number, number])[3], price: (e.content as [number, string, number, number, number])[4] };
+        if (e.type === "p") return { quantity: (e.content as ProductItemInStore).quantity, price: (e.content as ProductItemInStore).price };
         else if (e.type === "m") return { quantity: 1, price: (e.content as MirineItemInState[]).reduce((sum, e) => e.price / 10 + sum, 0) };
         else return { quantity: 0, price: 0 };
       } else return { quantity: 0, price: 0 };

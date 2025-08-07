@@ -20,7 +20,7 @@
   border-radius: 2px;
 
   &:checked {
-    background-image: url("/icon/icon-check.svg"); /* 체크 아이콘 이미지 */
+    background-image: url("/icon/Icon-check.svg"); /* 체크 아이콘 이미지 */
     background-repeat: repeat;
     background-position: center;
     background-size: 11px;

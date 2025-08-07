@@ -2,15 +2,19 @@
 import { Perfume } from "@/types/perfume";
 import styles from "./bottomSheet.module.css";
 import { addml, addPriceTemplate, productTotalPrice } from "@/lib/clientFunction";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CartItem from "../../CartItem/CartItem";
 import useShoppingCartStore from "@/store/shoppingCartStore";
 import { CartItemInStore } from "@/types/shoppingCart";
+// import { FileUpload } from "@/types/file";
 
 export default function BottomSheet({ data, isOpen, onClose }: { data: Perfume; isOpen: boolean; onClose: () => void }) {
   const [toggleSelectBtn, setToggleSelectBtn] = useState(false);
   const [cartList, setCartList] = useState<{ volume: number; quantity: number; price: number }[]>([]);
   const addItem = useShoppingCartStore((state) => state.addItem);
+  useEffect(() => {
+    console.log("data", data);
+  }, []);
 
   return (
     <div>
@@ -92,7 +96,15 @@ export default function BottomSheet({ data, isOpen, onClose }: { data: Perfume; 
                 onClick={() => {
                   const cartItem: CartItemInStore[] = cartList.map((item) => ({
                     type: "p",
-                    content: [data._id, data.name, item.volume, item.quantity, item.price],
+                    content: {
+                      id: data._id,
+                      name: data.name,
+                      volume: item.volume,
+                      quantity: item.quantity,
+                      price: item.price,
+                      brand: data.extra.brand,
+                      path: data.mainImages![0].path,
+                    },
                   }));
                   cartItem.forEach((e) => addItem(e));
                   alert("장바구니에 추가됐다!");
