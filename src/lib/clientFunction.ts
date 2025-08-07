@@ -86,3 +86,9 @@ export function seperateArray<T>(array: Array<T>, cnt: number) {
   });
   return resultArray;
 }
+
+export function ratingToStar(rating: number) {
+  let str = "";
+  for (let i = 0; i < 5; i++) str += i < rating ? "★" : "☆";
+  return str;
+}

@@ -29,12 +29,42 @@ export async function postReview(state, formData: FormData) {
         }
       })
     );
-    const extra = {
+    const extra: {
+      type: string;
+      images: string[];
+      quantity: number;
+      volume: number;
+      price: number;
+      products: { id: number; name: string }[];
+    } = {
+      type: "",
       images: uploadImages,
-      quantity: +(formData.get("quantity") as string),
-      volume: +(formData.get("volume") as string),
-      price: +(formData.get("price") as string),
+      quantity: 0,
+      volume: 0,
+      price: 0,
+      products: [],
     };
+    // const extra = {
+    //   type: +(formData.get("product_id") as string) === 1 ? "m" : "p",
+    //   images: uploadImages,
+    //   quantity: +(formData.get("quantity") as string),
+    //   volume: +(formData.get("volume") as string),
+    //   price: +(formData.get("price") as string),
+    // };
+    if ((formData.get("type") as string) === "m") {
+      extra.type = "m";
+      extra.quantity = 1;
+      const productIDList: string[] = formData.getAll("product_id") as string[];
+      const productNameList: string[] = formData.getAll("product_name") as string[];
+      productIDList.forEach((e, i) => {
+        extra.products.push({ id: +e, name: productNameList[i] });
+      });
+    } else if ((formData.get("type") as string) === "p") {
+      extra.type = "p";
+      extra.quantity = +(formData.get("quantity") as string);
+      extra.volume = +(formData.get("quantity") as string);
+      extra.price = +(formData.get("quantity") as string);
+    }
     const body = {
       order_id: +(formData.get("order_id") as string),
       product_id: +(formData.get("product_id") as string),
@@ -80,16 +110,50 @@ export async function patchReview(state, formData: FormData) {
         }
       })
     );
-    const extra = { images: uploadImages };
+    const extra: {
+      type: string;
+      images: string[];
+      quantity: number;
+      volume: number;
+      price: number;
+      products: { id: number; name: string }[];
+    } = {
+      type: "",
+      images: uploadImages,
+      quantity: 0,
+      volume: 0,
+      price: 0,
+      products: [],
+    };
+    // const extra = {
+    //   type: +(formData.get("product_id") as string) === 1 ? "m" : "p",
+    //   images: uploadImages,
+    //   quantity: +(formData.get("quantity") as string),
+    //   volume: +(formData.get("volume") as string),
+    //   price: +(formData.get("price") as string),
+    // };
+    if ((formData.get("type") as string) === "m") {
+      extra.type = "m";
+      extra.quantity = 1;
+      const productIDList: string[] = formData.getAll("product_id") as string[];
+      const productNameList: string[] = formData.getAll("product_name") as string[];
+      productIDList.forEach((e, i) => {
+        extra.products.push({ id: +e, name: productNameList[i] });
+      });
+    } else if ((formData.get("type") as string) === "p") {
+      extra.type = "p";
+      extra.quantity = +(formData.get("quantity") as string);
+      extra.volume = +(formData.get("quantity") as string);
+      extra.price = +(formData.get("quantity") as string);
+    }
     const body = {
-      user_id: formData.get("user_id"),
-      user: formData.get("user"),
-      product_id: formData.get("product_id"),
-      rating: formData.get("rating"),
+      order_id: +(formData.get("order_id") as string),
+      product_id: +(formData.get("product_id") as string),
+      rating: +(formData.get("rating") as string),
       content: formData.get("content"),
       extra,
     };
-    const res = await fetch(`${URL}/replies`, {
+    const res = await fetch(`${URL}/replies/${formData.get("reviewID") as string}`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${formData.get("token")}`,
@@ -520,6 +584,7 @@ async function postEachOtherOrder(item: CartItemInStore, user_id: number, userNa
     body.extra.volume = (item.content as [number, string, number, number, number])[2];
     body.extra.price = (item.content as [number, string, number, number, number])[4];
     const productData = (await getProduct(body.products[0]._id)).item;
+    body.extra.brand = productData.extra.brand;
     body.extra.products = [];
     body.extra.products.push({
       id: body.products[0]._id,

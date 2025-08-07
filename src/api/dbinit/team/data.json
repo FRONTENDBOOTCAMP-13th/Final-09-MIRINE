@@ -60,8 +60,8 @@
       "show": true,
       "active": true,
       "name": "미리내",
-      "quantity": 999,
-      "buyQuantity": 999,
+      "quantity": 150,
+      "buyQuantity": 89,
       "mainImages": [
         {
           "path": "uploadFiles/mirine.webp",
@@ -816,165 +816,9 @@
     ]
   ],
 
-  "order": [
-    {
-      "user_id": 3,
-      "user": {
-        "_id": 3,
-        "name": "차은우"
-      },
-      "products": [
-        {
-          "_id": 18,
-          "seller_id": 1,
-          "quantity": 2,
-          "volume": 30,
-          "price": 46900
-        }
-      ],
-      "cost": {
-        "total": 93800
-      },
-      "review_id": 0,
-      "createdAt": "2025.07.03 17:47:50"
-    },
-    {
-      "user_id": 3,
-      "user": {
-        "_id": 3,
-        "name": "차은우"
-      },
-      "products": [
-        {
-          "_id": 12,
-          "seller_id": 1,
-          "quantity": 3,
-          "volume": 50,
-          "price": 57900
-        }
-      ],
-      "cost": {
-        "total": 173700
-      },
-      "review_id": 1,
-      "createdAt": "2025.08.02 17:47:50"
-    },
-    {
-      "user_id": 3,
-      "user": {
-        "_id": 3,
-        "name": "차은우"
-      },
-      "products": [
-        {
-          "_id": 14,
-          "seller_id": 1,
-          "quantity": 2,
-          "volume": 100,
-          "price": 104900
-        }
-      ],
-      "cost": {
-        "total": 209800
-      },
-      "review_id": 2,
-      "createdAt": "2025.08.02 17:47:50"
-    },
-    {
-      "user_id": 3,
-      "user": {
-        "_id": 3,
-        "name": "차은우"
-      },
-      "products": [
-        {
-          "_id": 12,
-          "seller_id": 1,
-          "quantity": 3,
-          "volume": 50,
-          "price": 57900
-        }
-      ],
-      "cost": {
-        "total": 173700
-      },
-      "review_id": 0,
-      "createdAt": "2025.08.02 17:47:50"
-    },
-    {
-      "user_id": 3,
-      "user": {
-        "_id": 3,
-        "name": "차은우"
-      },
-      "products": [
-        {
-          "_id": 14,
-          "seller_id": 1,
-          "quantity": 1,
-          "volume": 75,
-          "price": 81900
-        },
-        {
-          "_id": 15,
-          "seller_id": 1,
-          "quantity": 1,
-          "volume": 100,
-          "price": 95900
-        }
-      ],
-      "cost": {
-        "total": 177800
-      },
-      "review_id": 3,
-      "createdAt": "2025.02.04 17:47:50"
-    }
-  ],
+  "order": [],
 
-  "review": [
-    {
-      "user_id": 3,
-      "user": {
-        "_id": 3
-      },
-      "product_id": 12,
-      "rating": 5,
-      "content": "아이가 좋아해요.",
-      "extra": {
-        "images": ["uploadFiles/review1.webp", "uploadFiles/review2.webp", "uploadFiles/review3.webp", "uploadFiles/review4.webp"],
-        "products": [12]
-      },
-      "createdAt": "2025.08.03 17:47:50"
-    },
-    {
-      "user_id": 3,
-      "user": {
-        "_id": 3
-      },
-      "product_id": 14,
-      "rating": 5,
-      "content": "어른이 좋아해요.",
-      "extra": {
-        "images": ["uploadFiles/review5.webp", "uploadFiles/review6.webp", "uploadFiles/review7.webp", "uploadFiles/review8.webp"],
-        "products": [14]
-      },
-      "createdAt": "2025.08.03 17:47:50"
-    },
-    {
-      "user_id": 3,
-      "user": {
-        "_id": 3
-      },
-      "product_id": 14,
-      "rating": 5,
-      "content": "향 굿굿",
-      "extra": {
-        "images": ["uploadFiles/review9.webp", "uploadFiles/review10.webp", "uploadFiles/review11.webp", "uploadFiles/review12.webp", "uploadFiles/review13.webp"],
-        "products": [14, 15]
-      },
-      "createdAt": "2025.08.03 17:47:50"
-    }
-  ],
+  "review": [],
 
   "cart": [],
 
