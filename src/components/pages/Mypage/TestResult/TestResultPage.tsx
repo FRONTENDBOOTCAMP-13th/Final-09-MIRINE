@@ -10,7 +10,7 @@ export default function MyPageTestResult() {
       <ul className={styles.result_list}>
         <li>
           <div className={styles.list_head}>
-            <p className={styles.test_date}>2025.08.96 19:21:33</p>
+            <p className={styles.test_date}>2025.08.9 19:21:33</p>
             <ShareButton />
           </div>
 
