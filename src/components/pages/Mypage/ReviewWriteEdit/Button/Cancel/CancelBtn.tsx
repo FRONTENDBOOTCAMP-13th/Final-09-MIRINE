@@ -1,5 +1,5 @@
 "use client";
-import styles from "@/components/pages/Mypage/ReviewWriteEdit/Button/Cancel/cancelBtn.module.css";
+import { PrimaryButton } from "@/components/ui/Button/PrimaryButton";
 import { useRouter } from "next/navigation";
 
 interface CancelButtonProps {
@@ -19,8 +19,10 @@ export default function CancelButton({ onClickCancel, disabled = false }: Cancel
   };
 
   return (
-    <button type="button" className={styles.cancel_btn} onClick={handleClick} disabled={disabled}>
-      <p className={styles.btn_text}>취소하기</p>
-    </button>
+    <>
+      <PrimaryButton bgColor="white" textColor="black" line="on" onClick={handleClick} disabled={disabled}>
+        취소하기
+      </PrimaryButton>
+    </>
   );
 }

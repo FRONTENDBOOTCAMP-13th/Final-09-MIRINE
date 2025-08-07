@@ -1,6 +1,9 @@
 "use server";
 
-import { getUser } from "./function";
+import { CartItemInStore } from "@/types/shoppingCart";
+import { getProduct, getUser } from "./function";
+import { OrderProduct } from "@/types/order";
+import { MirineItemInState } from "@/store/mirineStore";
 
 // body에 token 넣어서 보낸거 수정해야 함
 
@@ -26,12 +29,42 @@ export async function postReview(state, formData: FormData) {
         }
       })
     );
-    const extra = {
+    const extra: {
+      type: string;
+      images: string[];
+      quantity: number;
+      volume: number;
+      price: number;
+      products: { id: number; name: string }[];
+    } = {
+      type: "",
       images: uploadImages,
-      quantity: +(formData.get("quantity") as string),
-      volume: +(formData.get("volume") as string),
-      price: +(formData.get("price") as string),
+      quantity: 0,
+      volume: 0,
+      price: 0,
+      products: [],
     };
+    // const extra = {
+    //   type: +(formData.get("product_id") as string) === 1 ? "m" : "p",
+    //   images: uploadImages,
+    //   quantity: +(formData.get("quantity") as string),
+    //   volume: +(formData.get("volume") as string),
+    //   price: +(formData.get("price") as string),
+    // };
+    if ((formData.get("type") as string) === "m") {
+      extra.type = "m";
+      extra.quantity = 1;
+      const productIDList: string[] = formData.getAll("product_id") as string[];
+      const productNameList: string[] = formData.getAll("product_name") as string[];
+      productIDList.forEach((e, i) => {
+        extra.products.push({ id: +e, name: productNameList[i] });
+      });
+    } else if ((formData.get("type") as string) === "p") {
+      extra.type = "p";
+      extra.quantity = +(formData.get("quantity") as string);
+      extra.volume = +(formData.get("quantity") as string);
+      extra.price = +(formData.get("quantity") as string);
+    }
     const body = {
       order_id: +(formData.get("order_id") as string),
       product_id: +(formData.get("product_id") as string),
@@ -77,16 +110,50 @@ export async function patchReview(state, formData: FormData) {
         }
       })
     );
-    const extra = { images: uploadImages };
+    const extra: {
+      type: string;
+      images: string[];
+      quantity: number;
+      volume: number;
+      price: number;
+      products: { id: number; name: string }[];
+    } = {
+      type: "",
+      images: uploadImages,
+      quantity: 0,
+      volume: 0,
+      price: 0,
+      products: [],
+    };
+    // const extra = {
+    //   type: +(formData.get("product_id") as string) === 1 ? "m" : "p",
+    //   images: uploadImages,
+    //   quantity: +(formData.get("quantity") as string),
+    //   volume: +(formData.get("volume") as string),
+    //   price: +(formData.get("price") as string),
+    // };
+    if ((formData.get("type") as string) === "m") {
+      extra.type = "m";
+      extra.quantity = 1;
+      const productIDList: string[] = formData.getAll("product_id") as string[];
+      const productNameList: string[] = formData.getAll("product_name") as string[];
+      productIDList.forEach((e, i) => {
+        extra.products.push({ id: +e, name: productNameList[i] });
+      });
+    } else if ((formData.get("type") as string) === "p") {
+      extra.type = "p";
+      extra.quantity = +(formData.get("quantity") as string);
+      extra.volume = +(formData.get("quantity") as string);
+      extra.price = +(formData.get("quantity") as string);
+    }
     const body = {
-      user_id: formData.get("user_id"),
-      user: formData.get("user"),
-      product_id: formData.get("product_id"),
-      rating: formData.get("rating"),
+      order_id: +(formData.get("order_id") as string),
+      product_id: +(formData.get("product_id") as string),
+      rating: +(formData.get("rating") as string),
       content: formData.get("content"),
       extra,
     };
-    const res = await fetch(`${URL}/replies`, {
+    const res = await fetch(`${URL}/replies/${formData.get("reviewID") as string}`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${formData.get("token")}`,
@@ -279,20 +346,22 @@ export async function login(state, formData: FormData) {
  * POST /users
  */
 export async function postUser(state, formData: FormData) {
-  // 임시데이터
+  const extra = {
+    address: {
+      zipCode: formData.get("zipCode"),
+      mainAddress: formData.get("mainAddress"),
+      detailAddress: formData.get("detailAddress"),
+    },
+  };
   const body = {
     type: "user",
-    email: formData.get("email") || "test@test.com",
-    password: formData.get("password") || "1111",
-    name: formData.get("name") || "이름",
-    address: formData.get("address") || "주소",
+    email: formData.get("email"),
+    phone: formData.get("phone"),
+    password: formData.get("password"),
+    name: formData.get("name"),
+    address: (extra.address.mainAddress as string) + " " + (extra.address.detailAddress as string),
+    extra,
   };
-  // const info = {
-  //   type: "user",
-  //   email: "aa@bbb.cc",
-  //   password: "1111",
-  //   name: "이름",
-  // };
   try {
     const res = await fetch(`${URL}/users`, {
       method: "POST",
@@ -442,4 +511,102 @@ export async function uploadFileForDev(state, formData: FormData) {
   });
   const data = await res.json();
   return data;
+}
+
+export async function postOrders(cartList: CartItemInStore[], user_id: number, token: string) {
+  const userData = await getUser(user_id);
+  const orderList = cartList.map(async (e) => postEachOtherOrder(e, user_id, userData.item.name, token));
+  return orderList;
+
+  // const productIDList: string[] = formData.getAll("product_id") as string[];
+  // const productQuantityList: string[] = formData.getAll("product_quantity") as string[];
+  // const productsPromise = productIDList.map(async (product_id: string, idx: number) => {
+  //   return { _id: +product_id, quantity: +productQuantityList[idx] };
+  // });
+  // const products = await Promise.all(productsPromise);
+  // // console.log("products[0]", (await products[0])._id);
+  // // const userData = await getUser(user_id);
+  // const user = {
+  //   _id: user_id,
+  //   name: userData.item.name,
+  // };
+  // try {
+  //   const body = {
+  //     user_id: formData.get("user_id"),
+  //     user,
+  //     products: products,
+  //     review_id: formData.get("review_id") || 0,
+  //     cost: { total: formData.get("total") || 0 },
+  //     token: formData.get("token"),
+  //   };
+  //   // if (body.cost.total === 0) {
+  //   //   const resolvedProducts = await Promise.all(products);
+  //   //   body.cost.total = resolvedProducts.reduce((sum, item) => sum + item.price, 0);
+  //   // }
+  //   const res = await fetch(`${URL}/orders`, {
+  //     method: "POST",
+  //     headers: {
+  //       Authorization: `Bearer ${body.token}`,
+  //       "Content-Type": "application/json",
+  //       "Client-Id": CLIENT_ID || "",
+  //     },
+  //     body: JSON.stringify(body),
+  //   });
+  //   const data = await res.json();
+  //   return data;
+  // } catch (error) {
+  //   console.error("error 발생", error);
+  //   return error;
+  // }
+}
+
+async function postEachOtherOrder(item: CartItemInStore, user_id: number, userName: string, token: string) {
+  const user = {
+    _id: user_id,
+    name: userName,
+  };
+  const body: OrderProduct = {
+    user_id,
+    user,
+    review_id: 0,
+    products: [],
+    cost: { total: 0 },
+    extra: {
+      type: item.type,
+    },
+  };
+  if (item.type === "m") {
+    body.products.push({ _id: 1, quantity: 1 });
+    body.extra.products = [...(item.content as MirineItemInState[])];
+    body.cost.total = body.extra.products.reduce((sum, e) => e.price / 10 + sum, 0);
+  } else if (item.type === "p") {
+    body.products.push({ _id: (item.content as [number, string, number, number, number])[0], quantity: (item.content as [number, string, number, number, number])[3] });
+    body.extra.volume = (item.content as [number, string, number, number, number])[2];
+    body.extra.price = (item.content as [number, string, number, number, number])[4];
+    const productData = (await getProduct(body.products[0]._id)).item;
+    body.extra.brand = productData.extra.brand;
+    body.extra.products = [];
+    body.extra.products.push({
+      id: body.products[0]._id,
+      name: productData.name,
+      path: productData.mainImages[0].path,
+      price: body.extra.price,
+    });
+  }
+  try {
+    const res = await fetch(`${URL}/orders`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+        "Client-Id": CLIENT_ID || "",
+      },
+      body: JSON.stringify(body),
+    });
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("error 발생", error);
+    return error;
+  }
 }

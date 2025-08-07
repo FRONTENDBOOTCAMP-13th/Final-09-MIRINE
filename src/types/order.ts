@@ -1,4 +1,6 @@
-import { FileUpload } from "./file";
+// import { FileUpload } from "./file";
+
+import { Perfume } from "./perfume";
 
 /**
  * 구매 내역 인터페이스
@@ -22,18 +24,34 @@ export interface Order {
  * 구매 제품 인터페이스
  * @property {number} _id 구매 제품 번호
  * @property {string} name 구매 제품 이름
- * @property {FileUpload} image 구매 제품 사진 정보
  * @property {number} quantity 구매 제품 개수
  * @property {number} price 구매 제품 가격
  * @property {number?} review_id 리뷰 번호, 리뷰 작성시 사용
  */
+
 export interface OrderProduct {
-  _id: number;
-  name: string;
-  image: FileUpload;
-  quantity: number;
-  price: number;
-  review_id?: number;
+  _id?: number;
+  user_id: number;
+  user: {
+    _id: number;
+    name: string;
+  };
+  products: { _id: number; quantity: number }[];
+  review_id: number;
+  cost: { total: number };
+  extra: {
+    type: "p" | "m";
+    volume?: number;
+    price?: number;
+    name?: string;
+    brand?: string;
+    products?: {
+      id: number;
+      name: string;
+      path: string;
+      price: number;
+    }[];
+  };
 }
 
 /**
@@ -46,4 +64,27 @@ export interface OrderProduct {
 export interface OrderCost {
   // products: number;
   total: number;
+}
+
+export interface OrderItem {
+  _id: number;
+  user_id: number;
+  user: {
+    _id: number;
+    name: string;
+  };
+  products: Perfume[];
+  cost: { total: number };
+  createdAt: string;
+  review_id: number;
+  history?: {
+    updated: { review_id: number };
+  };
+  extra: {
+    type: "p" | "m";
+    volume?: number;
+    quantity?: number;
+    price?: number;
+    products?: { id: number; name: string; path: string; price: number }[];
+  };
 }

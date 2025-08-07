@@ -7,5 +7,5 @@
 export interface UserInfo {
   _id: 4;
   name: "제이지";
-  image: "user-jayg.webp";
+  image?: "user-jayg.webp";
 }

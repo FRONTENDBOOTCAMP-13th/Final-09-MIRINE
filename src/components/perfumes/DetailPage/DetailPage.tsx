@@ -20,7 +20,12 @@ export default function PerfumeDetailPage({ id, data, isMirine }: { id: string; 
   return (
     <article className={styles.product_detail}>
       {/* 이미지, 찜, 링크 공유 */}
-      <ProductHeader path={data.mainImages[0].path} />
+      <ProductHeader
+        path={data.mainImages![0].path}
+        data={{
+          id: data._id,
+        }}
+      />
       {/* 제품 정보 */}
       <ProductInfo
         data={{
@@ -47,7 +52,7 @@ export default function PerfumeDetailPage({ id, data, isMirine }: { id: string; 
               addItem({
                 id: +id,
                 name: data.name,
-                path: data.mainImages[0].path,
+                path: data.mainImages![0].path,
                 price: data.price,
               });
               alert("미리내에 추가!");
