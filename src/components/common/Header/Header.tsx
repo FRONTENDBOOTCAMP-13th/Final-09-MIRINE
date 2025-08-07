@@ -51,11 +51,6 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link href="/mirine-test" className={pathname === "/mirine-test" ? styles.active : ""}>
-                미리내 테스트
-              </Link>
-            </li>
-            <li>
               <Link href="/perfumes" className={pathname === "/perfumes" ? styles.active : ""}>
                 향수
               </Link>
@@ -129,16 +124,12 @@ export default function Header() {
           </button>
         </div>
 
-        <div className={`${styles.side_nav} ${isOpenning && styles.open}`}>
+        {/* 모바일 - 열림 메뉴 */}
+        <div className={`${styles.side_nav_con} ${isOpenning && styles.open}`}>
           <ul className={styles.main_menu}>
             <li>
               <Link href="/mirine" className={pathname === "/mirine" ? styles.active : ""}>
                 미리내
-              </Link>
-            </li>
-            <li>
-              <Link href="/mirine-test" className={pathname === "/mirine-test" ? styles.active : ""}>
-                미리내 테스트
               </Link>
             </li>
             <li>
@@ -197,6 +188,7 @@ export default function Header() {
             </li>
           </ul>
         </div>
+        <div className={`${styles.side_nav_bg} ${isOpenning && styles.open}`} onClick={() => setIsOpenning(!isOpenning)}></div>
       </header>
     );
   }

@@ -1,14 +1,9 @@
-'use client'
-import TestHeader from "@/components/MinineTest/Header/Header";
+"use client";
 import styles from "./mirineTest.module.css";
-import Image from "next/image";
 
 export default function MirineTest() {
   const handleButtonClick = () => {
-    const messages = [
-      "테스트는 나중에~",
-      "뒤로가기..😅"
-    ];
+    const messages = ["테스트는 나중에~", "뒤로가기..😅"];
 
     const randomMessage = messages[Math.floor(Math.random() * messages.length)];
     alert(randomMessage);
@@ -16,38 +11,73 @@ export default function MirineTest() {
 
   return (
     <div className={styles.mirine_test}>
-      <TestHeader />
       <div className={styles.question_graph}>
         <div className={styles.question_num}>1/5</div>
         <div className={styles.graph}>
           <span className={styles.bar}></span>
         </div>
       </div>
-      <p className={styles.question}>다음 중 가장 끌리는 향은 무엇인가요?</p>
+      <p className={styles.question}>
+        여행을 가게 된 당신! <br />
+        도착한 여행지에서 나는 향기는 무엇인가요?
+      </p>
       <div className={styles.img}>
-        <Image src="/image/test-plane.svg" alt="이미지" width={152} height={152} priority />
+        {/* <Image src="/image/test-plane.svg" alt="이미지" width={152} height={152} priority /> */}
+        <svg width="159" height="152" viewBox="0 0 159 152" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* 배경 원 */}
+          <ellipse cx="76" cy="76" rx="76" ry="76" fill="#C0E2F0" />
+          {/* 비행기 */}
+          <g className={styles.airplane}>
+            {/* 비행기 - 메인 몸체 */}
+            <path d="M47.0547 55.2766L49.0377 65.3902C48.8394 66.3817 48.4428 67.9681 49.236 69.3562C50.0293 70.5461 51.0208 71.7359 56.5733 75.1071C80.3699 88.5918 104.167 94.1443 109.917 94.541C114.518 94.8582 115.139 91.6325 114.875 89.9799C114.082 85.6966 108.463 83.0393 105.753 82.2461L54.392 66.1834L51.0208 56.4664L47.0547 55.2766Z" fill="white" />
+            {/* 비행기 - 눈 */}
+            <ellipse cx="71.2" cy="93.5" rx="1.9" ry="2.3" fill="#291934" />
+            <ellipse cx="102.9" cy="79.7" rx="1.9" ry="2.3" fill="#2C1936" />
+            {/* 비행기 - 눈 주변 */}
+            <path d="M69.5699 96.2016L63.2148 90.9434L71.6025 90.2029L72.5848 90.773C73.2416 91.2068 73.8985 92 73.9677 93.0842C74.036 94.1544 73.8458 94.9409 73.2416 95.6934C72.0747 97.1471 70.4705 96.813 69.5699 96.2016Z" fill="white" />
+            <path d="M101.246 82.4194L94.8906 77.1612L103.278 76.4207L104.261 76.9908C104.917 77.4246 105.574 78.2178 105.644 79.302C105.712 80.3722 105.522 81.1587 104.917 81.9112C103.75 83.3648 102.146 83.0308 101.246 82.4194Z" fill="white" />
+            {/* 비행기 - 몸체 디테일 */}
+            <path d="M107.305 67.9305L87.7969 76.6807L100.588 80.622C103.504 77.6144 109.462 71.4851 109.957 71.029C110.453 70.5729 110.164 69.8309 109.957 69.5169L107.826 66.5176L107.305 67.9305Z" fill="#EDEDEB" />
+            <path d="M48.4858 88.8645L76.4964 80.387L93.6002 88.1704C78.9091 89.4759 49.3187 92.0969 48.4858 92.1365C47.6529 92.1762 47.2133 91.6573 47.0977 91.3929V87.873L48.4858 88.8645Z" fill="#EDEDEB" />
+            {/* 비행기 - 입 */}
+            <path d="M106.804 88.5049H105.305C105.391 88.6867 105.743 89.2734 106.457 90.1657C107.171 91.0581 108.68 91.1325 109.345 91.0581C111.378 90.8202 113.748 89.7237 114.678 89.2114C114.055 87.4267 112.952 86.3856 112.437 85.9363C111.446 86.5395 109.296 87.8605 108.8 88.1579C108.304 88.4554 107.263 88.5132 106.804 88.5049Z" fill="#2C1936" />
+            {/* 비행기 - 점선 */}
+            <g fill="#2C1936">
+              <circle cx="95.4" cy="84.6" r="0.6" />
+              <circle cx="92.8" cy="83.7" r="0.6" />
+              <circle cx="90.5" cy="82.9" r="0.6" />
+              <circle cx="88.2" cy="82.1" r="0.6" />
+              <circle cx="85.9" cy="81.3" r="0.6" />
+              <circle cx="83.7" cy="80.5" r="0.6" />
+              <circle cx="81.5" cy="79.7" r="0.6" />
+              <circle cx="79.3" cy="79" r="0.6" />
+              <circle cx="77.1" cy="78.2" r="0.6" />
+              <circle cx="75.1" cy="77.5" r="0.6" />
+              <circle cx="73" cy="76.7" r="0.6" />
+              <circle cx="71" cy="76" r="0.6" />
+              <circle cx="69.1" cy="75.3" r="0.6" />
+              <circle cx="67" cy="74.6" r="0.6" />
+            </g>
+          </g>
+          {/* 구름들 */}
+          <path d="M89.97 30.99H78.72C76.47 30.99 76.02 29.96 75.92 29.67C75.78 29.3 75.56 27.91 76.76 26.76C77.72 25.84 78.86 26.32 79.36 26.59C80.37 27.11 80.64 26.17 80.77 25.78C80.95 25.25 81.15 24.95 81.27 24.76C82.26 23.25 84.15 23.19 85.1 23.25C87.72 23.29 89.01 25.24 89.19 26.45C89.26 26.94 89.44 27.56 90.07 27.82C90.7 28.09 90.86 27.93 91.33 28.28C91.88 28.69 92.15 29.62 91.73 30.32C91.39 30.87 90.42 30.99 89.97 30.99Z" fill="white" />
+          <path d="M67.14 126.76H50.89C47.65 126.76 47.01 125.28 46.85 124.87C46.65 124.34 46.33 122.32 48.07 120.66C49.45 119.33 51.1 120.03 51.82 120.41C53.29 121.17 53.67 119.81 53.86 119.25C54.12 118.48 54.4 118.05 54.58 117.78C56.01 115.6 58.73 115.51 60.11 115.59C63.89 115.65 65.76 118.46 66.02 120.21C66.12 120.93 66.37 121.82 67.29 122.2C68.2 122.58 68.43 122.35 69.11 122.86C69.9 123.45 70.29 124.79 69.69 125.8C69.2 126.6 67.79 126.77 67.14 126.76Z" fill="white" />
+          <path d="M154.82 63.96H130.91C126.14 63.96 125.19 61.78 124.96 61.17C124.66 60.39 124.19 57.43 126.75 54.98C128.79 53.02 131.21 54.05 132.28 54.61C134.43 55.73 134.99 53.73 135.27 52.9C135.66 51.77 136.07 51.15 136.33 50.74C138.43 47.53 142.44 47.41 144.47 47.53C150.03 47.61 152.78 51.75 153.16 54.32C153.32 55.38 153.69 56.68 155.03 57.25C156.38 57.81 156.71 57.46 157.72 58.22C158.88 59.09 159.46 61.07 158.56 62.54C157.85 63.72 155.77 63.98 154.82 63.96Z" fill="white" />
+        </svg>
       </div>
       <nav className={styles.choice}>
-        <button 
-          type="button" 
-          className={styles.answer1}
-          onClick={handleButtonClick}
-          >디저트의 달콤함</button>
-        <button 
-          type="button" 
-          className={styles.answer2}
-          onClick={handleButtonClick}
-          >사탕, 망고와 같은 상큼 없는 달콤함</button>
-        <button 
-          type="button" 
-          className={styles.answer3}
-          onClick={handleButtonClick}
-          >과일, 꽃의 상큼달달한 향</button>
-        <button 
-          type="button" 
-          className={styles.answer4}
-          onClick={handleButtonClick}
-          >달콤은 빼주세요</button>
+        <button type="button" className={styles.answer1} onClick={handleButtonClick}>
+          디저트의 달콤함
+        </button>
+        <button type="button" className={styles.answer2} onClick={handleButtonClick}>
+          사탕, 망고와 같은 상큼 없는 달콤함
+        </button>
+        <button type="button" className={styles.answer3} onClick={handleButtonClick}>
+          과일, 꽃의 상큼달달한 향
+        </button>
+        <button type="button" className={styles.answer4} onClick={handleButtonClick}>
+          달콤은 빼주세요
+        </button>
       </nav>
     </div>
   );

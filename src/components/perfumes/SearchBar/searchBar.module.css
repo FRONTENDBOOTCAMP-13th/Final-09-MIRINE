@@ -33,3 +33,9 @@
 .search_bar:focus + svg path {
   fill: var(--primary-blue-300);
 }
+
+@media (min-width: 1280px) {
+  .search_bar_label {
+    width: 320px;
+  }
+}

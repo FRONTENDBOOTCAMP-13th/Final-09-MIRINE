@@ -1,6 +1,6 @@
 "use server";
 
-import { CartItemInStore } from "@/types/shoppingCart";
+import { CartItemInStore, ProductItemInStore } from "@/types/shoppingCart";
 import { getProduct, getUser } from "./function";
 import { OrderProduct } from "@/types/order";
 import { MirineItemInState } from "@/store/mirineStore";
@@ -580,16 +580,17 @@ async function postEachOtherOrder(item: CartItemInStore, user_id: number, userNa
     body.extra.products = [...(item.content as MirineItemInState[])];
     body.cost.total = body.extra.products.reduce((sum, e) => e.price / 10 + sum, 0);
   } else if (item.type === "p") {
-    body.products.push({ _id: (item.content as [number, string, number, number, number])[0], quantity: (item.content as [number, string, number, number, number])[3] });
-    body.extra.volume = (item.content as [number, string, number, number, number])[2];
-    body.extra.price = (item.content as [number, string, number, number, number])[4];
+    body.products.push({ _id: (item.content as ProductItemInStore).id, quantity: (item.content as ProductItemInStore).quantity });
+    body.extra.volume = (item.content as ProductItemInStore).volume;
+    body.extra.price = (item.content as ProductItemInStore).price;
+    body.extra.brand = (item.content as ProductItemInStore).brand;
     const productData = (await getProduct(body.products[0]._id)).item;
     body.extra.brand = productData.extra.brand;
     body.extra.products = [];
     body.extra.products.push({
       id: body.products[0]._id,
-      name: productData.name,
-      path: productData.mainImages[0].path,
+      name: (item.content as ProductItemInStore).name,
+      path: (item.content as ProductItemInStore).path,
       price: body.extra.price,
     });
   }

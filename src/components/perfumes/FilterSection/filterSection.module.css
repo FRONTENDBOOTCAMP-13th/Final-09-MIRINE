@@ -28,3 +28,18 @@
     grid-column-start: 2;
   }
 }
+
+@media (min-width: 768px) {
+  .brand_filter_section_btn_container {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
+    /* li:nth-child(9) {
+      grid-column-start: 1;
+    } */
+  }
+  .main_accord_filter_section_btn_container {
+    justify-content: flex-start;
+    gap: 10px;
+  }
+}

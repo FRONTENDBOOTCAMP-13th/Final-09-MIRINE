@@ -7,8 +7,22 @@ import styles from "./reviewSlide.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import HomeButton from "@/components/pages/Home/Button/HomeButton";
+import { useEffect, useState } from "react";
+import { getAllReivews } from "@/lib/function";
 
 export default function ReviewSlide() {
+  const [reviewList, setReviewList] = useState<{ id: number; content: string; path: string }[]>([]);
+  useEffect(() => {
+    (async () => {
+      const data = (await getAllReivews()).item;
+      const list: { id: number; content: string; path: string }[] = [];
+      data.forEach((e: { id: number; content: string; path: string; extra: { type: "p" | "m"; images: string[] } }) => {
+        if (e.extra.type === "p") list.push({ id: e.id, content: e.content, path: e.extra.images[0] });
+      });
+      setReviewList(list);
+      console.log(list);
+    })();
+  }, []);
   return (
     <div className={styles.review_slide}>
       <h3 className={styles.title}>REVIEW</h3>
@@ -31,6 +45,15 @@ export default function ReviewSlide() {
             },
           }}
         >
+          {reviewList &&
+            reviewList.slice(0, 11).map((e) => (
+              <SwiperSlide key={e.id}>
+                <Link href={`/review/${e.id}`}>
+                  <Image width={300} height={300} src={e.path || "logo/logo-black-pc.svg"} alt="리뷰" style={e.path ? {} : { objectFit: "contain" }} />
+                  <p>{e.content}</p>
+                </Link>
+              </SwiperSlide>
+            ))}
           <SwiperSlide>
             <Link href="/review/1">
               <Image width={300} height={300} src="/home/review_1.webp" alt="리뷰" />

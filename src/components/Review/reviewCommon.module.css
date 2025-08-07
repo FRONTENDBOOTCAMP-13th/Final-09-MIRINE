@@ -1,11 +1,11 @@
-.common_section {
-  padding: 20px 20px 10px 20px;
-}
-
 .title {
   font-size: 24px;
   color: var(--black-950);
   padding-bottom: 20px;
+}
+
+.btn_group {
+  margin-bottom: 20px;
 }
 
 .category_list {
@@ -56,14 +56,14 @@
   padding: 20px 20px 0 0;
 }
 
-/* .view_options{
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-} */
-
 .tab_content {
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.count_text {
+  color: var(--black-500);
+  font-size: 13px;
 }

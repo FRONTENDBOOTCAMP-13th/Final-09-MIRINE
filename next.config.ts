@@ -3,7 +3,16 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
-    domains: ["fesp-api.koyeb.app", "res.cloudinary.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "fesp-api.koyeb.app",
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
+    ],
   },
 };
 
