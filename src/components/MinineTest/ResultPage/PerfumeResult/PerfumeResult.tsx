@@ -7,8 +7,8 @@ import { useRouter } from "next/navigation";
 export default function PerfumeResultList() {
   const router = useRouter();
 
-  const handleGoPage = () => {
-    router.push("/perfumes");
+  const handleGoPage = (url: string) => {
+    router.push(url);
   };
 
   return (
@@ -25,7 +25,7 @@ export default function PerfumeResultList() {
           <p className={styles.brand_name}>딥디크</p>
           <p className={styles.product_name}>탐다오 오 드 퍼퓸</p>
         </div>
-        <SmallButton className={styles.go_btn} ButtonColor="blue" onClick={handleGoPage}>
+        <SmallButton className={styles.go_btn} ButtonColor="blue" onClick={() => handleGoPage('/perfumes/25')}>
           바로가기
         </SmallButton>
       </li>
@@ -42,7 +42,7 @@ export default function PerfumeResultList() {
           <p className={styles.brand_name}>프라다</p>
           <p className={styles.product_name}>프라다 레스 인퓨전 드 프라다</p>
         </div>
-        <SmallButton className={styles.go_btn} ButtonColor="blue" onClick={handleGoPage}>
+        <SmallButton className={styles.go_btn} ButtonColor="blue" onClick={() => handleGoPage('/perfumes/21')}>
           바로가기
         </SmallButton>
       </li>
@@ -59,7 +59,7 @@ export default function PerfumeResultList() {
           <p className={styles.brand_name}>조말론</p>
           <p className={styles.product_name}>다크 앰버 앤 진저 릴리 코롱 인텐스</p>
         </div>
-        <SmallButton className={styles.go_btn} ButtonColor="blue" onClick={handleGoPage}>
+        <SmallButton className={styles.go_btn} ButtonColor="blue" onClick={() => handleGoPage('/perfumes/23')}>
           바로가기
         </SmallButton>
       </li>
