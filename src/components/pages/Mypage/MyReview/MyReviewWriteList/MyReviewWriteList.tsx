@@ -24,7 +24,7 @@ export default function MyReviewWriteList() {
 
       {/* 리뷰쓰기 리스트 */}
       <ul className={styles.list}>
-        {orderList?.map((e, i) => {
+        {orderList?.map((e) => {
           if (e.review_id === 0) {
             if (e.history === undefined || e.history?.updated?.review_id === 0) {
               return (

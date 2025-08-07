@@ -52,7 +52,7 @@ export default function PerfumeDetailPage({ id, data, isMirine }: { id: string; 
               addItem({
                 id: +id,
                 name: data.name,
-                path: data.mainImages[0].path,
+                path: data.mainImages![0].path,
                 price: data.price,
               });
               alert("미리내에 추가!");

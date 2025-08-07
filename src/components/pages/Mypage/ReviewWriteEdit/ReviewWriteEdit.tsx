@@ -77,7 +77,6 @@ export default function ReviewWriteEdit({ mode = "write", pageID, reviewId, init
   const [content, setContent] = useState(initialData?.content || "");
   const [error, setError] = useState("");
   const [rating, setRating] = useState(initialData?.rating || 0);
-  const [images, setImages] = useState<string[]>(initialData?.images || []);
   const [preview, setPreview] = useState<string[]>([]);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -178,11 +177,11 @@ export default function ReviewWriteEdit({ mode = "write", pageID, reviewId, init
     try {
       if (mode === "write") {
         // 새 리뷰 작성
-        console.log("리뷰 등록됨:", { content, rating, images });
+        console.log("리뷰 등록됨:", { content, rating });
         // await createReview({ content, rating, images });
       } else {
         // 기존 리뷰 수정
-        console.log("리뷰 수정됨:", { reviewId, content, rating, images });
+        console.log("리뷰 수정됨:", { reviewId, content, rating });
         // await updateReview(reviewId, { content, rating, images });
       }
 

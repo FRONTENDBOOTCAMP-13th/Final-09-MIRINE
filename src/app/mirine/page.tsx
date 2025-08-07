@@ -27,7 +27,7 @@ export default async function Mirine() {
           {/* 향수 총 개수 */}
           <p className={styles.perfume_count}>상품 총 {data.item.length}개</p>
 
-          <PerfumeList data={data} inMirine={false} />
+          <PerfumeList data={data} inMirine={true} />
         </section>
       </div>
       <MirineListSection />

@@ -8,8 +8,6 @@ import { ReviewItem } from "@/types/review";
 import { useEffect, useState } from "react";
 
 export default function MyReviewList() {
-  const token = getAccessToken();
-  const crtURL = "/devtest/actiontest/reviewTest";
   const [reviewList, setReviewList] = useState<ReviewItem[] | null>(null);
   useEffect(() => {
     (async () => {

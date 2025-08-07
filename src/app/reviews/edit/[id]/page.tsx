@@ -4,34 +4,6 @@ import ReviewWriteEdit from "@/components/pages/Mypage/ReviewWriteEdit/ReviewWri
 // import { getMyReivews } from "@/lib/function";
 // import { getAccessToken } from "@/lib/clientFunction";
 
-interface ReviewData {
-  content: string;
-  rating: number;
-  images: string[];
-  productInfo: {
-    brand: string;
-    name: string;
-    image: string;
-  };
-}
-
-interface Review {
-  _id: number;
-  content: string;
-  rating: number;
-  images: string[];
-  product: {
-    _id: string;
-    brand: string;
-    name: string;
-    image: string;
-  };
-}
-
-interface ApiResponse {
-  item: Review[];
-}
-
 export default async function ReviewEditPage({ params }: { params: Promise<{ id: string }> }) {
   // const [initialData, setInitialData] = useState<ReviewData | null>(null);
   // const [loading, setLoading] = useState(true);
