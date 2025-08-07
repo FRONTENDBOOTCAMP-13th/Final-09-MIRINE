@@ -5,6 +5,7 @@ import Link from "next/link";
 import styles from "@/components/Review/List/list.module.css";
 import { useEffect, useState } from "react";
 import { ReviewItem } from "@/types/review";
+
 export default function ReviewSample({ data }: { data: ReviewItem[] | null }) {
   const [reviewList, setReviewList] = useState<ReviewItem[] | null>(data);
   useEffect(() => {
@@ -13,13 +14,10 @@ export default function ReviewSample({ data }: { data: ReviewItem[] | null }) {
 
   return (
     <>
-      <div>
-        <div className={styles.count_text}>총 {reviewList?.length || 0}개</div>
-      </div>
-      <ul>
+      <ul className={styles.list_con}>
         {reviewList?.map((e) => {
           return (
-            <li key={e._id} className={styles.reviewlist}>
+            <li key={e._id} className={styles.list_item}>
               <Link href={`/reviews/${e._id}`}>
                 <div className={styles.review}>
                   <div className={styles.info_wrapper}>
@@ -27,22 +25,24 @@ export default function ReviewSample({ data }: { data: ReviewItem[] | null }) {
                     <p className={styles.date}>{e.createdAt}</p>
                     <p className={styles.rating}>{ratingToStar(e.rating)}</p>
                   </div>
-                  <ul className={styles.review_img}>
-                    {Array.isArray(e.extra.images) &&
-                      e.extra?.images?.map((el) => {
-                        if (typeof el === "string") {
-                          return (
-                            <li key={el}>
-                              <Image src={el} alt="리뷰 이미지" width={52} height={52} className={styles.img} />
-                            </li>
-                          );
-                        }
-                      })}
-                  </ul>
-                  <div className={styles.text_wrapper}>
-                    <p className={styles.brand_name}>{e.extra.brand}</p>
-                    <p className={styles.product_name}>{e.product.name}</p>
-                    <p className={styles.review_text}>{e.content}</p>
+                  <div>
+                    <ul className={styles.review_img}>
+                      {Array.isArray(e.extra.images) &&
+                        e.extra?.images?.map((el) => {
+                          if (typeof el === "string") {
+                            return (
+                              <li key={el}>
+                                <Image src={el} alt="리뷰 이미지" width={52} height={52} className={styles.img} />
+                              </li>
+                            );
+                          }
+                        })}
+                    </ul>
+                    <div className={styles.text_wrapper}>
+                      {/* <p className={styles.brand_name}>{e.extra.brand}</p> */}
+                      <p className={styles.product_name}>{e.product.name}</p>
+                      <p className={styles.review_text}>{e.content}</p>
+                    </div>
                   </div>
                 </div>
               </Link>
