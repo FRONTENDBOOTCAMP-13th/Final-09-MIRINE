@@ -3,11 +3,11 @@
   flex-direction: row;
   gap: 10px;
 }
+
 .view_btn {
-  stroke: var(--black-200);
-  fill: var(--black-200);
-}
-.view_btn.active {
-  stroke: var(--black-950);
-  fill: var(--black-950);
+  vertical-align: middle;
+
+  > button {
+    vertical-align: middle;
+  }
 }

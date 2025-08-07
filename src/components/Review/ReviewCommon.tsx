@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import List from "@/components/Review/List/List";
 import styles from "./reviewCommon.module.css";
@@ -44,31 +45,6 @@ export default function ReviewCommon({ data }: { data: ReviewItem[] }) {
     else setReviewList(reviewListByType.aroma);
   }, [active]);
 
-  const renderContent = () => {
-    return <></>;
-    // switch (active) {
-    //   case "mirine":
-    //     setReviewList(reviewListByType.mirine);
-    //     return (
-    //       <div className={styles.message}>
-    //         <p>미리내 리뷰 준비중입니다.</p>
-    //       </div>
-    //     );
-    //   case "perfume":
-    //     setReviewList(reviewListByType.perfume);
-    //     return <ReviewSample />;
-    //   case "aroma":
-    //     setReviewList(reviewListByType.aroma);
-    //     return (
-    //       <div className={styles.message}>
-    //         <p>아로마슈터 리뷰 준비중입니다.</p>
-    //       </div>
-    //     );
-    //   default:
-    //     return null;
-    // }
-  };
-
   return (
     <>
       <div className={styles.common_section}>
@@ -87,7 +63,7 @@ export default function ReviewCommon({ data }: { data: ReviewItem[] }) {
         </nav>
 
         <section className={styles.tab_content}>
-          {renderContent()}
+          <div className={styles.count_text}>총 {reviewList?.length || 0}개</div>
           <ListGrid listOrGrid={listOrGrid} setListOrGrid={setListOrGrid} />
         </section>
       </div>
@@ -97,16 +73,3 @@ export default function ReviewCommon({ data }: { data: ReviewItem[] }) {
     </>
   );
 }
-// export default function ReviewCommon() {
-//   return (
-//     <div className={styles.common_section}>
-//       <h2 className={styles.title}>리뷰</h2>
-
-//       <nav className={styles.btn_group}>
-//         <ul className={styles.category_list}>
-//           <ReviewButton />
-//         </ul>
-//       </nav>
-//     </div>
-//   );
-// }
