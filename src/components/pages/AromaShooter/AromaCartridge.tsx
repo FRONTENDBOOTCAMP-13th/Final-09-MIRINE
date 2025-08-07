@@ -14,7 +14,7 @@ export default function AromaCartridge() {
             <span>고체 향료가 드어있는 향기 카트리지 입니다.</span>
             <span>현재 약 100 종류의 향기를 제공하고 있습니다.</span>
           </p>
-          <AromaShooterButton href={"/"}>Buy Now</AromaShooterButton>
+          <AromaShooterButton href={"https://aromajoin.com/products/aroma-cartridge"}>Buy Now</AromaShooterButton>
         </div>
       </div>
     </Container>
