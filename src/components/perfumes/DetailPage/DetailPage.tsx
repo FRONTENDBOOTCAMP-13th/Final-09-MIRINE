@@ -21,7 +21,7 @@ export default function PerfumeDetailPage({ id, data, isMirine }: { id: string; 
     <article className={styles.product_detail}>
       {/* 이미지, 찜, 링크 공유 */}
       <ProductHeader
-        path={data.mainImages[0].path}
+        path={data.mainImages![0].path}
         data={{
           id: data._id,
         }}
