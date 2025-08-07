@@ -1,25 +1,65 @@
 "use client";
+import { Problem } from "@/app/mirine-test/test/page";
 import styles from "./mirineTest.module.css";
+import { useEffect, useState } from "react";
+import { getAccessToken, getUserID } from "@/lib/clientFunction";
+import { postMirineTest } from "@/lib/action";
+import { useRouter } from "next/navigation";
 
-export default function MirineTest() {
-  const handleButtonClick = () => {
-    const messages = ["테스트는 나중에~", "뒤로가기..😅"];
+export default function MirineTest({ problems }: { problems: Problem[] }) {
+  const router = useRouter();
+  const [index, setIndex] = useState(0);
+  const [question, setQuestion] = useState(problems[index].question);
+  const [answers, setAnswers] = useState(problems[index].answer);
+  const [answerList, setAnswerList] = useState<number[]>([]);
+  const token = getAccessToken();
+  const userID = getUserID();
+  const handleButtonClick = (num: number) => {
+    setAnswerList([...answerList, num]);
+    setIndex(() => index + 1);
 
-    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-    alert(randomMessage);
+    // const messages = ["테스트는 나중에~", "뒤로가기..😅"];
+    // const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+    // alert(randomMessage);
   };
-
+  useEffect(() => {
+    if (index < problems.length) {
+      if (index === 5) {
+        const formData = new FormData();
+        formData.append("answer", answerList.toString());
+        formData.append("token", token);
+        formData.append("user_id", userID);
+        const numList: number[] = [];
+        numList.push(Math.floor(Math.random() * 15 + 12));
+        numList.push(Math.floor(Math.random() * 15 + 12));
+        numList.push(Math.floor(Math.random() * 15 + 12));
+        formData.append("product", numList.toString());
+        (async () => {
+          const postPromise = await postMirineTest(formData);
+          router.push("/");
+        })();
+      } else {
+        setQuestion(problems[index].question);
+        setAnswers(problems[index].answer);
+      }
+    }
+  }, [index]);
   return (
     <div className={styles.mirine_test}>
       <div className={styles.question_graph}>
-        <div className={styles.question_num}>1/5</div>
+        <div className={styles.question_num}>
+          {index + 1}/{problems.length || 5}
+        </div>
         <div className={styles.graph}>
           <span className={styles.bar}></span>
         </div>
       </div>
       <p className={styles.question}>
-        여행을 가게 된 당신! <br />
-        도착한 여행지에서 나는 향기는 무엇인가요?
+        {question.map((e) => (
+          <>
+            {e} <br />
+          </>
+        ))}
       </p>
       <div className={styles.img}>
         {/* <Image src="/image/test-plane.svg" alt="이미지" width={152} height={152} priority /> */}
@@ -66,18 +106,54 @@ export default function MirineTest() {
         </svg>
       </div>
       <nav className={styles.choice}>
-        <button type="button" className={styles.answer1} onClick={handleButtonClick}>
+        {answers.map((e, i) => (
+          <button
+            key={e}
+            type="button"
+            className={styles.answer1}
+            onClick={() => {
+              handleButtonClick(i);
+            }}
+          >
+            {e}
+          </button>
+        ))}
+        {/* <button
+          type="button"
+          className={styles.answer1}
+          onClick={() => {
+            handleButtonClick(1);
+          }}
+        >
           디저트의 달콤함
         </button>
-        <button type="button" className={styles.answer2} onClick={handleButtonClick}>
+        <button
+          type="button"
+          className={styles.answer2}
+          onClick={() => {
+            handleButtonClick(2);
+          }}
+        >
           사탕, 망고와 같은 상큼 없는 달콤함
         </button>
-        <button type="button" className={styles.answer3} onClick={handleButtonClick}>
+        <button
+          type="button"
+          className={styles.answer3}
+          onClick={() => {
+            handleButtonClick(3);
+          }}
+        >
           과일, 꽃의 상큼달달한 향
         </button>
-        <button type="button" className={styles.answer4} onClick={handleButtonClick}>
+        <button
+          type="button"
+          className={styles.answer4}
+          onClick={() => {
+            handleButtonClick(4);
+          }}
+        >
           달콤은 빼주세요
-        </button>
+        </button> */}
       </nav>
     </div>
   );

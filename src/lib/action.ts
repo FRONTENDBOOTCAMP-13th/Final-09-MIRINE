@@ -420,7 +420,7 @@ export async function patchUser(state, formData: FormData) {
 /**
  * POST /posts
  */
-export async function postMirineTest(state, formData: FormData) {
+export async function postMirineTest(formData: FormData) {
   const answerList = formData.get("answer") as string;
   const answers = Array.from(answerList).map(Number);
   const productList = formData.get("product") as string;
