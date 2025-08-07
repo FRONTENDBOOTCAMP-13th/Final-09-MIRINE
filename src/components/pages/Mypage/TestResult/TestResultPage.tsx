@@ -10,22 +10,19 @@ export default function MyPageTestResult() {
       <ul className={styles.result_list}>
         <li>
           <div className={styles.list_head}>
-            <p className={styles.test_date}>2025.07.30 16:38:01</p>
-            {/* 공유하기 버튼 */}
+            <p className={styles.test_date}>2025.08.96 19:21:33</p>
             <ShareButton />
           </div>
 
           <ul className={styles.result_item_list}>
             <PerfumeResultList />
-            <PerfumeResultList />
-            <PerfumeResultList />
           </ul>
+
         </li>
 
-        <li>
+        {/* <li>
           <div className={styles.list_head}>
             <p className={styles.test_date}>2025.07.30 16:38:01</p>
-            {/* 공유하기 버튼 */}
             <ShareButton />
           </div>
 
@@ -34,7 +31,7 @@ export default function MyPageTestResult() {
             <PerfumeResultList />
             <PerfumeResultList />
           </ul>
-        </li>
+        </li> */}
       </ul>
     </>
   );

@@ -23,5 +23,6 @@
   .result_item_list {
     display: flex;
     gap: 10px;
+    
   }
 }
